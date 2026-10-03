@@ -5,8 +5,8 @@ interface PageBannerProps {
   alt: string;
   /** Posição do recorte da foto (CSS object-position). */
   position?: string;
-  /** "tall" para banners com texto e botões; padrão é compacto, com só o título. */
-  size?: "default" | "tall";
+  /** "tall" para banners com texto e botões; "hero" para a Home; padrão é compacto, com só o título. */
+  size?: "default" | "tall" | "hero";
   children: React.ReactNode;
 }
 
@@ -15,7 +15,8 @@ interface PageBannerProps {
  * (no celular, uma película leve), como nos banners de referência.
  */
 export default function PageBanner({ image, alt, position = "center", size = "default", children }: PageBannerProps) {
-  const height = size === "tall" ? "min-h-[clamp(380px,56vh,600px)]" : "min-h-[clamp(260px,38vh,420px)]";
+  const height =
+    size === "hero" ? "min-h-[clamp(480px,76vh,760px)]" : size === "tall" ? "min-h-[clamp(380px,56vh,600px)]" : "min-h-[clamp(260px,38vh,420px)]";
   return (
     <section className={`relative mt-16 flex items-end overflow-hidden bg-[#3a3a3f] lg:mt-[4.5rem] ${height}`}>
       <Image

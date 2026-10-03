@@ -57,7 +57,7 @@ export default function PecasServicosPage() {
       {/* Topo */}
       <PageBanner image="/images/banners/pecas-servicos.webp" alt="Técnico fazendo a manutenção de uma empilhadeira" position="center 40%" size="tall">
         <div className="max-w-2xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#FF7A2B]">Pós-venda Empilhatec</p>
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-white before:mr-3 before:inline-block before:h-0.5 before:w-7 before:bg-[#E85A00] before:align-middle">Pós-venda Empilhatec</p>
           <h1 className="mt-4 font-display leading-[0.95] text-white" style={{ fontSize: "clamp(2.6rem, 5vw, 5rem)" }}>
             Peças e serviços para a sua frota não parar.
           </h1>

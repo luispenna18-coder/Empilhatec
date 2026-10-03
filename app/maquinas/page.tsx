@@ -20,7 +20,7 @@ export default function MaquinasPage() {
   return (
     <>
       <PageBanner image="/images/banners/maquinas.webp" alt="Empilhadeiras STILL em operação numa fábrica" position="center 45%">
-        <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-[#FF7A2B]">Catálogo</p>
+        <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-white before:mr-3 before:inline-block before:h-0.5 before:w-7 before:bg-[#E85A00] before:align-middle">Catálogo</p>
         <h1 className="font-display leading-none text-white" style={{ fontSize: "clamp(2.6rem, 4.5vw, 5.2rem)" }}>
           Máquinas
         </h1>
