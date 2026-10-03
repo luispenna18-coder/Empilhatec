@@ -19,13 +19,13 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "Empilhatec Empilhadeiras | Representante STILL no Amazonas",
+  title: "Empilhatec Empilhadeiras | Venda, locação, peças e assistência em Manaus",
   description:
-    "Representante autorizado STILL para o Amazonas. Mais de 30 anos de experiência em locação, venda, manutenção e peças de empilhadeiras em Manaus.",
+    "Representante autorizado STILL e Linde no Amazonas e em Roraima. Mais de 30 anos de experiência em venda, locação, peças e assistência técnica de empilhadeiras em Manaus.",
   keywords: "empilhadeiras, locação de empilhadeiras, STILL, Manaus, Amazonas, AM",
   openGraph: {
     title: "Empilhatec Empilhadeiras",
-    description: "Representante autorizado STILL no Amazonas",
+    description: "Representante autorizado STILL e Linde no Amazonas e em Roraima",
     locale: "pt_BR",
     type: "website",
   },

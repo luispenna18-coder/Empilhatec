@@ -1,19 +1,21 @@
-import Hero from "@/components/Hero";
-import BrandsStrip from "@/components/BrandsStrip";
-import ProductsCatalog from "@/components/ProductsCatalog";
-import PartsSection from "@/components/PartsSection";
-import AreaMap from "@/components/AreaMap";
-import AboutSection from "@/components/AboutSection";
+import HomeHero from "@/components/home/HomeHero";
+import BrandsBar from "@/components/home/BrandsBar";
+import ServiceRows from "@/components/home/ServiceRows";
+import CoverageMap from "@/components/home/CoverageMap";
+import History from "@/components/home/History";
+import SocialProof from "@/components/home/SocialProof";
+import FinalCta from "@/components/home/FinalCta";
 
 export default function HomePage() {
   return (
     <>
-      <Hero />
-      <BrandsStrip />
-      <ProductsCatalog />
-      <PartsSection />
-      <AreaMap />
-      <AboutSection />
+      <HomeHero />
+      <BrandsBar />
+      <ServiceRows />
+      <CoverageMap />
+      <History />
+      <SocialProof />
+      <FinalCta />
     </>
   );
 }
