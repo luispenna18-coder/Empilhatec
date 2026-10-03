@@ -1,5 +1,6 @@
 import Image from "next/image";
 import PageBanner from "@/components/PageBanner";
+import RoadTimeline from "@/components/sobre/RoadTimeline";
 import { CheckCircle } from "lucide-react";
 import type { Metadata } from "next";
 
@@ -7,6 +8,34 @@ export const metadata: Metadata = {
   title: "Sobre a Empilhatec | 30+ Anos em Empilhadeiras no Amazonas",
   description: "Conheça a história da Empilhatec Empilhadeiras — representante autorizado STILL para o Amazonas há mais de 30 anos.",
 };
+
+const MARCOS = [
+  {
+    year: "1996",
+    title: "Fundação da Empilhatec",
+    desc: "Deocleciano Pontes funda a Empilhatec Empilhadeiras da Amazônia em Manaus, com foco em locação e manutenção de empilhadeiras para a indústria local.",
+  },
+  {
+    year: "2005",
+    title: "Autorizado STILL",
+    desc: "A Empilhatec torna-se representante autorizado da STILL para o Amazonas, integrando o ecossistema KION Group e elevando o padrão técnico do atendimento.",
+  },
+  {
+    year: "2015",
+    title: "Expansão do Portfólio",
+    desc: "Incorporação das marcas Linde e Baoli, ampliando as soluções de locação, venda e assistência técnica para toda a cadeia logística do estado.",
+  },
+  {
+    year: "2020",
+    title: "Estrutura Própria de Peças",
+    desc: "Criação do setor de peças com estoque próprio em Manaus: resposta rápida para manutenção preventiva e corretiva em toda a frota.",
+  },
+  {
+    year: "2026",
+    title: "30 Anos de História",
+    desc: "Três décadas comprometidos com a movimentação do Amazonas. A Empilhatec reafirma seu papel de parceiro estratégico em intralogística da região.",
+  },
+];
 
 export default function SobrePage() {
   return (
@@ -70,8 +99,8 @@ export default function SobrePage() {
             {/* Photo */}
             <div className="relative aspect-[4/3] rounded-xl overflow-hidden bg-gray-100">
               <Image
-                src="/images/team.jpg"
-                alt="Equipe Empilhatec"
+                src="/images/home/comprar.jpg"
+                alt="Empilhadeira Baoli da frota da Empilhatec"
                 fill
                 className="object-cover object-center"
               />
@@ -135,7 +164,7 @@ export default function SobrePage() {
       {/* ── Timeline ── */}
       <section className="bg-[#F5F5F7] section-py overflow-hidden">
         <div className="site-container">
-          <div className="text-center mb-16">
+          <div className="text-center mb-14">
             <div className="flex items-center justify-center gap-2 mb-4">
               <span className="w-6 h-0.5 bg-[#E85A00]" />
               <span className="text-[#E85A00] text-xs font-semibold uppercase tracking-widest">
@@ -146,65 +175,10 @@ export default function SobrePage() {
             <h2 className="font-display text-4xl lg:text-5xl text-[#1C1C1E] mt-1 tracking-wide">
               Nossa Trajetória
             </h2>
-            <p className="text-gray-500 mt-3 text-sm">Quase 30 anos movimentando o Amazonas</p>
+            <p className="text-gray-500 mt-3 text-sm">Mais de 30 anos movimentando o Amazonas</p>
           </div>
 
-          {/* Timeline vertical */}
-          <div className="relative max-w-3xl mx-auto">
-            {/* Linha vertical */}
-            <div className="absolute left-8 lg:left-1/2 top-0 bottom-0 w-0.5 bg-gray-200 lg:-translate-x-1/2" />
-
-            <div className="flex flex-col gap-12">
-              {[
-                {
-                  year: "1996",
-                  title: "Fundação da Empilhatec",
-                  desc: "Deocleciano Pontes funda a Empilhatec Empilhadeiras da Amazônia em Manaus, com foco em locação e manutenção de empilhadeiras para a indústria local.",
-                },
-                {
-                  year: "2005",
-                  title: "Autorizado STILL",
-                  desc: "A Empilhatec torna-se representante autorizado da STILL para o Amazonas, integrando o ecossistema KION Group e elevando o padrão técnico do atendimento.",
-                },
-                {
-                  year: "2015",
-                  title: "Expansão do Portfólio",
-                  desc: "Incorporação das marcas Linde e Baoli, ampliando as soluções de locação, venda e assistência técnica para toda a cadeia logística do estado.",
-                },
-                {
-                  year: "2020",
-                  title: "Estrutura Própria de Peças",
-                  desc: "Criação do setor de peças com estoque próprio em Manaus — resposta rápida garantida para manutenção preventiva e corretiva em toda a frota.",
-                },
-                {
-                  year: "2026",
-                  title: "30 Anos de História",
-                  desc: "Três décadas comprometidos com a movimentação do Amazonas. A Empilhatec reafirma seu papel de parceiro estratégico em intralogística da região.",
-                },
-              ].map((item, i) => (
-                <div key={item.year} className="relative flex items-start gap-6 lg:gap-0">
-                  {/* Círculo laranja mobile/esquerdo */}
-                  <div className="relative z-10 flex-shrink-0 lg:absolute lg:left-1/2 lg:-translate-x-1/2 lg:top-1">
-                    <div className="w-16 h-16 rounded-full bg-[#E85A00] flex items-center justify-center shadow-md shadow-[#E85A00]/30">
-                      <span className="font-display text-white text-lg tracking-wide leading-none">{item.year}</span>
-                    </div>
-                  </div>
-
-                  {/* Conteúdo — alterna lados no desktop */}
-                  <div className={`flex-1 lg:w-[calc(50%-3rem)] lg:flex-none pt-3 lg:pt-0 ${
-                    i % 2 === 0
-                      ? "lg:mr-auto lg:pr-16 lg:text-right"
-                      : "lg:ml-auto lg:pl-16 lg:text-left"
-                  }`}>
-                    <div className="bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-md hover:border-[#E85A00]/20 transition-all p-6">
-                      <h3 className="font-display text-xl text-[#1C1C1E] tracking-wide mb-2">{item.title}</h3>
-                      <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+          <RoadTimeline marcos={MARCOS} />
         </div>
       </section>
     </>
