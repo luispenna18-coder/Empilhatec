@@ -18,10 +18,11 @@ Formulários enviam por e-mail (destino a definir).
 
 - 2026-10-03 acervo de 258 fotos da STILL em `brand_assets/fotos-still/` (repertório; fora do git)
 - 2026-10-03 Locação nova (dealer STILL, entrega ágil pelo Norte, setores, suporte, frota, proposta); sem FAQ
+- 2026-10-03 Peças e Serviços nova: peças originais + planos de manutenção (sem multimarcas/cobertura), chamado técnico e formulário
 
 ## Próximos passos
 1. Logo em vetor, equipe, logos das marcas e fotos originais do cliente (OneDrive ou cliente); hoje o logo vem do Instagram e as fotos são do Instagram e da STILL
-2. Peças e Serviços (só peças e planos de manutenção, com âncoras #pecas e #assistencia) e Empilhatex (conteúdo)
+2. Empilhatex (conteúdo da aba)
 3. Sobre, formulários por e-mail
 4. Layout novo (paleta e composição), com o designer
 5. SEO, imagens, deploy (GitHub + Vercel) e domínio
@@ -32,6 +33,9 @@ Detalhes em `brand_assets/pesquisa-internet/dossie-empresa.md` e `brand_assets/i
 
 ## A confirmar na Locação (texto provisório)
 Prazos de contrato · o que a locação inclui (manutenção, frete, treinamento) · locação com operador (LinkedIn cita "locação de mão de obra") · se "entrega ágil pelo Norte do país" tem prazo numérico · "técnicos certificados pelos fabricantes" (vem do site antigo).
+
+## A confirmar em Peças e Serviços (texto provisório)
+Formato e condições dos planos de manutenção · itens de peças em estoque · prazo de entrega de peças · "equipe especializada/certificada".
 
 ## Regras do projeto
 - Imagens e fichas das máquinas: só de STILL, Linde, Baoli e Skyjack. Nunca da Multylog nem de revendas concorrentes.

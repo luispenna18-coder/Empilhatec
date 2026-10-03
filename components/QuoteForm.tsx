@@ -74,7 +74,7 @@ export default function QuoteForm() {
         <CheckCircle size={52} className="text-[#E85A00]" />
         <h3 className="font-display text-3xl text-[#1C1C1E] tracking-wide">SOLICITAÇÃO ENVIADA!</h3>
         <p className="text-gray-500 text-base max-w-sm leading-relaxed">
-          O WhatsApp foi aberto com os seus dados. Nossa equipe responde em até 24h com uma proposta personalizada.
+          O WhatsApp foi aberto com os seus dados. Nossa equipe retorna com uma proposta personalizada.
         </p>
         <button
           onClick={() => { setSubmitted(false); setTouched({}); }}
