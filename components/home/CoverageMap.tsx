@@ -35,27 +35,27 @@ export default function CoverageMap() {
           </dl>
         </div>
 
-        <div className="relative overflow-hidden rounded-3xl bg-[#1C1C1E] p-6 sm:p-10">
+        <div className="relative">
           <svg viewBox={BRASIL_VIEWBOX} role="img" aria-label="Mapa do Brasil com o Amazonas e Roraima em destaque" className="mx-auto h-auto w-full max-w-[34rem]">
             {ESTADOS.map((e) => (
               <path
                 key={e.sigla}
                 d={e.d}
-                fill={ATENDIDOS.has(e.sigla) ? "#E85A00" : "#2C2C30"}
-                stroke="#1C1C1E"
-                strokeWidth={0.18}
+                fill={ATENDIDOS.has(e.sigla) ? "#E85A00" : "#E3E3E6"}
+                stroke="#FFFFFF"
+                strokeWidth={0.2}
                 strokeLinejoin="round"
               />
             ))}
-            <circle cx={MANAUS.x} cy={MANAUS.y} r={1.9} fill="#fff" opacity={0.25}>
+            <circle cx={MANAUS.x} cy={MANAUS.y} r={1.9} fill="#1C1C1E" opacity={0.25}>
               <animate attributeName="r" values="0.9;2.6;0.9" dur="2.4s" repeatCount="indefinite" />
-              <animate attributeName="opacity" values="0.45;0;0.45" dur="2.4s" repeatCount="indefinite" />
+              <animate attributeName="opacity" values="0.4;0;0.4" dur="2.4s" repeatCount="indefinite" />
             </circle>
-            <circle cx={MANAUS.x} cy={MANAUS.y} r={0.75} fill="#fff" stroke="#1C1C1E" strokeWidth={0.25} />
+            <circle cx={MANAUS.x} cy={MANAUS.y} r={0.75} fill="#1C1C1E" stroke="#FFFFFF" strokeWidth={0.3} />
           </svg>
-          <ul className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-gray-400">
+          <ul className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-gray-500">
             <li className="flex items-center gap-2"><span className="h-3 w-3 rounded-sm bg-[#E85A00]" /> Estados atendidos</li>
-            <li className="flex items-center gap-2"><span className="h-3 w-3 rounded-full bg-white" /> Sede em Manaus</li>
+            <li className="flex items-center gap-2"><span className="h-3 w-3 rounded-full bg-[#1C1C1E]" /> Sede em Manaus</li>
           </ul>
         </div>
       </div>
