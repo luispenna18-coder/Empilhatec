@@ -1,0 +1,1166 @@
+{
+  "rce-20-25": {
+    "itens": [
+      {
+        "arquivo": "/images/machines/still/rce-20-25/ref-01.webp",
+        "largura": 800,
+        "altura": 800,
+        "bytes": 74850,
+        "ordem": 0,
+        "fonte": "https://data.still.de/assets/products/Vehicles/Electric_Forklift_Trucks/RCE_25_35/images/STILL_Fahrzeuge_Elektro-Stapler_RCE_25-35_Teaser_800x800.png"
+      },
+      {
+        "arquivo": "/images/machines/still/rce-20-25/ref-02.webp",
+        "largura": 1920,
+        "altura": 1012,
+        "bytes": 406090,
+        "ordem": 1,
+        "fonte": "https://data.still.de/assets/products/Vehicles/Electric_Forklift_Trucks/RCE_25_35/images/STILL_Produkt_RCE_25-35_Einsatzslider_Arbeitsplatz_4K.jpg"
+      },
+      {
+        "arquivo": "/images/machines/still/rce-20-25/ref-03.webp",
+        "largura": 1920,
+        "altura": 1013,
+        "bytes": 59944,
+        "ordem": 2,
+        "fonte": "https://data.still.de/assets/products/Vehicles/Electric_Forklift_Trucks/RCE_20-25_BR/images/STILL_BR_Produkt_RCE_Einsatzslider_Frontansicht_4096x2160.jpg"
+      },
+      {
+        "arquivo": "/images/machines/still/rce-20-25/ref-04.webp",
+        "largura": 1920,
+        "altura": 1013,
+        "bytes": 358690,
+        "ordem": 3,
+        "fonte": "https://data.still.de/assets/products/Vehicles/Electric_Forklift_Trucks/RCE_20-25_BR/images/STILL_BR_Produkt_RCE_Einsatzslider_Fussraum_4096x2160.jpg"
+      },
+      {
+        "arquivo": "/images/machines/still/rce-20-25/ref-05.webp",
+        "largura": 1920,
+        "altura": 1013,
+        "bytes": 365778,
+        "ordem": 4,
+        "fonte": "https://data.still.de/assets/products/Vehicles/Electric_Forklift_Trucks/RCE_25_35/images/STILL_Produkt_RCE_25-35_Einsatzslider_Ladestation_4K.jpg"
+      },
+      {
+        "arquivo": "/images/machines/still/rce-20-25/ref-06.webp",
+        "largura": 1920,
+        "altura": 1013,
+        "bytes": 108906,
+        "ordem": 5,
+        "fonte": "https://data.still.de/assets/products/Vehicles/Electric_Forklift_Trucks/RCE_20-25_BR/images/STILL_BR_Produkt_RCE_Einsatzslider_Heckansicht_4096x2160.jpg"
+      },
+      {
+        "arquivo": "/images/machines/still/rce-20-25/ref-07.webp",
+        "largura": 1920,
+        "altura": 1013,
+        "bytes": 206642,
+        "ordem": 6,
+        "fonte": "https://data.still.de/assets/products/Vehicles/Electric_Forklift_Trucks/RCE_20-25_BR/images/STILL_BR_Produkt_RCE_Einsatzslider_Arbeitsplatz_4096x2160.jpg"
+      }
+    ],
+    "puladas": []
+  },
+  "rc-44-25c": {
+    "itens": [
+      {
+        "arquivo": "/images/machines/still/rc-44-25-c/ref-01.webp",
+        "largura": 800,
+        "altura": 800,
+        "bytes": 83204,
+        "ordem": 0,
+        "fonte": "https://data.still.de/assets/products/Vehicles/Diesel_And_LP_Gas_Forklift_Trucks/RC_44-25_C/images/RC_44_-_Studio_800x800.png"
+      },
+      {
+        "arquivo": "/images/machines/still/rc-44-25-c/ref-02.jpg",
+        "largura": 728,
+        "altura": 450,
+        "bytes": 84917,
+        "ordem": 1,
+        "fonte": "https://data.still.de/assets/products/Vehicles/Diesel_And_LP_Gas_Forklift_Trucks/RC_44/images/IMG_1916_728x450.jpg"
+      },
+      {
+        "arquivo": "/images/machines/still/rc-44-25-c/ref-03.jpg",
+        "largura": 688,
+        "altura": 459,
+        "bytes": 66827,
+        "ordem": 2,
+        "fonte": "https://data.still.de/assets/products/Vehicles/Diesel_And_LP_Gas_Forklift_Trucks/RC_44/images/IMG_1930.jpg"
+      },
+      {
+        "arquivo": "/images/machines/still/rc-44-25-c/ref-04.jpg",
+        "largura": 728,
+        "altura": 450,
+        "bytes": 78376,
+        "ordem": 3,
+        "fonte": "https://data.still.de/assets/products/Vehicles/Diesel_And_LP_Gas_Forklift_Trucks/RC_44/images/IMG_2046_728x450.jpg"
+      },
+      {
+        "arquivo": "/images/machines/still/rc-44-25-c/ref-05.jpg",
+        "largura": 688,
+        "altura": 459,
+        "bytes": 96325,
+        "ordem": 4,
+        "fonte": "https://data.still.de/assets/products/Vehicles/Diesel_And_LP_Gas_Forklift_Trucks/RC_44/images/IMG_2073.jpg"
+      },
+      {
+        "arquivo": "/images/machines/still/rc-44-25-c/ref-06.jpg",
+        "largura": 688,
+        "altura": 459,
+        "bytes": 102997,
+        "ordem": 5,
+        "fonte": "https://data.still.de/assets/products/Vehicles/Diesel_And_LP_Gas_Forklift_Trucks/RC_44/images/IMG_2085.jpg"
+      },
+      {
+        "arquivo": "/images/machines/still/rc-44-25-c/ref-07.jpg",
+        "largura": 688,
+        "altura": 409,
+        "bytes": 46950,
+        "ordem": 6,
+        "fonte": "https://data.still.de/assets/products/Vehicles/Diesel_And_LP_Gas_Forklift_Trucks/RC_44/images/IMG_2393.jpg"
+      },
+      {
+        "arquivo": "/images/machines/still/rc-44-25-c/ref-08.jpg",
+        "largura": 459,
+        "altura": 688,
+        "bytes": 102250,
+        "ordem": 7,
+        "fonte": "https://data.still.de/assets/products/Vehicles/Diesel_And_LP_Gas_Forklift_Trucks/RC_44/images/IMG_2399.jpg"
+      },
+      {
+        "arquivo": "/images/machines/still/rc-44-25-c/ref-09.jpg",
+        "largura": 688,
+        "altura": 459,
+        "bytes": 97636,
+        "ordem": 8,
+        "fonte": "https://data.still.de/assets/products/Vehicles/Diesel_And_LP_Gas_Forklift_Trucks/RC_44/images/IMG_2400.jpg"
+      },
+      {
+        "arquivo": "/images/machines/still/rc-44-25-c/ref-10.jpg",
+        "largura": 459,
+        "altura": 688,
+        "bytes": 118379,
+        "ordem": 9,
+        "fonte": "https://data.still.de/assets/products/Vehicles/Diesel_And_LP_Gas_Forklift_Trucks/RC_44/images/IMG_2402.jpg"
+      },
+      {
+        "arquivo": "/images/machines/still/rc-44-25-c/ref-11.jpg",
+        "largura": 459,
+        "altura": 688,
+        "bytes": 93028,
+        "ordem": 10,
+        "fonte": "https://data.still.de/assets/products/Vehicles/Diesel_And_LP_Gas_Forklift_Trucks/RC_44/images/IMG_2411.jpg"
+      },
+      {
+        "arquivo": "/images/machines/still/rc-44-25-c/ref-12.jpg",
+        "largura": 688,
+        "altura": 459,
+        "bytes": 70875,
+        "ordem": 11,
+        "fonte": "https://data.still.de/assets/products/Vehicles/Diesel_And_LP_Gas_Forklift_Trucks/RC_44/images/IMG_2419.jpg"
+      },
+      {
+        "arquivo": "/images/machines/still/rc-44-25-c/ref-13.jpg",
+        "largura": 688,
+        "altura": 459,
+        "bytes": 67950,
+        "ordem": 12,
+        "fonte": "https://data.still.de/assets/products/Vehicles/Diesel_And_LP_Gas_Forklift_Trucks/RC_44/images/IMG_2443.jpg"
+      },
+      {
+        "arquivo": "/images/machines/still/rc-44-25-c/ref-14.jpg",
+        "largura": 345,
+        "altura": 688,
+        "bytes": 55894,
+        "ordem": 13,
+        "fonte": "https://data.still.de/assets/products/Vehicles/Diesel_And_LP_Gas_Forklift_Trucks/RC_44/images/IMG_2463.jpg"
+      }
+    ],
+    "puladas": []
+  },
+  "fmx-17-20": {
+    "itens": [
+      {
+        "arquivo": "/images/machines/still/fm-x-1720/ref-01.webp",
+        "largura": 800,
+        "altura": 800,
+        "bytes": 46622,
+        "ordem": 0,
+        "fonte": "https://data.still.de/assets/products/Vehicles/Reach_Trucks/FM-X_17_20/images/STILL_BR_Product_FMX_800x800.png"
+      },
+      {
+        "arquivo": "/images/machines/still/fm-x-1720/ref-02.webp",
+        "largura": 1920,
+        "altura": 1302,
+        "bytes": 758894,
+        "ordem": 1,
+        "fonte": "https://data.still.de/assets/products/Vehicles/Reach_Trucks/FM-X/images/reach-trucks_FM-X_usecase-2.jpg"
+      },
+      {
+        "arquivo": "/images/machines/still/fm-x-1720/ref-03.jpg",
+        "largura": 1600,
+        "altura": 844,
+        "bytes": 206561,
+        "ordem": 2,
+        "fonte": "https://data.still.de/assets/products/Vehicles/Reach_Trucks/FM-X/images/STILL_Gallery_FM-X14-Einsatz-2025-02-1_4096x2160.jpg"
+      },
+      {
+        "arquivo": "/images/machines/still/fm-x-1720/ref-04.jpg",
+        "largura": 1600,
+        "altura": 844,
+        "bytes": 423233,
+        "ordem": 3,
+        "fonte": "https://data.still.de/assets/products/Vehicles/Reach_Trucks/FM-X/images/STILL_Gallery_FM-X14-Einsatz-2025-04-2_4096_2160.jpg"
+      },
+      {
+        "arquivo": "/images/machines/still/fm-x-1720/ref-05.jpg",
+        "largura": 1600,
+        "altura": 844,
+        "bytes": 514944,
+        "ordem": 4,
+        "fonte": "https://data.still.de/assets/products/Vehicles/Reach_Trucks/FM-X/images/STILL_Gallery_FM-X_Einsatz-2025-01-3_4096x2160.jpg"
+      },
+      {
+        "arquivo": "/images/machines/still/fm-x-1720/ref-06.jpg",
+        "largura": 1600,
+        "altura": 844,
+        "bytes": 299473,
+        "ordem": 5,
+        "fonte": "https://data.still.de/assets/products/Vehicles/Reach_Trucks/FM-X/images/STILL_Gallery_FM-X14-Einsatz-2025-03-2_4096x2160.jpg"
+      },
+      {
+        "arquivo": "/images/machines/still/fm-x-1720/ref-07.jpg",
+        "largura": 1600,
+        "altura": 844,
+        "bytes": 78526,
+        "ordem": 6,
+        "fonte": "https://data.still.de/assets/products/Vehicles/Reach_Trucks/FM-X/images/STILL_Gallery_FM-X_Heckdiagonale-1_4096x2160.jpg"
+      },
+      {
+        "arquivo": "/images/machines/still/fm-x-1720/ref-08.jpg",
+        "largura": 1600,
+        "altura": 844,
+        "bytes": 328936,
+        "ordem": 7,
+        "fonte": "https://data.still.de/assets/products/Vehicles/Reach_Trucks/FM-X/images/STILL_Gallery_FM-X_Arbeitsplatz-3-2_4096x2160.jpg"
+      }
+    ],
+    "puladas": []
+  },
+  "ltx-50": {
+    "itens": [
+      {
+        "arquivo": "/images/machines/still/ltx-50/ref-01.webp",
+        "largura": 800,
+        "altura": 800,
+        "bytes": 51230,
+        "ordem": 0,
+        "fonte": "https://data.still.de/assets/products/Vehicles/Platform_Trucks_and_Tractors/LTX_50/images/STILL_BR_Produkt_LTX-50_Website_Freisteller_800x800.png"
+      },
+      {
+        "arquivo": "/images/machines/still/ltx-50/ref-02.webp",
+        "largura": 1920,
+        "altura": 1194,
+        "bytes": 95896,
+        "ordem": 1,
+        "fonte": "https://data.still.de/assets/products/Vehicles/Platform_Trucks_and_Tractors/LTX_50/images/STILL_BR_Produkt_LTX-50_Website_Footer_2400x1492.png"
+      },
+      {
+        "arquivo": "/images/machines/still/ltx-50/ref-03.webp",
+        "largura": 1340,
+        "altura": 1340,
+        "bytes": 75876,
+        "ordem": 2,
+        "fonte": "https://data.still.de/assets/products/Vehicles/Platform_Trucks_and_Tractors/LTX_50/images/STILL_BR_Produkt_LTX-50_Website_USP_1340x1340.jpg"
+      },
+      {
+        "arquivo": "/images/machines/still/ltx-50/ref-04.webp",
+        "largura": 1440,
+        "altura": 960,
+        "bytes": 277574,
+        "ordem": 3,
+        "fonte": "https://data.still.de/assets/products/Vehicles/Platform_Trucks_and_Tractors/LTX_50/images/STILL_Produkt_LTX-50_Content_Simply-Efficient_01_1440x960.jpg"
+      },
+      {
+        "arquivo": "/images/machines/still/ltx-50/ref-05.webp",
+        "largura": 1440,
+        "altura": 960,
+        "bytes": 367872,
+        "ordem": 4,
+        "fonte": "https://data.still.de/assets/products/Vehicles/Platform_Trucks_and_Tractors/LTX_50/images/STILL_Produkt_LTX-50_Content_Simply-Efficient_02_1440x960.jpg"
+      }
+    ],
+    "puladas": []
+  },
+  "egv-16-ng": {
+    "itens": [
+      {
+        "arquivo": "/images/machines/still/egv-16-ng/ref-01.webp",
+        "largura": 800,
+        "altura": 800,
+        "bytes": 43078,
+        "ordem": 0,
+        "fonte": "https://data.still.de/assets/products/Vehicles/High_Lift_Pallet_Trucks/EGV_16_NG/images/STILL_BR_Product_EGV_16_NG_Teaser_800x800.png"
+      },
+      {
+        "arquivo": "/images/machines/still/egv-16-ng/ref-02.webp",
+        "largura": 1920,
+        "altura": 1013,
+        "bytes": 399956,
+        "ordem": 1,
+        "fonte": "https://data.still.de/assets/products/Vehicles/High_Lift_Pallet_Trucks/EXV_14-20/images/04_26/STILL_Rollout_EXV_14-20_Einsatzbilder_4096x2160_Einsatz_Compositing-1.jpg"
+      },
+      {
+        "arquivo": "/images/machines/still/egv-16-ng/ref-03.webp",
+        "largura": 1920,
+        "altura": 1013,
+        "bytes": 483026,
+        "ordem": 2,
+        "fonte": "https://data.still.de/assets/products/Vehicles/High_Lift_Pallet_Trucks/EXV_14-20/images/04_26/STILL_Rollout_EXV_14-20_Einsatzbilder_4096x2160_Einsatz_Compositing-3.jpg"
+      },
+      {
+        "arquivo": "/images/machines/still/egv-16-ng/ref-04.webp",
+        "largura": 1920,
+        "altura": 1013,
+        "bytes": 179782,
+        "ordem": 3,
+        "fonte": "https://data.still.de/assets/products/Vehicles/High_Lift_Pallet_Trucks/EXV_14-20/images/04_26/STILL_Rollout_EXV_14-20_Einsatzbilder_4096x2160_Einsatz_Deichsel.jpg"
+      },
+      {
+        "arquivo": "/images/machines/still/egv-16-ng/ref-05.webp",
+        "largura": 1920,
+        "altura": 1013,
+        "bytes": 46418,
+        "ordem": 4,
+        "fonte": "https://data.still.de/assets/products/Vehicles/High_Lift_Pallet_Trucks/EXV_14-20/images/04_26/STILL_Rollout_EXV_14-20_Einsatzbilder_4096x2160_Deichsel-Ru__ck.jpg"
+      },
+      {
+        "arquivo": "/images/machines/still/egv-16-ng/ref-06.webp",
+        "largura": 1920,
+        "altura": 1013,
+        "bytes": 27502,
+        "ordem": 5,
+        "fonte": "https://data.still.de/assets/products/Vehicles/High_Lift_Pallet_Trucks/EXV_14-20/images/04_26/STILL_Rollout_EXV_14-20_Einsatbzilder_4096x2160_Frontdiagonale-links-angehoben_links.jpg"
+      },
+      {
+        "arquivo": "/images/machines/still/egv-16-ng/ref-07.webp",
+        "largura": 1440,
+        "altura": 960,
+        "bytes": 33350,
+        "ordem": 6,
+        "fonte": "https://data.still.de/assets/products/Vehicles/High_Lift_Pallet_Trucks/EXV_14-20/images/04_26/STILL_Rollout_EXV_14-20_Toogle_1440x960_Heckansicht.jpg"
+      }
+    ],
+    "puladas": []
+  },
+  "egv16-sf": {
+    "itens": [
+      {
+        "arquivo": "/images/machines/still/egv-16-sf/ref-01.webp",
+        "largura": 800,
+        "altura": 800,
+        "bytes": 55182,
+        "ordem": 0,
+        "fonte": "https://data.still.de/assets/products/Vehicles/High_Lift_Pallet_Trucks/EGV-SF_16/images/STILL_BR_Product_EGV_16_SF_Teaser_800x800.png"
+      },
+      {
+        "arquivo": "/images/machines/still/egv-16-sf/ref-02.jpg",
+        "largura": 1600,
+        "altura": 844,
+        "bytes": 260923,
+        "ordem": 1,
+        "fonte": "https://data.still.de/assets/products/Vehicles/High_Lift_Pallet_Trucks/EXV-SF/images/high-lift-pallet-trucks_EXV-SF_usecase_1.jpg"
+      },
+      {
+        "arquivo": "/images/machines/still/egv-16-sf/ref-03.jpg",
+        "largura": 1600,
+        "altura": 844,
+        "bytes": 368421,
+        "ordem": 2,
+        "fonte": "https://data.still.de/assets/products/Vehicles/High_Lift_Pallet_Trucks/EXV-SF/images/high-lift-pallet-trucks_EXV-SF_usecase_2.jpg"
+      },
+      {
+        "arquivo": "/images/machines/still/egv-16-sf/ref-04.jpg",
+        "largura": 1600,
+        "altura": 844,
+        "bytes": 364880,
+        "ordem": 3,
+        "fonte": "https://data.still.de/assets/products/Vehicles/High_Lift_Pallet_Trucks/EXV-SF/images/high-lift-pallet-trucks_EXV-SF_usecase_3.jpg"
+      },
+      {
+        "arquivo": "/images/machines/still/egv-16-sf/ref-05.jpg",
+        "largura": 1600,
+        "altura": 844,
+        "bytes": 59558,
+        "ordem": 4,
+        "fonte": "https://data.still.de/assets/products/Vehicles/High_Lift_Pallet_Trucks/EXV-SF/images/high-lift-pallet-trucks_EXV-SF_frontview.jpg"
+      },
+      {
+        "arquivo": "/images/machines/still/egv-16-sf/ref-06.jpg",
+        "largura": 1600,
+        "altura": 844,
+        "bytes": 68493,
+        "ordem": 5,
+        "fonte": "https://data.still.de/assets/products/Vehicles/High_Lift_Pallet_Trucks/EXV-SF/images/high-lift-pallet-trucks_EXV-SF_backview.jpg"
+      },
+      {
+        "arquivo": "/images/machines/still/egv-16-sf/ref-07.jpg",
+        "largura": 1600,
+        "altura": 844,
+        "bytes": 48956,
+        "ordem": 6,
+        "fonte": "https://data.still.de/assets/products/Vehicles/High_Lift_Pallet_Trucks/EXV-SF/images/high-lift-pallet-trucks_EXV-SF_sideview-lifted.jpg"
+      }
+    ],
+    "puladas": []
+  },
+  "erx-27": {
+    "itens": [
+      {
+        "arquivo": "/images/machines/still/erx-27/ref-01.webp",
+        "largura": 800,
+        "altura": 800,
+        "bytes": 35936,
+        "ordem": 0,
+        "fonte": "https://data.still.de/assets/products/Vehicles/Low_Lift_Pallet_trucks/ERX_27/images/STILL_BR_Product_ERX_800x800.png"
+      },
+      {
+        "arquivo": "/images/machines/still/erx-27/ref-02.jpg",
+        "largura": 728,
+        "altura": 450,
+        "bytes": 24233,
+        "ordem": 1,
+        "fonte": "https://data.still.de/assets/products/Vehicles/Low_Lift_Pallet_trucks/ERX_27/images/ERX_2359_728x450.jpg"
+      },
+      {
+        "arquivo": "/images/machines/still/erx-27/ref-03.jpg",
+        "largura": 728,
+        "altura": 450,
+        "bytes": 23117,
+        "ordem": 2,
+        "fonte": "https://data.still.de/assets/products/Vehicles/Low_Lift_Pallet_trucks/ERX_27/images/ERX_2367_728x450.jpg"
+      },
+      {
+        "arquivo": "/images/machines/still/erx-27/ref-04.jpg",
+        "largura": 728,
+        "altura": 450,
+        "bytes": 90228,
+        "ordem": 3,
+        "fonte": "https://data.still.de/assets/products/Vehicles/Low_Lift_Pallet_trucks/ERX_27/images/ERX_2231_728x450.jpg"
+      },
+      {
+        "arquivo": "/images/machines/still/erx-27/ref-05.jpg",
+        "largura": 728,
+        "altura": 450,
+        "bytes": 25608,
+        "ordem": 4,
+        "fonte": "https://data.still.de/assets/products/Vehicles/Low_Lift_Pallet_trucks/ERX_27/images/ERX_2373_728x450.jpg"
+      },
+      {
+        "arquivo": "/images/machines/still/erx-27/ref-06.jpg",
+        "largura": 728,
+        "altura": 450,
+        "bytes": 40923,
+        "ordem": 5,
+        "fonte": "https://data.still.de/assets/products/Vehicles/Low_Lift_Pallet_trucks/ERX_27/images/ERX_2375_728x450.jpg"
+      },
+      {
+        "arquivo": "/images/machines/still/erx-27/ref-07.jpg",
+        "largura": 728,
+        "altura": 450,
+        "bytes": 77591,
+        "ordem": 6,
+        "fonte": "https://data.still.de/assets/products/Vehicles/Low_Lift_Pallet_trucks/ERX_27/images/ERX_2260_728x450.jpg"
+      },
+      {
+        "arquivo": "/images/machines/still/erx-27/ref-08.jpg",
+        "largura": 728,
+        "altura": 450,
+        "bytes": 71996,
+        "ordem": 7,
+        "fonte": "https://data.still.de/assets/products/Vehicles/Low_Lift_Pallet_trucks/ERX_27/images/ERX_2263_728x450.jpg"
+      },
+      {
+        "arquivo": "/images/machines/still/erx-27/ref-09.jpg",
+        "largura": 728,
+        "altura": 450,
+        "bytes": 96525,
+        "ordem": 8,
+        "fonte": "https://data.still.de/assets/products/Vehicles/Low_Lift_Pallet_trucks/ERX_27/images/ERX_2296_728x450.jpg"
+      },
+      {
+        "arquivo": "/images/machines/still/erx-27/ref-10.jpg",
+        "largura": 728,
+        "altura": 450,
+        "bytes": 22428,
+        "ordem": 9,
+        "fonte": "https://data.still.de/assets/products/Vehicles/Low_Lift_Pallet_trucks/ERX_27/images/ERX_2366_728x450.jpg"
+      }
+    ],
+    "puladas": []
+  },
+  "ech-20": {
+    "itens": [
+      {
+        "arquivo": "/images/machines/still/ech-15c/ref-01.webp",
+        "largura": 800,
+        "altura": 800,
+        "bytes": 40874,
+        "ordem": 0,
+        "fonte": "https://data.still.de/assets/products/Vehicles/Low_Lift_Pallet_trucks/ECH_12_C_15_C/images/STILL_Produkt_ECH-12C-15C_Mobile_800x800.png"
+      },
+      {
+        "arquivo": "/images/machines/still/ech-15c/ref-02.jpg",
+        "largura": 1600,
+        "altura": 844,
+        "bytes": 112972,
+        "ordem": 1,
+        "fonte": "https://data.still.de/assets/products/Vehicles/Low_Lift_Pallet_trucks/ECH_12_C_15_C/images/STILL_Produkt_ECH_12C_15C_Antriebsrad_4096x2160.jpg"
+      },
+      {
+        "arquivo": "/images/machines/still/ech-15c/ref-03.jpg",
+        "largura": 1600,
+        "altura": 844,
+        "bytes": 78091,
+        "ordem": 2,
+        "fonte": "https://data.still.de/assets/products/Vehicles/Low_Lift_Pallet_trucks/ECH_12_C_15_C/images/STILL_Produkt_ECH_12C_15C_Rollen-Doppelt_4096x2160.jpg"
+      },
+      {
+        "arquivo": "/images/machines/still/ech-15c/ref-04.jpg",
+        "largura": 1600,
+        "altura": 844,
+        "bytes": 77638,
+        "ordem": 3,
+        "fonte": "https://data.still.de/assets/products/Vehicles/Low_Lift_Pallet_trucks/ECH_12_C_15_C/images/STILL_Produkt_ECH_12C_15C_Rollen-Einfach_4096x2160.jpg"
+      },
+      {
+        "arquivo": "/images/machines/still/ech-15c/ref-05.jpg",
+        "largura": 1600,
+        "altura": 844,
+        "bytes": 72736,
+        "ordem": 4,
+        "fonte": "https://data.still.de/assets/products/Vehicles/Low_Lift_Pallet_trucks/ECH_12_C_15_C/images/STILL_Produkt_ECH-15C_Schleichfahrt-1_4096x2160.jpg"
+      },
+      {
+        "arquivo": "/images/machines/still/ech-15c/ref-06.webp",
+        "largura": 1920,
+        "altura": 1013,
+        "bytes": 72196,
+        "ordem": 5,
+        "fonte": "https://data.still.de/assets/products/Vehicles/Low_Lift_Pallet_trucks/ECH_12_C_15_C/images/STILL_Produkt_ECH_15C_Batteriewechsel-2_4096x2160.jpg"
+      },
+      {
+        "arquivo": "/images/machines/still/ech-15c/ref-07.webp",
+        "largura": 1920,
+        "altura": 1013,
+        "bytes": 88694,
+        "ordem": 6,
+        "fonte": "https://data.still.de/assets/products/Vehicles/Low_Lift_Pallet_trucks/ECH_12_C_15_C/images/ECH_15C-Heckdiagonale_Zoom_4094x2160.jpg"
+      }
+    ],
+    "puladas": []
+  },
+  "exh-20": {
+    "itens": [
+      {
+        "arquivo": "/images/machines/still/exh-20/ref-01.webp",
+        "largura": 800,
+        "altura": 800,
+        "bytes": 34316,
+        "ordem": 0,
+        "fonte": "https://data.still.de/assets/products/Vehicles/Low_Lift_Pallet_trucks/EXH_14-20_Plus/images/STILL_Produkt_EXH_14-20_Mobile_800x800.png"
+      },
+      {
+        "arquivo": "/images/machines/still/exh-20/ref-02.webp",
+        "largura": 1920,
+        "altura": 1013,
+        "bytes": 402382,
+        "ordem": 1,
+        "fonte": "https://data.still.de/assets/products/Vehicles/Low_Lift_Pallet_trucks/EXH_14-20_Plus/images/STILL_Produkt_EXH_14-20_Galerie_Einsatz_01_4K.jpg"
+      },
+      {
+        "arquivo": "/images/machines/still/exh-20/ref-03.webp",
+        "largura": 1920,
+        "altura": 1013,
+        "bytes": 297826,
+        "ordem": 2,
+        "fonte": "https://data.still.de/assets/products/Vehicles/Low_Lift_Pallet_trucks/EXH_14-20_Plus/images/STILL_Produkt_EXH_14-20_Galerie_Einsatz_02_4K.jpg"
+      },
+      {
+        "arquivo": "/images/machines/still/exh-20/ref-04.webp",
+        "largura": 1920,
+        "altura": 1013,
+        "bytes": 48722,
+        "ordem": 3,
+        "fonte": "https://data.still.de/assets/products/Vehicles/Low_Lift_Pallet_trucks/EXH_14-20_Plus/images/STILL_Produkt_EXH_14-20_Galerie_Ablagefach-Batteriehaube_01_4K.jpg"
+      },
+      {
+        "arquivo": "/images/machines/still/exh-20/ref-05.webp",
+        "largura": 1920,
+        "altura": 1013,
+        "bytes": 32492,
+        "ordem": 4,
+        "fonte": "https://data.still.de/assets/products/Vehicles/Low_Lift_Pallet_trucks/EXH_14-20_Plus/images/STILL_Produkt_EXH_14-20_Galerie_Zubehoerbuegel_4K.jpg"
+      },
+      {
+        "arquivo": "/images/machines/still/exh-20/ref-06.webp",
+        "largura": 1920,
+        "altura": 1013,
+        "bytes": 66236,
+        "ordem": 5,
+        "fonte": "https://data.still.de/assets/products/Vehicles/Low_Lift_Pallet_trucks/EXH_14-20_Plus/images/STILL_Produkt_EXH_14-20_Einsatz-Slider_Detailaufnahme-Deichsel_4K.jpg"
+      },
+      {
+        "arquivo": "/images/machines/still/exh-20/ref-07.webp",
+        "largura": 1920,
+        "altura": 1013,
+        "bytes": 395172,
+        "ordem": 6,
+        "fonte": "https://data.still.de/assets/products/Vehicles/Low_Lift_Pallet_trucks/EXH_14-20_Plus/images/STILL_Produkt_EXH_14-20_Einsatz-Slider_Einsatz_4K.jpg"
+      },
+      {
+        "arquivo": "/images/machines/still/exh-20/ref-08.webp",
+        "largura": 1920,
+        "altura": 1013,
+        "bytes": 77076,
+        "ordem": 7,
+        "fonte": "https://data.still.de/assets/products/Vehicles/Low_Lift_Pallet_trucks/EXH_14-20_Plus/images/STILL_Produkt_EXH_14-20_Einsatz-Slider_Touch-Display_4K.jpg"
+      }
+    ],
+    "puladas": []
+  },
+  "exh-sf-20": {
+    "itens": [
+      {
+        "arquivo": "/images/machines/still/exh-sf-20c/ref-01.webp",
+        "largura": 800,
+        "altura": 800,
+        "bytes": 40496,
+        "ordem": 0,
+        "fonte": "https://data.still.de/assets/products/Vehicles/Low_Lift_Pallet_trucks/EXH-SF_16-20C/images/STILL_BR_Product_EXH-SF_20C_Teaser_800x800.png"
+      },
+      {
+        "arquivo": "/images/machines/still/exh-sf-20c/ref-02.webp",
+        "largura": 1440,
+        "altura": 960,
+        "bytes": 62630,
+        "ordem": 1,
+        "fonte": "https://data.still.de/assets/products/Vehicles/Low_Lift_Pallet_trucks/EXH-SF_16-20C/images/STILL_Produkt_EXH-SF_16-20C_Content_SEF_Einbauladegeraet_1440x960.jpg"
+      },
+      {
+        "arquivo": "/images/machines/still/exh-sf-20c/ref-03.webp",
+        "largura": 1440,
+        "altura": 960,
+        "bytes": 33994,
+        "ordem": 2,
+        "fonte": "https://data.still.de/assets/products/Vehicles/Low_Lift_Pallet_trucks/EXH-SF_16-20C/images/STILL_Produkt_EXH-SF_16-20C_Content_SEF_Batterie-Haube_1440x960.jpg"
+      },
+      {
+        "arquivo": "/images/machines/still/exh-sf-20c/ref-04.webp",
+        "largura": 1440,
+        "altura": 960,
+        "bytes": 126768,
+        "ordem": 3,
+        "fonte": "https://data.still.de/assets/products/Vehicles/Low_Lift_Pallet_trucks/EXH-SF_16-20C/images/STILL_Produkt_EXH-SF_16-20C_Content_SEF_Deichsel_LED-Display_1440x960.jpg"
+      },
+      {
+        "arquivo": "/images/machines/still/exh-sf-20c/ref-05.webp",
+        "largura": 1920,
+        "altura": 1013,
+        "bytes": 98720,
+        "ordem": 4,
+        "fonte": "https://data.still.de/assets/products/Vehicles/Low_Lift_Pallet_trucks/EXH-SF_16-20C/images/STILL_Produkt_EXH-SF_16-20C_Einsatz-Slider_Deichsel_LED-Display_4K.jpg"
+      },
+      {
+        "arquivo": "/images/machines/still/exh-sf-20c/ref-06.webp",
+        "largura": 1920,
+        "altura": 1013,
+        "bytes": 19228,
+        "ordem": 5,
+        "fonte": "https://data.still.de/assets/products/Vehicles/Low_Lift_Pallet_trucks/EXH-SF_16-20C/images/STILL_Produkt_EXH-SF_16-20C_Einsatz-Slider_Vogelperspektive_4K.jpg"
+      },
+      {
+        "arquivo": "/images/machines/still/exh-sf-20c/ref-07.webp",
+        "largura": 1920,
+        "altura": 1013,
+        "bytes": 55166,
+        "ordem": 6,
+        "fonte": "https://data.still.de/assets/products/Vehicles/Low_Lift_Pallet_trucks/EXH-SF_16-20C/images/STILL_Produkt_EXH-SF_16-20C_Einsatz-Slider_Seitenbuegel_4K.jpg"
+      },
+      {
+        "arquivo": "/images/machines/still/exh-sf-20c/ref-08.webp",
+        "largura": 1920,
+        "altura": 1013,
+        "bytes": 42884,
+        "ordem": 7,
+        "fonte": "https://data.still.de/assets/products/Vehicles/Low_Lift_Pallet_trucks/EXH-SF_16-20C/images/STILL_Produkt_EXH-SF_16-20C_Einsatz-Slider_On-Board-Charger_4K.jpg"
+      }
+    ],
+    "puladas": []
+  },
+  "opx-25": {
+    "itens": [
+      {
+        "arquivo": "/images/machines/still/opx-20-25/ref-01.webp",
+        "largura": 800,
+        "altura": 800,
+        "bytes": 35148,
+        "ordem": 0,
+        "fonte": "https://data.still.de/assets/products/Vehicles/Order_Pickers/OPX_20-25/images/OPX-20_800x800.png"
+      },
+      {
+        "arquivo": "/images/machines/still/opx-20-25/ref-02.jpg",
+        "largura": 1600,
+        "altura": 844,
+        "bytes": 292418,
+        "ordem": 1,
+        "fonte": "https://data.still.de/assets/products/Vehicles/Order_Pickers/OPX_20-25/images/OPX-25_Dynamik_Eurospin_1-2_2017.jpg"
+      },
+      {
+        "arquivo": "/images/machines/still/opx-20-25/ref-03.jpg",
+        "largura": 1600,
+        "altura": 844,
+        "bytes": 395285,
+        "ordem": 2,
+        "fonte": "https://data.still.de/assets/products/Vehicles/Order_Pickers/OPX_20-25/images/OPX-25_Eurospin_2017.jpg"
+      },
+      {
+        "arquivo": "/images/machines/still/opx-20-25/ref-04.jpg",
+        "largura": 1600,
+        "altura": 844,
+        "bytes": 416107,
+        "ordem": 3,
+        "fonte": "https://data.still.de/assets/products/Vehicles/Order_Pickers/OPX_20-25/images/OPX-25_Mitgaengerfunktion_Eurospin_2017.jpg"
+      },
+      {
+        "arquivo": "/images/machines/still/opx-20-25/ref-05.jpg",
+        "largura": 1600,
+        "altura": 844,
+        "bytes": 326366,
+        "ordem": 4,
+        "fonte": "https://data.still.de/assets/products/Vehicles/Order_Pickers/OPX_20-25/images/OPX-25_Wendigkeit-1_Eurospin_2017.jpg"
+      },
+      {
+        "arquivo": "/images/machines/still/opx-20-25/ref-06.jpg",
+        "largura": 633,
+        "altura": 1200,
+        "bytes": 304739,
+        "ordem": 5,
+        "fonte": "https://data.still.de/assets/products/Vehicles/Order_Pickers/OPX_20-25/images/OPX_25_Anwendung_1-1_2017.jpg"
+      },
+      {
+        "arquivo": "/images/machines/still/opx-20-25/ref-07.jpg",
+        "largura": 633,
+        "altura": 1200,
+        "bytes": 184436,
+        "ordem": 6,
+        "fonte": "https://data.still.de/assets/products/Vehicles/Order_Pickers/OPX_20-25/images/OPX_25_Anwendung_1-3_2017.jpg"
+      },
+      {
+        "arquivo": "/images/machines/still/opx-20-25/ref-08.jpg",
+        "largura": 633,
+        "altura": 1200,
+        "bytes": 76928,
+        "ordem": 7,
+        "fonte": "https://data.still.de/assets/products/Vehicles/Order_Pickers/OPX_20-25/images/OPX-20_Arbeitsplatz_2017.jpg"
+      }
+    ],
+    "puladas": []
+  },
+  "linde-h50-h80": {
+    "itens": [
+      {
+        "arquivo": "/images/machines/linde/linde-h50-h80-evo/ref-01.png",
+        "largura": 1920,
+        "altura": 1080,
+        "bytes": 1399343,
+        "ordem": 1,
+        "fonte": "https://www.linde-mh.com/media/3D_Product/Teaser/BR396-03_H50-H80EVO_teaser_16x9w1920.png"
+      },
+      {
+        "arquivo": "/images/machines/linde/linde-h50-h80-evo/ref-02.jpg",
+        "largura": 1920,
+        "altura": 1080,
+        "bytes": 294237,
+        "ordem": 2,
+        "fonte": "https://www.linde-mh.com/media/Global-Content/01-Products/02_IC-Trucks_V-Stapler/02_Features_1/ic_truck-H50_D-full_cab-00003_16x9w1920.jpg"
+      },
+      {
+        "arquivo": "/images/machines/linde/linde-h50-h80-evo/ref-03.jpg",
+        "largura": 1920,
+        "altura": 1080,
+        "bytes": 510150,
+        "ordem": 3,
+        "fonte": "https://www.linde-mh.com/media/Global-Content/04-About-Linde/Magazine/Smurfit-Kappa/smurfit_kappa-H50-lifting-paper_wood-4602_7985_CX_16x9w1920.jpg"
+      },
+      {
+        "arquivo": "/images/machines/linde/linde-h50-h80-evo/ref-04.jpg",
+        "largura": 1920,
+        "altura": 1080,
+        "bytes": 359613,
+        "ordem": 4,
+        "fonte": "https://www.linde-mh.com/media/Global-Content/04-About-Linde/Magazine/Egger/ic_truck-moving-construction-9571_16x9w1920.jpg"
+      },
+      {
+        "arquivo": "/images/machines/linde/linde-h50-h80-evo/ref-05.jpg",
+        "largura": 1920,
+        "altura": 1080,
+        "bytes": 505755,
+        "ordem": 5,
+        "fonte": "https://www.linde-mh.com/media/Global-Content/03_Solutions_Loesungen/Applications/ic_truck-stacking-paper_wood_3946_054_16x9w1920.jpg"
+      },
+      {
+        "arquivo": "/images/machines/linde/linde-h50-h80-evo/ref-06.png",
+        "largura": 1920,
+        "altura": 1920,
+        "bytes": 1193920,
+        "ordem": 6,
+        "fonte": "https://www.linde-mh.com/media/3D_Product/turntables/02_IC-Trucks/BR396_H50-H80_1x1w1920.png"
+      }
+    ],
+    "puladas": [
+      "/images/machines/linde-h50-h80.jpg"
+    ]
+  },
+  "linde-t20-t25": {
+    "itens": [
+      {
+        "arquivo": "/images/machines/linde/linde-t14-s-t20-t25-s-sf/ref-01.png",
+        "largura": 1920,
+        "altura": 1920,
+        "bytes": 719936,
+        "ordem": 1,
+        "fonte": "https://www.linde-mh.com/media/3D_Product/turntables/03_Pallet_Trucks/BR1154-01_T20SR/BR1154-01_T20SR_00000_1x1w1920.png"
+      },
+      {
+        "arquivo": "/images/machines/linde/linde-t14-s-t20-t25-s-sf/ref-02.png",
+        "largura": 1920,
+        "altura": 1920,
+        "bytes": 560155,
+        "ordem": 2,
+        "fonte": "https://www.linde-mh.com/media/3D_Product/turntables/03_Pallet_Trucks/BR1154-01_T20SR/BR1154-01_T20SR_00009_1x1w1920.png"
+      },
+      {
+        "arquivo": "/images/machines/linde/linde-t14-s-t20-t25-s-sf/ref-03.png",
+        "largura": 1920,
+        "altura": 1920,
+        "bytes": 555363,
+        "ordem": 3,
+        "fonte": "https://www.linde-mh.com/media/3D_Product/turntables/03_Pallet_Trucks/BR1154-01_T20SR/BR1154-01_T20SR_00018_1x1w1920.png"
+      },
+      {
+        "arquivo": "/images/machines/linde/linde-t14-s-t20-t25-s-sf/ref-04.png",
+        "largura": 1920,
+        "altura": 1920,
+        "bytes": 726351,
+        "ordem": 4,
+        "fonte": "https://www.linde-mh.com/media/3D_Product/turntables/03_Pallet_Trucks/BR1154-01_T20R/BR1154-01_T20R_00000_1x1w1920.png"
+      },
+      {
+        "arquivo": "/images/machines/linde/linde-t14-s-t20-t25-s-sf/ref-05.png",
+        "largura": 1920,
+        "altura": 1920,
+        "bytes": 615598,
+        "ordem": 5,
+        "fonte": "https://www.linde-mh.com/media/3D_Product/turntables/03_Pallet_Trucks/BR1154-01_T20R/BR1154-01_T20R_00009_1x1w1920.png"
+      },
+      {
+        "arquivo": "/images/machines/linde/linde-t14-s-t20-t25-s-sf/ref-06.jpg",
+        "largura": 1920,
+        "altura": 1080,
+        "bytes": 379499,
+        "ordem": 6,
+        "fonte": "https://www.linde-mh.com/media/Global-Content/04-About-Linde/Magazine/DB-Schenker/schenker_e_truck_connect-1_16x9w1920.jpg"
+      }
+    ],
+    "puladas": [
+      "/images/machines/linde-t20-t25.png"
+    ]
+  },
+  "linde-h20-h35": {
+    "itens": [
+      {
+        "arquivo": "/images/machines/linde/linde-h20-h35/ref-01.jpg",
+        "largura": 1920,
+        "altura": 1080,
+        "bytes": 118264,
+        "ordem": 1,
+        "fonte": "https://www.linde-mh.com/media/Global-Content/01-Products/02_IC-Trucks_V-Stapler/02_Features_1/ic_truck-H20_H35-truckspot-7120_002_16x9w1920.jpg"
+      },
+      {
+        "arquivo": "/images/machines/linde/linde-h20-h35/ref-02.jpg",
+        "largura": 1920,
+        "altura": 1080,
+        "bytes": 324610,
+        "ordem": 2,
+        "fonte": "https://www.linde-mh.com/media/Global-Content/01-Products/02_IC-Trucks_V-Stapler/02_Features_1/ic_truck-H30_D-full_cab-00003_16x9w1920.jpg"
+      },
+      {
+        "arquivo": "/images/machines/linde/linde-h20-h35/ref-03.jpg",
+        "largura": 1920,
+        "altura": 1080,
+        "bytes": 157285,
+        "ordem": 3,
+        "fonte": "https://www.linde-mh.com/media/Global-Content/01-Products/02_IC-Trucks_V-Stapler/02_Features_1/ic_truck-H20_H35-container_version-4100_002_16x9w1920.jpg"
+      },
+      {
+        "arquivo": "/images/machines/linde/linde-h20-h35/ref-04.jpg",
+        "largura": 1920,
+        "altura": 1080,
+        "bytes": 257252,
+        "ordem": 4,
+        "fonte": "https://www.linde-mh.com/media/Global-Content/01-Products/02_IC-Trucks_V-Stapler/02_Features_1/ic_truck-H20_H35-air_conditioning_system-4400_001_16x9w1920.jpg"
+      },
+      {
+        "arquivo": "/images/machines/linde/linde-h20-h35/ref-05.png",
+        "largura": 1920,
+        "altura": 1920,
+        "bytes": 1132276,
+        "ordem": 5,
+        "fonte": "https://www.linde-mh.com/media/3D_Product/turntables/02_IC-Trucks/BR1202_H25D/1202_00_H25D_BASIC_WEB_00000_1x1w1920.png"
+      },
+      {
+        "arquivo": "/images/machines/linde/linde-h20-h35/ref-06.png",
+        "largura": 1920,
+        "altura": 1920,
+        "bytes": 1148423,
+        "ordem": 6,
+        "fonte": "https://www.linde-mh.com/media/3D_Product/turntables/02_IC-Trucks/BR1202_H25D/1202_00_H25D_BASIC_WEB_00018_1x1w1920.png"
+      }
+    ],
+    "puladas": [
+      "/images/machines/linde-h20-h35.png"
+    ]
+  },
+  "kbg-25": {
+    "itens": [
+      {
+        "arquivo": "/images/machines/baoli/kbg-25/ref-01.webp",
+        "largura": 1024,
+        "altura": 1024,
+        "bytes": 75438,
+        "ordem": 0,
+        "fonte": "https://data.still.de/assets/baoli/Products/Internal_combustion_trucks/KBD_25-35/Baoli_KBD_30_G1_1024x1024_rgb.png"
+      },
+      {
+        "arquivo": "/images/machines/baoli/kbg-25/ref-02.jpg",
+        "largura": 2781,
+        "altura": 2148,
+        "bytes": 2068047,
+        "ordem": 1,
+        "fonte": "https://baoli.com.br/wp-content/uploads/2023/04/Baoli-KBG25-073-White.jpg"
+      },
+      {
+        "arquivo": "/images/machines/baoli/kbg-25/ref-03.jpg",
+        "largura": 339,
+        "altura": 182,
+        "bytes": 40379,
+        "ordem": 2,
+        "fonte": "https://baoli.com.br/wp-content/uploads/2022/11/IC_features-01.jpg"
+      },
+      {
+        "arquivo": "/images/machines/baoli/kbg-25/ref-04.jpg",
+        "largura": 339,
+        "altura": 182,
+        "bytes": 42357,
+        "ordem": 3,
+        "fonte": "https://baoli.com.br/wp-content/uploads/2022/11/IC_features-03.jpg"
+      },
+      {
+        "arquivo": "/images/machines/baoli/kbg-25/ref-05.jpg",
+        "largura": 339,
+        "altura": 182,
+        "bytes": 32583,
+        "ordem": 4,
+        "fonte": "https://baoli.com.br/wp-content/uploads/2022/11/IC_features-04.jpg"
+      },
+      {
+        "arquivo": "/images/machines/baoli/kbg-25/ref-06.jpg",
+        "largura": 339,
+        "altura": 182,
+        "bytes": 51822,
+        "ordem": 5,
+        "fonte": "https://baoli.com.br/wp-content/uploads/2022/11/IC_features-05.jpg"
+      },
+      {
+        "arquivo": "/images/machines/baoli/kbg-25/ref-07.jpg",
+        "largura": 339,
+        "altura": 182,
+        "bytes": 27508,
+        "ordem": 6,
+        "fonte": "https://baoli.com.br/wp-content/uploads/2022/11/IC_features-06.jpg"
+      }
+    ],
+    "puladas": []
+  },
+  "kbd-25-35": {
+    "itens": [
+      {
+        "arquivo": "/images/machines/baoli/kbd-25-35/ref-01.webp",
+        "largura": 1920,
+        "altura": 1473,
+        "bytes": 162304,
+        "ordem": 0,
+        "fonte": "https://data.still.de/assets/baoli/Products/Internal_combustion_trucks/KBD_G_25-35_G1/Baoli_KBD_25_G1_3_Quarter_01.jpg"
+      },
+      {
+        "arquivo": "/images/machines/baoli/kbd-25-35/ref-02.jpg",
+        "largura": 700,
+        "altura": 468,
+        "bytes": 51275,
+        "ordem": 1,
+        "fonte": "https://baoli.com.br/wp-content/uploads/2022/11/2.0_3.5t_4.jpg"
+      },
+      {
+        "arquivo": "/images/machines/baoli/kbd-25-35/ref-03.jpg",
+        "largura": 700,
+        "altura": 468,
+        "bytes": 50490,
+        "ordem": 2,
+        "fonte": "https://baoli.com.br/wp-content/uploads/2022/11/2.0_3.5t_2.jpg"
+      },
+      {
+        "arquivo": "/images/machines/baoli/kbd-25-35/ref-04.jpg",
+        "largura": 700,
+        "altura": 468,
+        "bytes": 46139,
+        "ordem": 3,
+        "fonte": "https://baoli.com.br/wp-content/uploads/2022/11/2.0_3.5t_1.jpg"
+      },
+      {
+        "arquivo": "/images/machines/baoli/kbd-25-35/ref-05.jpg",
+        "largura": 339,
+        "altura": 182,
+        "bytes": 40379,
+        "ordem": 4,
+        "fonte": "https://baoli.com.br/wp-content/uploads/2022/11/IC_features-01.jpg"
+      },
+      {
+        "arquivo": "/images/machines/baoli/kbd-25-35/ref-06.jpg",
+        "largura": 339,
+        "altura": 182,
+        "bytes": 42357,
+        "ordem": 5,
+        "fonte": "https://baoli.com.br/wp-content/uploads/2022/11/IC_features-03.jpg"
+      },
+      {
+        "arquivo": "/images/machines/baoli/kbd-25-35/ref-07.jpg",
+        "largura": 339,
+        "altura": 182,
+        "bytes": 32583,
+        "ordem": 6,
+        "fonte": "https://baoli.com.br/wp-content/uploads/2022/11/IC_features-04.jpg"
+      },
+      {
+        "arquivo": "/images/machines/baoli/kbd-25-35/ref-08.jpg",
+        "largura": 339,
+        "altura": 182,
+        "bytes": 51822,
+        "ordem": 7,
+        "fonte": "https://baoli.com.br/wp-content/uploads/2022/11/IC_features-05.jpg"
+      },
+      {
+        "arquivo": "/images/machines/baoli/kbd-25-35/ref-09.jpg",
+        "largura": 339,
+        "altura": 182,
+        "bytes": 27508,
+        "ordem": 8,
+        "fonte": "https://baoli.com.br/wp-content/uploads/2022/11/IC_features-06.jpg"
+      }
+    ],
+    "puladas": []
+  },
+  "kbd-70": {
+    "itens": [
+      {
+        "arquivo": "/images/machines/baoli/kbd-70/ref-01.jpg",
+        "largura": 339,
+        "altura": 182,
+        "bytes": 40379,
+        "ordem": 1,
+        "fonte": "https://baoli.com.br/wp-content/uploads/2022/11/IC_features-01.jpg"
+      },
+      {
+        "arquivo": "/images/machines/baoli/kbd-70/ref-02.jpg",
+        "largura": 339,
+        "altura": 182,
+        "bytes": 42357,
+        "ordem": 2,
+        "fonte": "https://baoli.com.br/wp-content/uploads/2022/11/IC_features-03.jpg"
+      },
+      {
+        "arquivo": "/images/machines/baoli/kbd-70/ref-03.jpg",
+        "largura": 339,
+        "altura": 182,
+        "bytes": 32583,
+        "ordem": 3,
+        "fonte": "https://baoli.com.br/wp-content/uploads/2022/11/IC_features-04.jpg"
+      },
+      {
+        "arquivo": "/images/machines/baoli/kbd-70/ref-04.jpg",
+        "largura": 339,
+        "altura": 182,
+        "bytes": 51822,
+        "ordem": 4,
+        "fonte": "https://baoli.com.br/wp-content/uploads/2022/11/IC_features-05.jpg"
+      },
+      {
+        "arquivo": "/images/machines/baoli/kbd-70/ref-05.jpg",
+        "largura": 339,
+        "altura": 182,
+        "bytes": 27508,
+        "ordem": 5,
+        "fonte": "https://baoli.com.br/wp-content/uploads/2022/11/IC_features-06.jpg"
+      }
+    ],
+    "puladas": [
+      "/images/machines/baoli-kbd70.jpg"
+    ]
+  },
+  "sj4726-32-e": {
+    "itens": [
+      {
+        "arquivo": "/images/machines/skyjack/sj4726-32-e/ref-01.png",
+        "largura": 700,
+        "altura": 800,
+        "bytes": 1232525,
+        "ordem": 1,
+        "fonte": "https://www.skyjack.com/sites/default/files/2024-01/sj4726e_360_0001.png"
+      },
+      {
+        "arquivo": "/images/machines/skyjack/sj4726-32-e/ref-02.png",
+        "largura": 700,
+        "altura": 800,
+        "bytes": 1238234,
+        "ordem": 2,
+        "fonte": "https://www.skyjack.com/sites/default/files/2024-01/sj4726e_360_0004.png"
+      },
+      {
+        "arquivo": "/images/machines/skyjack/sj4726-32-e/ref-03.png",
+        "largura": 700,
+        "altura": 800,
+        "bytes": 1161427,
+        "ordem": 3,
+        "fonte": "https://www.skyjack.com/sites/default/files/2024-01/sj4726e_360_0007.png"
+      },
+      {
+        "arquivo": "/images/machines/skyjack/sj4726-32-e/ref-04.png",
+        "largura": 700,
+        "altura": 800,
+        "bytes": 1211078,
+        "ordem": 4,
+        "fonte": "https://www.skyjack.com/sites/default/files/2024-01/sj4726e_360_0010.png"
+      },
+      {
+        "arquivo": "/images/machines/skyjack/sj4726-32-e/ref-05.png",
+        "largura": 700,
+        "altura": 800,
+        "bytes": 1194503,
+        "ordem": 5,
+        "fonte": "https://www.skyjack.com/sites/default/files/2024-01/sj4726e_360_0013.png"
+      }
+    ],
+    "puladas": [
+      "https://www.fairchildequipment.com/wp-content/uploads/2021/05/skyjack-sj4726-sj4732-scissor-lift.jpg"
+    ]
+  }
+}

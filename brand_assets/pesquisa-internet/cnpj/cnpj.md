@@ -1,0 +1,12 @@
+# CNPJ 01119521000125 — EMPILHATEC EMPILHADEIRAS DA AMAZONIA LTDA
+- Fantasia: EMPILHATEC DA AMAZONIA
+- Abertura: 1996-04-01
+- Situação: ATIVA
+- Capital social: 150000
+- Porte: EMPRESA DE PEQUENO PORTE
+- CNAE principal: 4530703 Comércio a varejo de peças e acessórios novos para veículos automotores
+- CNAEs secundários: 4520001 Serviços de manutenção e reparação mecânica de veículos automotores; 4530706 Representantes comerciais e agentes do comércio de peças e acessórios novos e usados para veículos automotores; 8299799 Outras atividades de serviços prestados principalmente às empresas não especificadas anteriormente
+- Endereço: RUA CRISANTO JOBIM, 55 — PETROPOLIS, MANAUS/AM · 69067040
+- Telefones: 9236110479 9236114130
+- E-mail: null
+- Sócios: ARIANE DE MATTOS BRAGA PONTES (Sócio, desde 2009-03-23); DEOCLECIANO SILVA PONTES (Sócio-Administrador, desde 2022-07-28)

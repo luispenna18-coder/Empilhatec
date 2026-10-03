@@ -1,0 +1,559 @@
+[
+  {
+    "slug": "linde-h50-h80-evo",
+    "linha": "H50-H80-EVO",
+    "url": "https://www.linde-mh.com.br/pt_br/Produtos/Empilhadeiras-a-combustao/H50-H80-EVO/",
+    "categoria": "Empilhadeiras-a-combustao",
+    "nome": "Empilhadeiras a combustão H50 – H80",
+    "resumo": "Os empilhadores a diesel H50 – H80 da Linde Material Handling garantem uma elevada capacidade de movimentação de cargas, custos de assistência reduzidos e processos de movimentação seguros.",
+    "descricao": "Manuseamento seguro e preciso, elevada capacidade de movimentação de cargas, construção compacta — Os empilhadores a diesel H50 – H80 combinam tudo o que é necessário para um funcionamento eficiente em condições de trabalho intensivas. Graças aos seus motores potentes e ao acionamento direto hidrostático, são adequados para aplicações exigentes com cargas grandes, mesmo com a utilização de acessórios especiais para papel, tijolos ou materiais de construção. Os cilindros de inclinação na parte superior distribuem as cargas uniformemente por toda a estrutura e, em conjunto com o suporte de torção, garantem uma movimentação segura da carga, especialmente quando se trabalha em altura. Os perfis estreitos dos mastros melhoram a visibilidade da carga e da via de circulação. Além disso, a eliminação de peças que necessitam de muita manutenção, como é o caso da transmissão, da embraiagem e dos travões de tambor, reduz os tempos de assistência técnica, aumentando, assim, a disponibilidade e a produtividade. Graças à unidade de transmissão de dados de série, os modelos H50 – H80 podem ser integrados a qualquer momento em sistemas de software, como, por exemplo, a gestão de frotas.",
+    "destaques": [],
+    "tabela": {
+      "colunas": [
+        "Model",
+        "Load capacity/Load",
+        "Load centre distance",
+        "Wheelbase",
+        "Aisle width with pallet 800 x 1200 along forks",
+        "Travel speed, with/without load"
+      ],
+      "linhas": [
+        [
+          "H50D",
+          "5,0 (t)",
+          "600 (mm)",
+          "2200 (mm)",
+          "5216 (mm)",
+          "23 / 23 km/h"
+        ],
+        [
+          "H60D",
+          "6,0 (t)",
+          "600 (mm)",
+          "2200 (mm)",
+          "5216 (mm)",
+          "23 / 23 km/h"
+        ],
+        [
+          "H70D",
+          "7,0 (t)",
+          "600 (mm)",
+          "2200 (mm)",
+          "5226 (mm)",
+          "23 / 23 km/h"
+        ],
+        [
+          "H80/1100D",
+          "8,0 (t)",
+          "1100 (mm)",
+          "2810 (mm)",
+          "5930 (mm)",
+          "23 / 23 km/h"
+        ],
+        [
+          "H80/900D",
+          "8,0 (t)",
+          "900 (mm)",
+          "2510 (mm)",
+          "5580 (mm)",
+          "23 / 23 km/h"
+        ],
+        [
+          "H80D",
+          "8,0 (t)",
+          "600 (mm)",
+          "2200 (mm)",
+          "5226 (mm)",
+          "23 / 23 km/h"
+        ]
+      ]
+    },
+    "marca": "Linde",
+    "imagens": [
+      {
+        "arquivo": "/images/machines/linde/linde-h50-h80-evo/01-destaque.png",
+        "papel": "destaque",
+        "largura": 1920,
+        "altura": 1080,
+        "bytes": 1314031,
+        "fonte": "https://www.linde-mh.pt/media/3D_Product/Teaser/BR396_H50-H80_teaser_16x9.png"
+      }
+    ],
+    "ficha_tecnica": {
+      "arquivo": "/datasheets/linde/linde-h50-h80-evo.pdf",
+      "bytes": 1166099,
+      "fonte": "https://www.linde-mh.pt/media/Datasheets/EN_ds_h50_h80_396_04_en_p_0924_view.pdf"
+    },
+    "folheto_url": null
+  },
+  {
+    "slug": "linde-t14-s-t20-t25-s-sf",
+    "linha": "T14-S-T20-T25-S-SF",
+    "url": "https://www.linde-mh.com.br/pt_br/Produtos/Transpaleteiras/T14-S-T20-T25-S-SF/",
+    "categoria": "Transpaleteiras",
+    "nome": "Transpaleteiras T14 S, T20 – T25 S/SF",
+    "resumo": "As transpaleteiras T14 S, T20 – T25 S/SF da Linde Material Handling são particularmente estreitos e asseguram elevadas capacidades de movimentação de cargas em corredores apertados.",
+    "descricao": "As transpaleteiras T14 S, T20 – T25 S/SF possuem um chassis particularmente estreito – por isso, são mais estreitos do que um palet. Juntamente com a direção elétrica precisa, esta caraterística permite que a transpaleteira possa ser manobrada de forma otimizada. Verifica-se um aumento da capacidade de transporte sobretudo em espaços limitados. A construção da plataforma para o operador também desempenha um papel fundamental. Ela fica completamente desacoplada do chassis e absorve muitas vibrações resultantes de vias de circulação irregulares. A elevada posição em pé ajuda em termos de processos seguros. A partir dela, o condutor tem uma ótima visibilidade sobre as pontas dos garfos e pode recolher rapidamente os palets. Única do modelo, as transpaleteiras T14 S, T20 – T25 S/SF dispõem de uma capacidade de carga máxima de 1400 kg, 2000 kg e 2500 kg.",
+    "destaques": [],
+    "tabela": {
+      "colunas": [
+        "Model",
+        "Load capacity/Load",
+        "Lift",
+        "Travel speed, with/without load",
+        "Turning radius",
+        "Battery voltage/rated capacity (5h)"
+      ],
+      "linhas": [
+        [
+          "T20S",
+          "2,0 (t)",
+          "115 (mm)",
+          "10 / 12 km/h",
+          "1710 / 1780 (mm)",
+          "24 / 345/375 [23/205] (V)/(Ah) o. kWh"
+        ],
+        [
+          "T20SF",
+          "2,0 (t)",
+          "115 (mm)",
+          "10 / 12 km/h",
+          "1710 / 1780 (mm)",
+          "24 / 345/375 [23/205] (V)/(Ah) o. kWh"
+        ]
+      ]
+    },
+    "marca": "Linde",
+    "imagens": [
+      {
+        "arquivo": "/images/machines/linde/linde-t14-s-t20-t25-s-sf/01-destaque.png",
+        "papel": "destaque",
+        "largura": 1920,
+        "altura": 1080,
+        "bytes": 620981,
+        "fonte": "https://www.linde-mh.pt/media/3D_Product/Teaser/BR1154_T20SF_teaser_16x9.png"
+      },
+      {
+        "arquivo": "/images/machines/linde/linde-t14-s-t20-t25-s-sf/02-giro.png",
+        "papel": "giro",
+        "largura": 1920,
+        "altura": 1920,
+        "bytes": 901378,
+        "fonte": "https://www.linde-mh.pt/media/3D_Product/turntables/03_Pallet_Trucks/BR1154_T20SF/BR1154_T20SF_00000_1x1w1920.png"
+      },
+      {
+        "arquivo": "/images/machines/linde/linde-t14-s-t20-t25-s-sf/03-giro.png",
+        "papel": "giro",
+        "largura": 1920,
+        "altura": 1920,
+        "bytes": 709462,
+        "fonte": "https://www.linde-mh.pt/media/3D_Product/turntables/03_Pallet_Trucks/BR1154_T20SF/BR1154_T20SF_00018_1x1w1920.png"
+      }
+    ],
+    "ficha_tecnica": {
+      "arquivo": "/datasheets/linde/linde-t14-s-t20-t25-s-sf.pdf",
+      "bytes": 2016810,
+      "fonte": "https://www.linde-mh.pt/media/Datasheets/PT_ds_1154_t14_20_25_s_sf_pt_1.pdf"
+    },
+    "folheto_url": null
+  },
+  {
+    "slug": "linde-h20-h35",
+    "linha": "H20-H35",
+    "url": "https://www.linde-mh.com.br/pt_br/Produtos/Empilhadeiras-a-combustao/H20-H35/",
+    "categoria": "Empilhadeiras-a-combustao",
+    "nome": "Empilhadeiras a combustão H20 – H35",
+    "resumo": "Os empilhadores com motor de combustão interna H20 – H35, da série 1202, são robustos, prestadores de serviços versáteis, que já vão equipados de fábrica com muitas soluções de interligação.",
+    "descricao": "A interação do acionamento hidrostático, do motor industrial, do conceito de operação, do design ergonómico e da vista panorâmica otimizada fornece uma movimentação produtiva das cargas. O controlo por pedal duplo e as alavancas de controlo do Linde Load Control garantem um controlo preciso de todos os movimentos do equipamento e do mastro. Além disso, as funções frequentemente utilizadas podem ser opcionalmente conectadas através dos botões atribuíveis livremente no apoio de braço. A estrutura do perfil do mastro e dos cilindros de inclinação superiores asseguram uma estabilidade longitudinal e grandes capacidades de carga residuais em grandes alturas de elevação. A transmissão hidrostática e o motor industrial Linde minimizam o consumo de combustível e as despesas de manutenção, o que aumenta a disponibilidade e reduz os custos operacionais. Os empilhadores a diesel H20 – H35 podem ser operados com HVO (Hydrotreated Vegetable Oil). Este combustível é composto por matérias-primas renováveis e melhora as emissões de CO₂ dos equipamentos.",
+    "destaques": [],
+    "tabela": {
+      "colunas": [
+        "Model",
+        "Load capacity/Load",
+        "Load centre distance",
+        "Wheelbase",
+        "Aisle width with pallet 800 x 1200 along forks",
+        "Travel speed, with/without load"
+      ],
+      "linhas": [
+        [
+          "H20/600CNG",
+          "2,0 (t)",
+          "600 (mm)",
+          "1865 (mm)",
+          "4189 (mm)",
+          "22 / 22 km/h"
+        ],
+        [
+          "H20/600CNG Container",
+          "2,0 (t)",
+          "600 (mm)",
+          "1865 (mm)",
+          "4189 (mm)",
+          "22 / 22 km/h"
+        ],
+        [
+          "H20/600D",
+          "2,0 (t)",
+          "600 (mm)",
+          "1865 (mm)",
+          "4189 (mm)",
+          "22 / 22 km/h"
+        ],
+        [
+          "H20/600D Container",
+          "2,0 (t)",
+          "600 (mm)",
+          "1865 (mm)",
+          "4189 (mm)",
+          "22 / 22 km/h"
+        ],
+        [
+          "H20/600T",
+          "2,0 (t)",
+          "600 (mm)",
+          "1865 (mm)",
+          "4189 (mm)",
+          "22 / 22 km/h"
+        ],
+        [
+          "H20/600T Container",
+          "2,0 (t)",
+          "600 (mm)",
+          "1865 (mm)",
+          "4189 (mm)",
+          "22 / 22 km/h"
+        ],
+        [
+          "H25/600CNG",
+          "2,5 (t)",
+          "600 (mm)",
+          "1905 (mm)",
+          "4271 (mm)",
+          "22 / 22 km/h"
+        ],
+        [
+          "H25/600CNG Container",
+          "2,5 (t)",
+          "600 (mm)",
+          "1905 (mm)",
+          "4271 (mm)",
+          "22 / 22 km/h"
+        ],
+        [
+          "H25/600CNG Beverage",
+          "2,5 (t)",
+          "600 (mm)",
+          "1905 (mm)",
+          "4271 (mm)",
+          "22 / 22 km/h"
+        ],
+        [
+          "H25/600D",
+          "2,5 (t)",
+          "600 (mm)",
+          "1905 (mm)",
+          "4271 (mm)",
+          "22 / 22 km/h"
+        ],
+        [
+          "H25/600D Container",
+          "2,5 (t)",
+          "600 (mm)",
+          "1905 (mm)",
+          "4271 (mm)",
+          "22 / 22 km/h"
+        ],
+        [
+          "H25/600D Beverage",
+          "2,5 (t)",
+          "600 (mm)",
+          "1905 (mm)",
+          "4271 (mm)",
+          "22 / 22 km/h"
+        ],
+        [
+          "H25/600T",
+          "2,5 (t)",
+          "600 (mm)",
+          "1905 (mm)",
+          "4271 (mm)",
+          "22 / 22 km/h"
+        ],
+        [
+          "H25/600T Container",
+          "2,5 (t)",
+          "600 (mm)",
+          "1905 (mm)",
+          "4271 (mm)",
+          "22 / 22 km/h"
+        ],
+        [
+          "H25/600T Beverage",
+          "2,5 (t)",
+          "600 (mm)",
+          "1905 (mm)",
+          "4271 (mm)",
+          "22 / 22 km/h"
+        ],
+        [
+          "H25CNG",
+          "2,5 (t)",
+          "500 (mm)",
+          "1905 (mm)",
+          "4231 (mm)",
+          "22 / 22 km/h"
+        ],
+        [
+          "H25CNG Container",
+          "2,5 (t)",
+          "500 (mm)",
+          "1905 (mm)",
+          "4231 (mm)",
+          "22 / 22 km/h"
+        ],
+        [
+          "H25D",
+          "2,5 (t)",
+          "500 (mm)",
+          "1905 (mm)",
+          "4231 (mm)",
+          "22 / 22 km/h"
+        ],
+        [
+          "H25D Container",
+          "2,5 (t)",
+          "500 (mm)",
+          "1905 (mm)",
+          "4231 (mm)",
+          "22 / 22 km/h"
+        ],
+        [
+          "H25T",
+          "2,5 (t)",
+          "500 (mm)",
+          "1905 (mm)",
+          "4231 (mm)",
+          "22 / 22 km/h"
+        ],
+        [
+          "H25T Container",
+          "2,5 (t)",
+          "500 (mm)",
+          "1905 (mm)",
+          "4231 (mm)",
+          "22 / 22 km/h"
+        ],
+        [
+          "H30CNG",
+          "3,0 (t)",
+          "500 (mm)",
+          "1930 (mm)",
+          "4290 (mm)",
+          "22 / 22 km/h"
+        ],
+        [
+          "H30CNG Container",
+          "3,0 (t)",
+          "500 (mm)",
+          "1930 (mm)",
+          "4290 (mm)",
+          "22 / 22 km/h"
+        ],
+        [
+          "H30CNG Beverage",
+          "3,0 (t)",
+          "500 (mm)",
+          "1930 (mm)",
+          "4290 (mm)",
+          "22 / 22 km/h"
+        ],
+        [
+          "H30D",
+          "3,0 (t)",
+          "500 (mm)",
+          "1930 (mm)",
+          "4290 (mm)",
+          "22 / 22 km/h"
+        ],
+        [
+          "H30D Container",
+          "3,0 (t)",
+          "500 (mm)",
+          "1930 (mm)",
+          "4290 (mm)",
+          "22 / 22 km/h"
+        ],
+        [
+          "H30D Beverage",
+          "3,0 (t)",
+          "500 (mm)",
+          "1930 (mm)",
+          "4290 (mm)",
+          "22 / 22 km/h"
+        ],
+        [
+          "H30T",
+          "3,0 (t)",
+          "500 (mm)",
+          "1930 (mm)",
+          "4290 (mm)",
+          "22 / 22 km/h"
+        ],
+        [
+          "H30T Container",
+          "3,0 (t)",
+          "500 (mm)",
+          "1930 (mm)",
+          "4290 (mm)",
+          "22 / 22 km/h"
+        ],
+        [
+          "H30T Beverage",
+          "3,0 (t)",
+          "500 (mm)",
+          "1930 (mm)",
+          "4290 (mm)",
+          "22 / 22 km/h"
+        ],
+        [
+          "H35CNG",
+          "3,5 (t)",
+          "500 (mm)",
+          "1965 (mm)",
+          "4332 (mm)",
+          "22 / 22 km/h"
+        ],
+        [
+          "H35CNG Container",
+          "3,5 (t)",
+          "500 (mm)",
+          "1965 (mm)",
+          "4332 (mm)",
+          "22 / 22 km/h"
+        ],
+        [
+          "H35CNG Beverage",
+          "3,5 (t)",
+          "500 (mm)",
+          "1965 (mm)",
+          "4332 (mm)",
+          "22 / 22 km/h"
+        ],
+        [
+          "H35D",
+          "3,5 (t)",
+          "500 (mm)",
+          "1965 (mm)",
+          "4332 (mm)",
+          "22 / 22 km/h"
+        ],
+        [
+          "H35D Container",
+          "3,5 (t)",
+          "500 (mm)",
+          "1965 (mm)",
+          "4332 (mm)",
+          "22 / 22 km/h"
+        ],
+        [
+          "H35D Beverage",
+          "3,5 (t)",
+          "500 (mm)",
+          "1965 (mm)",
+          "4332 (mm)",
+          "22 / 22 km/h"
+        ],
+        [
+          "H35T",
+          "3,5 (t)",
+          "500 (mm)",
+          "1965 (mm)",
+          "4332 (mm)",
+          "22 / 22 km/h"
+        ],
+        [
+          "H35T Container",
+          "3,5 (t)",
+          "500 (mm)",
+          "1965 (mm)",
+          "4332 (mm)",
+          "22 / 22 km/h"
+        ],
+        [
+          "H35T Beverage",
+          "3,5 (t)",
+          "500 (mm)",
+          "1965 (mm)",
+          "4332 (mm)",
+          "22 / 22 km/h"
+        ]
+      ]
+    },
+    "marca": "Linde",
+    "imagens": [
+      {
+        "arquivo": "/images/machines/linde/linde-h20-h35/01-destaque.png",
+        "papel": "destaque",
+        "largura": 1920,
+        "altura": 1080,
+        "bytes": 1797602,
+        "fonte": "https://www.linde-mh.pt/media/3D_Product/Teaser/BR1202_00_H20-H35_teaser_16x9.png"
+      },
+      {
+        "arquivo": "/images/machines/linde/linde-h20-h35/02-aplicacao.jpg",
+        "papel": "aplicacao",
+        "largura": 1920,
+        "altura": 1080,
+        "bytes": 147259,
+        "fonte": "https://www.linde-mh.pt/media/Global-Content/01-Products/02_IC-Trucks_V-Stapler/02_Features_1/ic_truck-H20_H35-truckspot-7120_002_16x9.jpg"
+      },
+      {
+        "arquivo": "/images/machines/linde/linde-h20-h35/03-aplicacao.jpg",
+        "papel": "aplicacao",
+        "largura": 1920,
+        "altura": 1080,
+        "bytes": 280014,
+        "fonte": "https://www.linde-mh.pt/media/Global-Content/01-Products/02_IC-Trucks_V-Stapler/02_Features_1/ic_truck-H20_H35-air_conditioning_system-4400_001_16x9.jpg"
+      },
+      {
+        "arquivo": "/images/machines/linde/linde-h20-h35/04-aplicacao.jpg",
+        "papel": "aplicacao",
+        "largura": 1920,
+        "altura": 1080,
+        "bytes": 188655,
+        "fonte": "https://www.linde-mh.pt/media/Global-Content/01-Products/02_IC-Trucks_V-Stapler/02_Features_1/ic_truck-H20_H35-container_version-4100_002_16x9.jpg"
+      },
+      {
+        "arquivo": "/images/machines/linde/linde-h20-h35/05-aplicacao.jpg",
+        "papel": "aplicacao",
+        "largura": 1920,
+        "altura": 1080,
+        "bytes": 227910,
+        "fonte": "https://www.linde-mh.pt/media/Global-Content/01-Products/02_IC-Trucks_V-Stapler/02_Features_1/ic_truck-H20_H35-linde_speed_assist-1990_001_16x9.jpg"
+      },
+      {
+        "arquivo": "/images/machines/linde/linde-h20-h35/06-giro.png",
+        "papel": "giro",
+        "largura": 1920,
+        "altura": 1920,
+        "bytes": 1373879,
+        "fonte": "https://www.linde-mh.pt/media/3D_Product/turntables/02_IC-Trucks/BR1202_H25D/1202_00_H25D_BASIC_WEB_00000_1x1w1920.png"
+      },
+      {
+        "arquivo": "/images/machines/linde/linde-h20-h35/07-giro.png",
+        "papel": "giro",
+        "largura": 1920,
+        "altura": 1920,
+        "bytes": 1408691,
+        "fonte": "https://www.linde-mh.pt/media/3D_Product/turntables/02_IC-Trucks/BR1202_H25D/1202_00_H25D_BASIC_WEB_00018_1x1w1920.png"
+      }
+    ],
+    "ficha_tecnica": {
+      "arquivo": "/datasheets/linde/linde-h20-h35.pdf",
+      "bytes": 1521257,
+      "fonte": "https://www.linde-mh.pt/media/Datasheets/PT_ds_1202_h20_h35_pt.pdf"
+    },
+    "folheto_url": "https://www.linde-mh.pt/media/Brochures/PT_ca_h20_h35_pt.pdf"
+  }
+]

@@ -1,0 +1,20 @@
+# dependências e builds (recriados por npm install / next build)
+node_modules
+.next
+out
+*.tsbuildinfo
+
+# Vercel (vínculo local com o projeto)
+.vercel
+
+# segredos
+.env
+.env.*
+
+# scripts: dependências e perfil de navegador com logins (NUNCA versionar)
+scripts/*/node_modules
+scripts/pesquisa/.profile
+
+# sistema
+.DS_Store
+.playwright-mcp

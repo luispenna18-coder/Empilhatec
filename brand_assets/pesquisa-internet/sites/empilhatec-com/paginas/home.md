@@ -1,0 +1,7 @@
+# https://empilhatec.com
+
+Forbidden
+
+You don't have permission to access this resource.
+
+Additionally, a 403 Forbidden error was encountered while trying to use an ErrorDocument to handle the request.

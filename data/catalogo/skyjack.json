@@ -1,0 +1,235 @@
+[
+  {
+    "slug": "sj4726-32-e",
+    "marca": "Skyjack",
+    "categoria": "plataforma-elevatoria",
+    "url": "https://www.skyjack.com/product/sj472632-e",
+    "nome": "SJ4726/32 E",
+    "resumo": "",
+    "tabela": [
+      {
+        "colunas": [
+          "",
+          "SJ4726 E",
+          "SJ4732 E"
+        ],
+        "linhas": [
+          [
+            "",
+            "SJ4726 E",
+            "SJ4732 E"
+          ],
+          [
+            "Work Height",
+            "31’ 8” (9.65 m)",
+            "37’ 8” (11.48 m)"
+          ],
+          [
+            "Raised Platform Height",
+            "25’ 8” (7.82 m)",
+            "31’ 8” (9.65 m)"
+          ],
+          [
+            "Lowered Platform Height",
+            "46” (1.17 m)",
+            "50” (1.27 m)"
+          ],
+          [
+            "Overall Width",
+            "47” (1.20 m)",
+            "47” (1.20 m)"
+          ],
+          [
+            "Overall Length",
+            "91.6” (2.32 m)",
+            "91.6” (2.32 m)"
+          ],
+          [
+            "Stowed Height (Rails Up)",
+            "90” (2.29 m)",
+            "94” (2.39 m)"
+          ],
+          [
+            "Stowed Height (Rails Down)",
+            "75” (1.90 m)",
+            "78.5” (1.99 m)"
+          ],
+          [
+            "Platform Width (Inside Dimension)",
+            "42” (1.07 m)",
+            "42” (1.07 m)"
+          ],
+          [
+            "Platform Length (Inside Dimension)",
+            "83” (2.11 m)",
+            "83” (2.11 m)"
+          ],
+          [
+            "Extension Deck (Roll Out)",
+            "4’ (1.22 m)",
+            "4’ (1.22 m)"
+          ],
+          [
+            "Ground Clearance",
+            "0.5” (1.3 cm)",
+            "0.5” (1.3 cm)"
+          ],
+          [
+            "Ground Clearance (raised)",
+            "4.0” (10.2 cm)",
+            "4.0” (10.2 cm)"
+          ],
+          [
+            "Wheelbase",
+            "69” (1.75 m)",
+            "69” (1.75 m)"
+          ],
+          [
+            "Weight",
+            "4,362 lbs (1,979 kg)",
+            "5,478 lbs (2,485 kg)"
+          ],
+          [
+            "Gradeability",
+            "25%",
+            "25%"
+          ],
+          [
+            "Turning Radius (Inside)",
+            "28” (0.71 m)",
+            "28” (0.71 m)"
+          ],
+          [
+            "Turning Radius (Outside)",
+            "104” (2.64 m)",
+            "104” (2.64 m)"
+          ],
+          [
+            "Lift Time (With Rated Load)",
+            "60 sec",
+            "64 sec"
+          ],
+          [
+            "Lower Time (With Rated Load)",
+            "43 sec",
+            "41 sec"
+          ],
+          [
+            "Drive Speed (Stowed)",
+            "2.1 mph (3.4 km/h)",
+            "2.1 mph (3.4 km/h)"
+          ],
+          [
+            "Drive Speed (Raised)",
+            "0.6 mph (1.0 km/h)",
+            "0.6 mph (1.0 km/h)"
+          ],
+          [
+            "Maximum Drive Height",
+            "Full Height",
+            "Full Height"
+          ],
+          [
+            "Capacity (Overall)",
+            "1,000 lbs (454 kg)",
+            "700 lbs (318 kg)"
+          ],
+          [
+            "Distributed Capacity (Main Platform)",
+            "700 lbs (318 kg)",
+            "450 lbs (204 kg)"
+          ],
+          [
+            "Distributed Capacity (Extension Deck)",
+            "300 lbs (136 kg)",
+            "250 lbs (113 kg)"
+          ],
+          [
+            "Local Floor Load (With Rated Load)",
+            "119 psi (820 kPa)",
+            "124 psi (856 kPa)"
+          ],
+          [
+            "Overall Floor Load (With Rated Load)",
+            "178 psf (869 kg/m2)",
+            "205 psf (1,001 kg/m2)"
+          ],
+          [
+            "Maximum # of Persons",
+            "3",
+            "2"
+          ],
+          [
+            "Wind Rating",
+            "1",
+            "1"
+          ],
+          [
+            "Tire Type",
+            "Solid, N/M",
+            "Solid, N/M"
+          ],
+          [
+            "Tire Size",
+            "16 x 5 x 12",
+            "16 x 5 x 12"
+          ]
+        ]
+      }
+    ],
+    "imagens": [
+      {
+        "arquivo": "/images/machines/skyjack/sj4726-32-e/01-giro.png",
+        "papel": "giro",
+        "largura": 700,
+        "altura": 800,
+        "bytes": 1232525,
+        "fonte": "https://www.skyjack.com/sites/default/files/2024-01/sj4726e_360_0001.png"
+      },
+      {
+        "arquivo": "/images/machines/skyjack/sj4726-32-e/02-giro.png",
+        "papel": "giro",
+        "largura": 700,
+        "altura": 800,
+        "bytes": 1238234,
+        "fonte": "https://www.skyjack.com/sites/default/files/2024-01/sj4726e_360_0004.png"
+      },
+      {
+        "arquivo": "/images/machines/skyjack/sj4726-32-e/03-giro.png",
+        "papel": "giro",
+        "largura": 700,
+        "altura": 800,
+        "bytes": 1161427,
+        "fonte": "https://www.skyjack.com/sites/default/files/2024-01/sj4726e_360_0007.png"
+      },
+      {
+        "arquivo": "/images/machines/skyjack/sj4726-32-e/04-giro.png",
+        "papel": "giro",
+        "largura": 700,
+        "altura": 800,
+        "bytes": 1211078,
+        "fonte": "https://www.skyjack.com/sites/default/files/2024-01/sj4726e_360_0010.png"
+      },
+      {
+        "arquivo": "/images/machines/skyjack/sj4726-32-e/05-giro.png",
+        "papel": "giro",
+        "largura": 700,
+        "altura": 800,
+        "bytes": 1194503,
+        "fonte": "https://www.skyjack.com/sites/default/files/2024-01/sj4726e_360_0013.png"
+      }
+    ],
+    "ficha_tecnica": {
+      "arquivo": "/datasheets/skyjack/sj4726-32-e.pdf",
+      "bytes": 428531,
+      "fonte": "https://www.skyjack.com/sites/default/files/literature-library/NA_ENG_SJ4726_32E_TEAR_SHEET.pdf",
+      "idioma": "en"
+    },
+    "folhetos": [
+      {
+        "rotulo": "FEATURES BROCHURE",
+        "url": "https://www.skyjack.com/sites/default/files/literature-library/NA_ENG_EDRIVE_SCISSORS_FB_BROCHURE.pdf"
+      }
+    ]
+  }
+]
