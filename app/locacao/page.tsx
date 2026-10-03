@@ -1,386 +1,401 @@
-"use client";
-
-import Link from "next/link";
+import type { Metadata } from "next";
 import Image from "next/image";
-import {
-  ShieldCheck,
-  DollarSign,
-  Wrench,
-  Sliders,
-  TrendingUp,
-  Truck,
-} from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, BadgeCheck, CalendarClock, Gauge, Headset, MessageCircle, PackageCheck, Wallet, Wrench } from "lucide-react";
+import FadeUp from "@/components/FadeUp";
+import MachineCard from "@/components/MachineCard";
 import QuoteForm from "@/components/QuoteForm";
-import Steps from "@/components/Steps";
-import { useState } from "react";
-import { SITE } from "@/lib/constants";
+import { SITE, whatsappLink } from "@/lib/constants";
+import { getProduct, type Product } from "@/lib/products";
 
-const BENEFITS = [
+export const metadata: Metadata = {
+  title: "Locação de empilhadeiras | Empilhatec Empilhadeiras",
+  description:
+    "Locação de empilhadeiras STILL e Linde em Manaus, com entrega ágil pelo Norte do país e assistência técnica do dealer autorizado.",
+};
+
+// PONTOS A CONFIRMAR COM O CLIENTE (texto provisório, escrito a partir do que se sabe do negócio e do setor):
+// prazos de contrato, o que a locação inclui (manutenção, frete, treinamento) e locação com operador.
+
+const POR_QUE = [
   {
-    icon: Truck,
-    title: "Entrega Rápida no Amazonas",
-    body: "Cobertura em todo o estado do Amazonas com estoque próprio. Logística ágil para Manaus e região metropolitana. Suas operações não param esperando por equipamento.",
+    icon: Wallet,
+    title: "Caixa preservado",
+    text: "Em vez de imobilizar capital na compra do equipamento, você mantém o dinheiro para o que move o seu negócio.",
   },
   {
-    icon: ShieldCheck,
-    title: "Operação Sem Preocupações",
-    body: "Em caso de quebra ou manutenção, realizamos substituição do equipamento. Assistência técnica especializada sempre disponível para manter sua operação funcionando.",
+    icon: CalendarClock,
+    title: "Custo previsível",
+    text: "Um valor planejado ao longo do contrato, sem surpresas com manutenção pesada e reposição de componentes.",
   },
   {
-    icon: DollarSign,
-    title: "Investimento Previsível",
-    body: "Valor mensal fixo que inclui manutenção preventiva e corretiva, peças de reposição e suporte técnico. Você planeja seus custos com precisão, sem imprevistos.",
-  },
-  {
-    icon: Wrench,
-    title: "Assistência Técnica Especializada",
-    body: "Técnicos certificados e treinados diretamente pela STILL. Peças genuínas disponíveis. Atendimento prioritário para clientes de locação em todo o Amazonas.",
-  },
-  {
-    icon: Sliders,
-    title: "Flexibilidade Operacional",
-    body: "Ajuste a quantidade de equipamentos conforme picos sazonais ou mudanças na operação. Contratos flexíveis que acompanham as necessidades da sua empresa, sem amarras.",
-  },
-  {
-    icon: TrendingUp,
-    title: "Otimização Financeira",
-    body: "Despesa operacional dedutível. Não imobiliza recursos que podem ser investidos no core business. Acesso a equipamentos de última geração sem comprometer seu caixa.",
+    icon: Gauge,
+    title: "Frota na medida da operação",
+    text: "Mais máquinas nos picos de produção e na safra, menos quando o ritmo cai. A frota acompanha a sua demanda.",
   },
 ];
 
-const BASE = "https://data.still.de/bilder/001";
-
-const EQUIPMENT = [
-  { name: "Empilhadeira Contrabalançada", image: `${BASE}/RCE_20_25.png`, href: "/maquinas?categoria=contrabalancada", brands: ["STILL"] },
-  { name: "Retrátil", image: `${BASE}/FM-X_17-20.png`, href: "/maquinas?categoria=retratil", brands: ["STILL"] },
-  { name: "Patolada", image: `${BASE}/EGV_16_NG.png`, href: "/maquinas?categoria=patolada", brands: ["STILL"] },
-  { name: "Transpaleteira", image: `${BASE}/ERX_27.png`, href: "/maquinas?categoria=transpaleteira", brands: ["STILL"] },
-  { name: "Selecionadora de Pedidos", image: "https://data.still.de/assets/products/Vehicles/Order_Pickers/OPX_20-25/images/OPX-20_800x800.png?w=800&fit=max&fm=webp", href: "/maquinas?categoria=selecionadora", brands: ["STILL"] },
-];
-
-const COMPARISON = [
+const PARA_QUEM = [
   {
-    label: "Preservação de Caixa",
-    compra: "Capital imobilizado no ativo",
-    locacao: "Caixa 100% livre para o negócio",
+    title: "Indústria",
+    text: "Linhas de produção do Polo Industrial de Manaus pedem equipamento disponível em todos os turnos.",
+    image: "/images/locacao/setor-industria.webp",
   },
   {
-    label: "Previsibilidade de Custos",
-    compra: "Manutenção gera custos imprevistos",
-    locacao: "Mensalidade fixa, sem surpresas",
+    title: "Logística e distribuição",
+    text: "Carga e descarga de caminhões e movimentação de paletes com agilidade, do cais ao estoque.",
+    image: "/images/locacao/setor-logistica.webp",
   },
   {
-    label: "Disponibilidade da Frota",
-    compra: "Paradas dependem do seu time técnico",
-    locacao: "Substituição garantida em caso de falha",
+    title: "Alimentos e bebidas",
+    text: "Giro rápido e ambientes internos, onde as máquinas elétricas fazem diferença no dia a dia.",
+    image: "/images/locacao/setor-alimentos-bebidas.webp",
   },
   {
-    label: "Idade Média da Frota",
-    compra: "Equipamento envelhece sem renovação",
-    locacao: "Frota sempre nova, sem envelhecimento",
-  },
-  {
-    label: "Foco no Core Business",
-    compra: "Gestão de frota consome tempo e recursos",
-    locacao: "Zero preocupação com o equipamento",
-  },
-  {
-    label: "Proteção contra Obsolescência",
-    compra: "Risco de desvalorização e revenda difícil",
-    locacao: "Sem risco de ativo — troca quando quiser",
+    title: "Eletroeletrônicos",
+    text: "Movimentação cuidadosa de componentes e produtos de alto valor agregado.",
+    image: "/images/locacao/setor-eletroeletronicos.webp",
   },
 ];
 
-const container = "max-w-7xl mx-auto px-4 sm:px-8 lg:px-12";
+const SUPORTE = [
+  { icon: Wrench, title: "Manutenção preventiva e corretiva", text: "Equipe técnica da Empilhatec, que conhece as máquinas STILL e Linde." },
+  { icon: BadgeCheck, title: "Peças originais", text: "Reposição com peças do fabricante e estoque em Manaus." },
+  { icon: Headset, title: "Atendimento próximo", text: "Um time na sua região para resolver o que aparecer, sem depender de assistência distante." },
+  { icon: PackageCheck, title: "Orientação na escolha", text: "Ajudamos a definir o tipo, a capacidade e a energia certos para o seu galpão." },
+];
+
+const PASSOS = [
+  { n: "01", title: "Conte o que você precisa", text: "Tipo de equipamento, capacidade e período de uso." },
+  { n: "02", title: "Receba uma proposta sob medida", text: "Indicamos o modelo ideal e o formato de contrato." },
+  { n: "03", title: "Entrega ágil pelo Norte do país", text: "O equipamento chega até a sua operação." },
+  { n: "04", title: "Acompanhamento durante o contrato", text: "Assistência técnica e suporte para a máquina não parar." },
+];
+
+const FROTA_IDS = ["fmx-17-20", "rce-20-25", "linde-h20-h35", "exh-20", "erx-27", "sj4726-32-e"];
 
 export default function LocacaoPage() {
-  const [active, setActive] = useState<string | null>(null);
+  const frota = FROTA_IDS.map((id) => getProduct(id)).filter((p): p is Product => Boolean(p));
 
   return (
     <>
-      {/* ── Hero ─────────────────────────────────────────────────────── */}
-      <section className="relative w-full overflow-hidden mt-16 lg:mt-[4.5rem] aspect-[4/3] md:aspect-auto md:h-[clamp(400px,52vh,600px)]">
+      {/* 1. Topo */}
+      <section className="relative mt-16 overflow-hidden bg-[#1C1C1E] lg:mt-[4.5rem]">
         <Image
-          src="/images/locacao-banner.jpg"
-          alt="Empilhadeiras STILL no galpão"
+          src="/images/locacao/hero-carga-caminhao.webp"
+          alt="Transpaleteira STILL carregando um caminhão"
           fill
-          className="object-cover object-center"
           priority
-          sizes="100vw"
-          quality={95}
-        />
-        <div className="absolute inset-0" style={{ background: "linear-gradient(to right, rgba(28,28,30,0.72) 0%, rgba(28,28,30,0.50) 35%, rgba(28,28,30,0.08) 60%, rgba(28,28,30,0) 75%)" }} />
-        <div className="site-container relative h-full flex items-end pb-12 lg:pb-16">
-          <div>
-            <h1 className="font-display text-white tracking-wide leading-none" style={{ fontSize: "clamp(2.6rem, 4.5vw, 5.2rem)" }}>
-              Locação
-            </h1>
-            <div className="w-12 h-0.5 bg-[#E85A00] mt-4 mb-6" />
-            <div className="flex flex-wrap gap-3">
-              <Link
-                href="/maquinas"
-                className="inline-flex items-center gap-2 border border-white/70 hover:border-white text-white font-semibold px-7 py-3.5 rounded-xl transition-colors"
-              >
-                Ver Equipamentos
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Vantagens ────────────────────────────────────────────────── */}
-      <section className="py-16 lg:py-24 bg-white">
-        <div className={container}>
-          <h2
-            className="font-display text-[#1C1C1E] tracking-wide mb-12"
-            style={{ fontSize: "clamp(1.8rem, 3vw, 3rem)" }}
-          >
-            Vantagens da Locação
-          </h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {BENEFITS.map(({ icon: Icon, title, body }) => {
-              const isActive = active === title;
-              return (
-                <button
-                  key={title}
-                  onClick={() => setActive(isActive ? null : title)}
-                  className={`flex flex-col gap-3 p-5 rounded-xl border text-left transition-all duration-200 cursor-pointer
-                    ${isActive
-                      ? "bg-[#E85A00] border-[#E85A00] shadow-lg scale-[1.02]"
-                      : "bg-[#F5F5F7] border-gray-200 hover:border-[#E85A00]/40 hover:shadow-md"
-                    }`}
-                >
-                  <Icon size={28} strokeWidth={1.25} className={isActive ? "text-white" : "text-[#E85A00]"} />
-                  <div>
-                    <h3 className={`font-sans font-bold text-base leading-snug mb-1.5 ${isActive ? "text-white" : "text-[#1C1C1E]"}`}>
-                      {title}
-                    </h3>
-                    <p className={`font-sans text-sm leading-relaxed ${isActive ? "text-white/90" : "text-[#3D3D3D]"}`}>
-                      {body}
-                    </p>
-                  </div>
-                </button>
-              );
-            })}
-          </div>
-          <div className="flex flex-wrap gap-3 mt-12">
-            <Link
-              href="/maquinas"
-              className="inline-flex items-center gap-2 border border-gray-400 hover:border-gray-700 text-[#1C1C1E] font-semibold px-7 py-3.5 rounded-xl transition-colors"
-            >
-              Ver Equipamentos
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Tabela Comparativa ───────────────────────────────────────── */}
-      <section className="py-16 lg:py-24 bg-[#F5F5F7]">
-        <div className={container}>
-
-          {/* Cabeçalho */}
-          <div className="mb-10">
-            <div className="flex items-center justify-center gap-3 mb-8">
-              <span className="w-6 h-0.5 bg-[#E85A00]" />
-              <span className="text-[#E85A00] text-xs font-semibold uppercase tracking-widest">Tabela Comparativa</span>
-              <span className="w-6 h-0.5 bg-[#E85A00]" />
-            </div>
-            <div className="hidden sm:grid grid-cols-[1fr_140px_1fr] items-center gap-6">
-              <div className="text-right">
-                <h2 className="font-display font-bold text-[#E85A00] tracking-wide leading-tight" style={{ fontSize: "clamp(1.5rem, 2.4vw, 2.4rem)" }}>
-                  Compra de<br />Equipamento
-                </h2>
-                <p className="text-gray-700 text-sm mt-2 leading-snug">
-                  Imobiliza capital e gera custos ocultos<br />com manutenção e depreciação.
-                </p>
-              </div>
-              <div className="flex flex-col items-center gap-3">
-                <div className="w-14 h-14 rounded-full bg-[#E85A00] flex items-center justify-center">
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                    <g transform="translate(24,0) scale(-1,1)">
-                      <path d="M3 17a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M12 17a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
-                      <path d="M7 17l5 0" /><path d="M3 17v-6h13v6" /><path d="M5 11v-4h4" />
-                      <path d="M9 11v-6h4l3 6" /><path d="M22 15h-3v-10" /><path d="M16 13l3 0" />
-                    </g>
-                  </svg>
-                </div>
-                <span className="font-display text-[#1C1C1E] text-2xl tracking-widest">VS</span>
-                <div className="w-14 h-14 rounded-full bg-[#1C1C1E] flex items-center justify-center">
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                    <g transform="translate(24,0) scale(-1,1)">
-                      <path d="M3 17a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M12 17a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
-                      <path d="M7 17l5 0" /><path d="M3 17v-6h13v6" /><path d="M5 11v-4h4" />
-                      <path d="M9 11v-6h4l3 6" /><path d="M22 15h-3v-10" /><path d="M16 13l3 0" />
-                    </g>
-                  </svg>
-                </div>
-              </div>
-              <div>
-                <h2 className="font-display font-bold text-[#1C1C1E] tracking-wide leading-tight" style={{ fontSize: "clamp(1.5rem, 2.4vw, 2.4rem)" }}>
-                  Locação<br />de Frota
-                </h2>
-                <p className="text-gray-700 text-sm mt-2 leading-snug">
-                  Custos fixos, manutenção inclusa, alta<br />disponibilidade e vantagens fiscais.
-                </p>
-              </div>
-            </div>
-            <div className="sm:hidden flex items-center justify-around">
-              <h2 className="font-display font-bold text-[#E85A00] text-xl tracking-wide">Compra</h2>
-              <span className="font-display text-[#1C1C1E] text-3xl tracking-widest">VS</span>
-              <h2 className="font-display font-bold text-[#1C1C1E] text-xl tracking-wide">Locação</h2>
-            </div>
-          </div>
-
-          {/* Linhas de comparação */}
-          <div className="flex flex-col divide-y divide-gray-200 border border-gray-200 rounded-2xl overflow-hidden">
-            {COMPARISON.map(({ label, compra, locacao }, i) => (
-              <div key={label} className={i % 2 === 0 ? "bg-white" : "bg-[#F9F9FB]"}>
-
-                <div className="sm:hidden px-4 py-4 flex flex-col gap-3">
-                  <span className="text-[#1C1C1E] font-bold text-[10px] uppercase tracking-widest text-center bg-[#F5F5F7] py-1 rounded">{label}</span>
-                  <div className="flex items-center gap-3">
-                    <span className="shrink-0 w-6 h-6 rounded-full bg-[#1C1C1E] flex items-center justify-center text-white text-xs font-bold">✓</span>
-                    <span className="text-[#1C1C1E] font-semibold text-sm leading-snug">{locacao}</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <span className="shrink-0 w-6 h-6 rounded-full bg-[#F0F0F0] flex items-center justify-center text-gray-400 text-xs font-bold">✕</span>
-                    <span className="text-gray-500 text-sm leading-snug">{compra}</span>
-                  </div>
-                </div>
-
-                <div className="hidden sm:grid grid-cols-[1fr_160px_1fr] items-stretch">
-                  <div className="flex items-center justify-end gap-3 px-5 py-4 border-r border-gray-200">
-                    <span className="text-gray-800 text-sm leading-snug text-right">{compra}</span>
-                    <span className="shrink-0 w-6 h-6 rounded-full bg-[#F0F0F0] flex items-center justify-center text-gray-400 text-xs font-bold">✕</span>
-                  </div>
-                  <div className="flex items-center justify-center px-3 py-4 bg-[#F5F5F7] border-x border-gray-200">
-                    <span className="text-[#1C1C1E] font-bold text-[10px] sm:text-xs uppercase tracking-wide leading-tight text-center">{label}</span>
-                  </div>
-                  <div className="flex items-center gap-3 px-5 py-4">
-                    <span className="shrink-0 w-6 h-6 rounded-full bg-[#1C1C1E] flex items-center justify-center text-white text-xs font-bold">✓</span>
-                    <span className="text-[#1C1C1E] font-semibold text-sm leading-snug">{locacao}</span>
-                  </div>
-                </div>
-
-              </div>
-            ))}
-          </div>
-
-        </div>
-      </section>
-
-      {/* ── Banner intermediário ──────────────────────────────────────── */}
-      <section className="relative overflow-hidden" style={{ height: "clamp(240px, 32vw, 460px)" }}>
-        <Image
-          src="/images/locacao-galpao-09.jpg"
-          alt="Empilhadeira em operação no galpão"
-          fill
-          className="object-cover object-center"
-          sizes="100vw"
           quality={90}
+          sizes="100vw"
+          className="object-cover object-center opacity-45"
         />
-        <div className="absolute inset-0" style={{ background: "linear-gradient(to right, rgba(28,28,30,0.82) 0%, rgba(28,28,30,0.55) 40%, rgba(28,28,30,0.10) 70%, rgba(28,28,30,0) 100%)" }} />
-        <div className="relative z-10 h-full flex items-center">
-          <div className={`${container} w-full`}>
-            <h2
-              className="font-display text-white tracking-wide leading-tight mb-8"
-              style={{ fontSize: "clamp(1.8rem, 3.8vw, 4rem)" }}
-            >
-              Com a Locação<br />Seu Negócio<br />Nunca Para
-            </h2>
-            <a
-              href={`https://wa.me/${SITE.whatsapp}?text=Olá!%20Quero%20solicitar%20uma%20cotação%20de%20locação.`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center border border-white text-white text-sm font-semibold uppercase tracking-widest px-7 py-3 rounded-xl hover:bg-white hover:text-[#1C1C1E] transition-colors"
-            >
-              Solicite sua cotação
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Equipamentos ─────────────────────────────────────────────── */}
-      <section className="py-16 lg:py-24 bg-white">
-        <div className={container}>
-          <div className="text-center mb-12">
-            <span className="text-[#E85A00] text-sm font-semibold uppercase tracking-widest">
-              Frota Disponível
+        <div className="absolute inset-0 bg-gradient-to-r from-[#1C1C1E] via-[#1C1C1E]/80 to-transparent" aria-hidden />
+        <div className="site-container relative py-16 lg:py-28">
+          <div className="max-w-2xl">
+            <span className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-white">
+              <BadgeCheck size={14} className="text-[#E85A00]" /> Dealer autorizado STILL e Linde
             </span>
-            <h2
-              className="font-display text-[#1C1C1E] mt-2 tracking-wide"
-              style={{ fontSize: "clamp(1.8rem, 3vw, 3rem)" }}
-            >
-              Equipamentos para Locação
-            </h2>
-            <p className="text-gray-500 mt-3 max-w-xl mx-auto">
-              Clique no equipamento para ver as especificações técnicas completas.
+            <h1 className="mt-5 font-display leading-[0.95] text-white" style={{ fontSize: "clamp(2.6rem, 5vw, 5rem)" }}>
+              Locação de empilhadeiras para a sua operação render mais.
+            </h1>
+            <p className="mt-6 text-lg leading-relaxed text-gray-300">
+              Equipamento certo, entrega ágil pelo Norte do país e assistência técnica de quem conhece a máquina.
             </p>
-          </div>
-
-          <div className="flex gap-4 overflow-x-auto pb-2" style={{ scrollbarWidth: "none" }}>
-            {EQUIPMENT.map((eq) => (
-              <Link
-                key={eq.name}
-                href={eq.href}
-                className="group shrink-0 w-52 bg-[#F5F5F7] rounded-xl overflow-hidden border border-gray-100 hover:border-[#E85A00]/40 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300"
-              >
-                <div className="aspect-square bg-white relative">
-                  <Image
-                    src={eq.image}
-                    alt={eq.name}
-                    fill
-                    className="object-contain p-6 group-hover:scale-105 transition-transform"
-                    sizes="208px"
-                  />
-                </div>
-                <div className="p-4 pb-5">
-                  <p className="text-[#1C1C1E] font-bold text-base leading-tight mb-3">{eq.name}</p>
-                  <div className="flex flex-wrap gap-1.5">
-                    {eq.brands.map((brand) => (
-                      <span
-                        key={brand}
-                        className="text-[10px] font-semibold uppercase tracking-wide text-gray-500 border border-gray-200 rounded-full px-2.5 py-1 bg-white"
-                      >
-                        {brand}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Cotação ──────────────────────────────────────────────────── */}
-      <section className="bg-[#F5F5F7] py-16 lg:py-24">
-        <div className={container}>
-          <div className="grid lg:grid-cols-[1fr_1.4fr] gap-12 lg:gap-20 items-start">
-            <div className="lg:sticky lg:top-28">
-              <div className="flex items-center gap-2 mb-5">
-                <span className="w-6 h-0.5 bg-[#E85A00]" />
-                <span className="text-[#E85A00] text-sm font-semibold uppercase tracking-widest">
-                  Solicite sua cotação
-                </span>
-              </div>
-              <h2
-                className="font-display font-normal text-[#1C1C1E] tracking-wide leading-none mb-5"
-                style={{ fontSize: "clamp(1.8rem, 3vw, 3.2rem)" }}
-              >
-                Proposta Personalizada em até 24h
-              </h2>
-              <div className="w-12 h-0.5 bg-[#E85A00] mb-6" />
-              <Steps />
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a
-                href={`https://wa.me/${SITE.whatsapp}?text=Olá!%20Quero%20uma%20cotação%20de%20locação%20de%20empilhadeiras.`}
+                href="#proposta"
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#E85A00] px-7 py-4 font-semibold text-white transition hover:bg-[#C44A00]"
+              >
+                Solicitar proposta <ArrowRight size={18} />
+              </a>
+              <a
+                href={whatsappLink("Olá! Quero uma proposta de locação de empilhadeira.")}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#1ebe59] text-white font-semibold px-6 py-3 rounded-full transition-colors text-sm"
+                className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/25 px-7 py-4 font-semibold text-white transition hover:border-white hover:bg-white/10"
               >
-                Ou fale pelo WhatsApp
+                <MessageCircle size={18} /> Falar no WhatsApp
               </a>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 2. Por que locar */}
+      <section className="section-py bg-white">
+        <div className="site-container">
+          <div className="max-w-2xl">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#E85A00]">Por que locar</p>
+            <h2 className="mt-3 font-display leading-none text-[#1C1C1E]" style={{ fontSize: "clamp(2rem, 3.6vw, 3.4rem)" }}>
+              Mais eficiência, sem imobilizar capital
+            </h2>
+          </div>
+          <div className="mt-10 grid gap-6 md:grid-cols-3">
+            {POR_QUE.map((b, i) => (
+              <FadeUp key={b.title} delay={i * 0.08}>
+                <div className="h-full rounded-2xl border border-gray-200 p-7">
+                  <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#E85A00]/10 text-[#E85A00]">
+                    <b.icon size={24} />
+                  </span>
+                  <h3 className="mt-5 text-xl font-bold text-[#1C1C1E]">{b.title}</h3>
+                  <p className="mt-2 leading-relaxed text-gray-600">{b.text}</p>
+                </div>
+              </FadeUp>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 3. Dealer STILL */}
+      <section className="bg-[#1C1C1E]">
+        <div className="site-container grid items-center gap-10 py-14 lg:grid-cols-2 lg:gap-16 lg:py-20">
+          <div className="relative aspect-[16/10] overflow-hidden rounded-3xl">
+            <Image
+              src="/images/locacao/still-dealer.webp"
+              alt="Empilhadeira STILL em operação"
+              fill
+              quality={90}
+              sizes="(min-width:1024px) 45vw, 100vw"
+              className="object-cover"
+            />
+          </div>
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#E85A00]">Dealer autorizado</p>
+            <h2 className="mt-3 font-display leading-none text-white" style={{ fontSize: "clamp(2rem, 3.6vw, 3.4rem)" }}>
+              STILL e Linde, com a assistência de fábrica na sua região
+            </h2>
+            <p className="mt-5 text-lg leading-relaxed text-gray-300">
+              STILL e Linde fazem parte do KION Group, um dos maiores fabricantes de equipamentos de movimentação de
+              materiais do mundo. Como dealer autorizado no Amazonas e em Roraima, a Empilhatec reúne equipamentos,
+              peças e padrão técnico de fábrica, e entrega de forma ágil pelo Norte do país.
+            </p>
+            <ul className="mt-6 space-y-3 text-gray-200">
+              {[
+                "Linha completa: contrabalançadas, retráteis, patoladas, transpaleteiras e mais",
+                "Opções elétricas, a GLP e a diesel",
+                "Peças originais e assistência técnica autorizada",
+              ].map((t) => (
+                <li key={t} className="flex gap-3">
+                  <BadgeCheck size={20} className="mt-0.5 shrink-0 text-[#E85A00]" /> {t}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. Para quem é */}
+      <section className="section-py bg-[#F5F5F7]">
+        <div className="site-container">
+          <div className="max-w-2xl">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#E85A00]">Para quem é</p>
+            <h2 className="mt-3 font-display leading-none text-[#1C1C1E]" style={{ fontSize: "clamp(2rem, 3.6vw, 3.4rem)" }}>
+              Soluções para cada tipo de operação
+            </h2>
+          </div>
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {PARA_QUEM.map((s, i) => (
+              <FadeUp key={s.title} delay={i * 0.06}>
+                <article className="group flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-sm transition hover:shadow-xl">
+                  <div className="relative aspect-[4/3]">
+                    <Image
+                      src={s.image}
+                      alt={s.title}
+                      fill
+                      sizes="(min-width:1024px) 22vw, (min-width:640px) 45vw, 100vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-lg font-bold text-[#1C1C1E]">{s.title}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-gray-600">{s.text}</p>
+                  </div>
+                </article>
+              </FadeUp>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 5. Suporte durante a locação */}
+      <section className="section-py bg-white">
+        <div className="site-container grid items-center gap-10 lg:grid-cols-[1fr_1.1fr] lg:gap-16">
+          <div className="relative aspect-[4/3] overflow-hidden rounded-3xl">
+            <Image
+              src="/images/locacao/suporte-manutencao.webp"
+              alt="Técnico fazendo manutenção em empilhadeira"
+              fill
+              sizes="(min-width:1024px) 40vw, 100vw"
+              className="object-cover"
+            />
+          </div>
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#E85A00]">Suporte na locação</p>
+            <h2 className="mt-3 font-display leading-none text-[#1C1C1E]" style={{ fontSize: "clamp(2rem, 3.6vw, 3.4rem)" }}>
+              Quem aluga também conta com quem conhece a máquina
+            </h2>
+            <div className="mt-8 grid gap-6 sm:grid-cols-2">
+              {SUPORTE.map((s) => (
+                <div key={s.title} className="flex gap-4">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-[#E85A00]/10 text-[#E85A00]">
+                    <s.icon size={22} />
+                  </span>
+                  <div>
+                    <h3 className="font-bold text-[#1C1C1E]">{s.title}</h3>
+                    <p className="mt-1 text-sm leading-relaxed text-gray-600">{s.text}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. Equipamentos para locar */}
+      <section className="section-py bg-[#F5F5F7]">
+        <div className="site-container">
+          <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+            <div className="max-w-2xl">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#E85A00]">Equipamentos</p>
+              <h2 className="mt-3 font-display leading-none text-[#1C1C1E]" style={{ fontSize: "clamp(2rem, 3.6vw, 3.4rem)" }}>
+                Máquinas disponíveis para locação
+              </h2>
+            </div>
+            <Link href="/maquinas" className="group inline-flex items-center gap-2 font-semibold text-[#E85A00]">
+              Ver todas as máquinas <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
+            </Link>
+          </div>
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {frota.map((p) => (
+              <MachineCard key={p.id} product={p} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 7. Como funciona */}
+      <section className="section-py bg-white">
+        <div className="site-container">
+          <div className="max-w-2xl">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#E85A00]">Como funciona</p>
+            <h2 className="mt-3 font-display leading-none text-[#1C1C1E]" style={{ fontSize: "clamp(2rem, 3.6vw, 3.4rem)" }}>
+              Do primeiro contato à máquina trabalhando
+            </h2>
+          </div>
+          <ol className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            {PASSOS.map((p) => (
+              <li key={p.n} className="relative border-t-2 border-[#E85A00] pt-5">
+                <span className="text-4xl font-extrabold leading-none text-[#E85A00]/30">{p.n}</span>
+                <h3 className="mt-3 text-lg font-bold text-[#1C1C1E]">{p.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-gray-600">{p.text}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      {/* 8. Locação ou compra */}
+      <section className="section-py bg-[#F5F5F7]">
+        <div className="site-container">
+          <div className="max-w-2xl">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#E85A00]">Locação ou compra?</p>
+            <h2 className="mt-3 font-display leading-none text-[#1C1C1E]" style={{ fontSize: "clamp(2rem, 3.6vw, 3.4rem)" }}>
+              A escolha depende da sua operação
+            </h2>
+          </div>
+          <div className="mt-10 grid gap-6 md:grid-cols-2">
+            <div className="rounded-2xl border-2 border-[#E85A00] bg-white p-8">
+              <h3 className="text-xl font-bold text-[#E85A00]">Locação</h3>
+              <ul className="mt-4 space-y-3 text-gray-700">
+                {[
+                  "Preserva o capital da empresa",
+                  "Custo mensal planejado",
+                  "Frota que acompanha picos e safras",
+                  "Manutenção e assistência com a Empilhatec",
+                ].map((t) => (
+                  <li key={t} className="flex gap-3"><BadgeCheck size={20} className="mt-0.5 shrink-0 text-[#E85A00]" /> {t}</li>
+                ))}
+              </ul>
+            </div>
+            <div className="rounded-2xl border border-gray-200 bg-white p-8">
+              <h3 className="text-xl font-bold text-[#1C1C1E]">Compra</h3>
+              <ul className="mt-4 space-y-3 text-gray-700">
+                {[
+                  "Equipamento no patrimônio da empresa",
+                  "Indicada para uso intenso e permanente",
+                  "Pode ser combinada com contrato de manutenção",
+                  "Equipamentos novos STILL, Linde e Baoli",
+                ].map((t) => (
+                  <li key={t} className="flex gap-3"><BadgeCheck size={20} className="mt-0.5 shrink-0 text-gray-400" /> {t}</li>
+                ))}
+              </ul>
+              <Link href="/maquinas" className="group mt-6 inline-flex items-center gap-2 font-semibold text-[#E85A00]">
+                Conhecer as máquinas <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+              </Link>
+            </div>
+          </div>
+          <p className="mt-6 text-gray-600">Em dúvida? Nossa equipe compara os dois cenários para a sua operação.</p>
+        </div>
+      </section>
+
+      {/* 9. Empilhatex */}
+      <section className="relative overflow-hidden bg-[#1C1C1E]">
+        <Image
+          src="/images/locacao/empilhatex-litio.webp"
+          alt="Transpaleteira elétrica com bateria de lítio em operação"
+          fill
+          sizes="100vw"
+          className="object-cover opacity-30"
+        />
+        <div className="site-container relative flex flex-col items-start justify-between gap-6 py-14 lg:flex-row lg:items-center lg:py-16">
+          <div className="max-w-2xl">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#E85A00]">Empilhatex</p>
+            <h2 className="mt-3 font-display leading-none text-white" style={{ fontSize: "clamp(1.9rem, 3.2vw, 3rem)" }}>
+              Máquinas elétricas com bateria de lítio para locação
+            </h2>
+            <p className="mt-4 text-lg text-gray-300">
+              Menos paradas para recarga, operação silenciosa e sem emissões no galpão.
+            </p>
+          </div>
+          <Link
+            href="/empilhatex"
+            className="inline-flex shrink-0 items-center gap-2 rounded-xl bg-[#E85A00] px-7 py-4 font-semibold text-white transition hover:bg-[#C44A00]"
+          >
+            Conhecer a Empilhatex <ArrowRight size={18} />
+          </Link>
+        </div>
+      </section>
+
+      {/* 10. Proposta */}
+      <section id="proposta" className="section-py scroll-mt-24 bg-white">
+        <div className="site-container grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#E85A00]">Proposta de locação</p>
+            <h2 className="mt-3 font-display leading-none text-[#1C1C1E]" style={{ fontSize: "clamp(2rem, 3.6vw, 3.4rem)" }}>
+              Solicite a sua proposta
+            </h2>
+            <p className="mt-5 text-lg leading-relaxed text-gray-600">
+              Conte o que você precisa e nossa equipe retorna com uma proposta sob medida.
+            </p>
+            <ul className="mt-8 space-y-4 text-gray-700">
+              <li>
+                <span className="block text-xs uppercase tracking-wider text-gray-400">WhatsApp</span>
+                <a href={whatsappLink("Olá! Quero uma proposta de locação.")} target="_blank" rel="noopener noreferrer" className="font-semibold hover:text-[#E85A00]">
+                  {SITE.whatsappDisplay}
+                </a>
+              </li>
+              <li>
+                <span className="block text-xs uppercase tracking-wider text-gray-400">Telefone</span>
+                <a href={`tel:${SITE.phone.replace(/\D/g, "")}`} className="font-semibold hover:text-[#E85A00]">{SITE.phone}</a>
+              </li>
+              <li>
+                <span className="block text-xs uppercase tracking-wider text-gray-400">E-mail</span>
+                <a href={`mailto:${SITE.email}`} className="font-semibold hover:text-[#E85A00]">{SITE.email}</a>
+              </li>
+            </ul>
+          </div>
+          <div>
             <QuoteForm />
           </div>
         </div>
