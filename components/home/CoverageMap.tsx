@@ -36,27 +36,60 @@ export default function CoverageMap() {
         </div>
 
         <div className="relative">
-          <svg viewBox={BRASIL_VIEWBOX} role="img" aria-label="Mapa do Brasil com o Amazonas e Roraima em destaque" className="mx-auto h-auto w-full max-w-[34rem]">
-            {ESTADOS.map((e) => (
-              <path
-                key={e.sigla}
-                d={e.d}
-                fill={ATENDIDOS.has(e.sigla) ? "#E85A00" : "#E3E3E6"}
-                stroke="#FFFFFF"
-                strokeWidth={0.2}
-                strokeLinejoin="round"
-              />
-            ))}
-            <circle cx={MANAUS.x} cy={MANAUS.y} r={1.9} fill="#1C1C1E" opacity={0.25}>
+          <svg viewBox={BRASIL_VIEWBOX} role="img" aria-label="Mapa do Brasil com o Amazonas e Roraima em destaque" className="mx-auto h-auto w-full max-w-[36rem] overflow-visible">
+            <defs>
+              <linearGradient id="mapa-cinza" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stopColor="#DCDCE1" />
+                <stop offset="1" stopColor="#B4B4BC" />
+              </linearGradient>
+              <linearGradient id="mapa-laranja" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stopColor="#FF7A1F" />
+                <stop offset="1" stopColor="#DE5200" />
+              </linearGradient>
+              <filter id="mapa-sombra" x="-10%" y="-10%" width="125%" height="130%">
+                <feDropShadow dx="0.5" dy="1.1" stdDeviation="0.8" floodColor="#000000" floodOpacity="0.3" />
+              </filter>
+            </defs>
+            {/* espessura (extrusão) + sombra */}
+            <g filter="url(#mapa-sombra)" transform="translate(0.45 0.8)">
+              {ESTADOS.map((e) => (
+                <path key={e.sigla} d={e.d} fill={ATENDIDOS.has(e.sigla) ? "#A33E00" : "#8A8A93"} stroke={ATENDIDOS.has(e.sigla) ? "#A33E00" : "#8A8A93"} strokeWidth={0.2} strokeLinejoin="round" />
+              ))}
+            </g>
+            {/* face superior */}
+            <g>
+              {ESTADOS.map((e) => (
+                <path
+                  key={e.sigla}
+                  d={e.d}
+                  fill={ATENDIDOS.has(e.sigla) ? "url(#mapa-laranja)" : "url(#mapa-cinza)"}
+                  stroke="#FFFFFF"
+                  strokeOpacity={0.9}
+                  strokeWidth={0.22}
+                  strokeLinejoin="round"
+                />
+              ))}
+            </g>
+            {/* sede */}
+            <circle cx={MANAUS.x} cy={MANAUS.y} r={1.9} fill="#FFFFFF" opacity={0.35}>
               <animate attributeName="r" values="0.9;2.6;0.9" dur="2.4s" repeatCount="indefinite" />
-              <animate attributeName="opacity" values="0.4;0;0.4" dur="2.4s" repeatCount="indefinite" />
+              <animate attributeName="opacity" values="0.5;0;0.5" dur="2.4s" repeatCount="indefinite" />
             </circle>
-            <circle cx={MANAUS.x} cy={MANAUS.y} r={0.75} fill="#1C1C1E" stroke="#FFFFFF" strokeWidth={0.3} />
+            <circle cx={MANAUS.x} cy={MANAUS.y} r={0.8} fill="#1C1C1E" stroke="#FFFFFF" strokeWidth={0.3} />
+            <text
+              x={MANAUS.x + 1.5}
+              y={MANAUS.y + 0.45}
+              fontSize={1.5}
+              fontWeight={700}
+              fill="#1C1C1E"
+              stroke="#FFFFFF"
+              strokeWidth={0.45}
+              paintOrder="stroke"
+              style={{ fontFamily: "inherit" }}
+            >
+              Manaus
+            </text>
           </svg>
-          <ul className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-gray-500">
-            <li className="flex items-center gap-2"><span className="h-3 w-3 rounded-sm bg-[#E85A00]" /> Estados atendidos</li>
-            <li className="flex items-center gap-2"><span className="h-3 w-3 rounded-full bg-[#1C1C1E]" /> Sede em Manaus</li>
-          </ul>
         </div>
       </div>
     </section>
