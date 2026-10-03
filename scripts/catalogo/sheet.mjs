@@ -5,7 +5,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 const [dir, out] = process.argv.slice(2);
 const files = (await fs.readdir(dir)).filter((f) => /\.(jpe?g|png|webp)$/i.test(f)).sort();
-const W = 300, H = 200, COLS = 5, rows = Math.ceil(files.length / COLS);
+const W = 250, H = 170, COLS = 6, rows = Math.ceil(files.length / COLS);
 const tiles = await Promise.all(files.map(async (f, i) => {
   const img = await sharp(path.join(dir, f)).resize(W, H, { fit: 'contain', background: '#ffffff' }).flatten({ background: '#ffffff' }).png().toBuffer();
   const label = Buffer.from(`<svg width="${W}" height="22"><rect width="${W}" height="22" fill="#000" opacity="0.7"/><text x="6" y="16" font-size="14" fill="#fff" font-family="Arial">${f.slice(0, 26)}</text></svg>`);
