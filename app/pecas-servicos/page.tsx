@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { BadgeCheck, CalendarCheck, ClipboardCheck, MessageCircle, Package, Phone, ShieldCheck, Wrench } from "lucide-react";
 import FadeUp from "@/components/FadeUp";
+import PageBanner from "@/components/PageBanner";
 import ServiceRequestForm from "@/components/ServiceRequestForm";
 import { SITE, whatsappLink } from "@/lib/constants";
 
@@ -54,43 +55,31 @@ export default function PecasServicosPage() {
   return (
     <>
       {/* Topo */}
-      <section className="relative mt-16 overflow-hidden bg-[#1C1C1E] lg:mt-[4.5rem]">
-        <Image
-          src="/images/pecas-servicos/hero-tecnico.webp"
-          alt="Técnico fazendo a manutenção de uma empilhadeira"
-          fill
-          priority
-          quality={90}
-          sizes="100vw"
-          className="object-cover object-center opacity-40"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#1C1C1E] via-[#1C1C1E]/85 to-transparent" aria-hidden />
-        <div className="site-container relative py-16 lg:py-24">
-          <div className="max-w-2xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#E85A00]">Pós-venda Empilhatec</p>
-            <h1 className="mt-4 font-display leading-[0.95] text-white" style={{ fontSize: "clamp(2.6rem, 5vw, 5rem)" }}>
-              Peças e serviços para a sua frota não parar.
-            </h1>
-            <p className="mt-6 text-lg leading-relaxed text-gray-300">
-              Peças originais e planos de manutenção com a equipe de quem representa a fábrica no Amazonas e em Roraima.
-            </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <a
-                href="#pecas"
-                className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#E85A00] px-7 py-4 font-semibold text-white transition hover:bg-[#C44A00]"
-              >
-                <Package size={18} /> Peças
-              </a>
-              <a
-                href="#assistencia"
-                className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/25 px-7 py-4 font-semibold text-white transition hover:border-white hover:bg-white/10"
-              >
-                <Wrench size={18} /> Planos de manutenção
-              </a>
-            </div>
+      <PageBanner image="/images/banners/pecas-servicos.webp" alt="Técnico fazendo a manutenção de uma empilhadeira" position="center 40%" size="tall">
+        <div className="max-w-2xl">
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#FF7A2B]">Pós-venda Empilhatec</p>
+          <h1 className="mt-4 font-display leading-[0.95] text-white" style={{ fontSize: "clamp(2.6rem, 5vw, 5rem)" }}>
+            Peças e serviços para a sua frota não parar.
+          </h1>
+          <p className="mt-6 text-lg leading-relaxed text-white/95">
+            Peças originais e planos de manutenção com a equipe de quem representa a fábrica no Amazonas e em Roraima.
+          </p>
+          <div className="mt-8 flex flex-col gap-3 [text-shadow:none] sm:flex-row">
+            <a
+              href="#pecas"
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#E85A00] px-7 py-4 font-semibold text-white transition hover:bg-[#C44A00]"
+            >
+              <Package size={18} /> Peças
+            </a>
+            <a
+              href="#assistencia"
+              className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/70 bg-black/20 px-7 py-4 font-semibold text-white transition hover:bg-white hover:text-[#1C1C1E]"
+            >
+              <Wrench size={18} /> Planos de manutenção
+            </a>
           </div>
         </div>
-      </section>
+      </PageBanner>
 
       {/* Fatos */}
       <section className="border-b border-gray-200 bg-white" aria-label="Diferenciais">

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowRight, BadgeCheck, CalendarClock, Gauge, Headset, MessageCircle, PackageCheck, Wallet, Wrench } from "lucide-react";
 import FadeUp from "@/components/FadeUp";
 import MachineCard from "@/components/MachineCard";
+import PageBanner from "@/components/PageBanner";
 import QuoteForm from "@/components/QuoteForm";
 import { SITE, whatsappLink } from "@/lib/constants";
 import { getProduct, type Product } from "@/lib/products";
@@ -80,47 +81,35 @@ export default function LocacaoPage() {
   return (
     <>
       {/* 1. Topo */}
-      <section className="relative mt-16 overflow-hidden bg-[#1C1C1E] lg:mt-[4.5rem]">
-        <Image
-          src="/images/locacao/hero-carga-caminhao.webp"
-          alt="Transpaleteira STILL carregando um caminhão"
-          fill
-          priority
-          quality={90}
-          sizes="100vw"
-          className="object-cover object-center opacity-45"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#1C1C1E] via-[#1C1C1E]/80 to-transparent" aria-hidden />
-        <div className="site-container relative py-16 lg:py-28">
-          <div className="max-w-2xl">
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-white">
-              <BadgeCheck size={14} className="text-[#E85A00]" /> Dealer autorizado STILL e Linde
-            </span>
-            <h1 className="mt-5 font-display leading-[0.95] text-white" style={{ fontSize: "clamp(2.6rem, 5vw, 5rem)" }}>
-              Locação de empilhadeiras para a sua operação render mais.
-            </h1>
-            <p className="mt-6 text-lg leading-relaxed text-gray-300">
-              Equipamento certo, entrega ágil pelo Norte do país e assistência técnica de quem conhece a máquina.
-            </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <a
-                href="#proposta"
-                className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#E85A00] px-7 py-4 font-semibold text-white transition hover:bg-[#C44A00]"
-              >
-                Solicitar proposta <ArrowRight size={18} />
-              </a>
-              <a
-                href={whatsappLink("Olá! Quero uma proposta de locação de empilhadeira.")}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/25 px-7 py-4 font-semibold text-white transition hover:border-white hover:bg-white/10"
-              >
-                <MessageCircle size={18} /> Falar no WhatsApp
-              </a>
-            </div>
+      <PageBanner image="/images/banners/locacao.webp" alt="Empilhadeira subindo a rampa de um caminhão" position="center 55%" size="tall">
+        <div className="max-w-2xl">
+          <span className="inline-flex items-center gap-2 rounded-full border border-white/40 bg-black/25 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-white [text-shadow:none]">
+            <BadgeCheck size={14} className="text-[#FF7A2B]" /> Dealer autorizado STILL e Linde
+          </span>
+          <h1 className="mt-5 font-display leading-[0.95] text-white" style={{ fontSize: "clamp(2.6rem, 5vw, 5rem)" }}>
+            Locação de empilhadeiras para a sua operação render mais.
+          </h1>
+          <p className="mt-6 text-lg leading-relaxed text-white/95">
+            Equipamento certo, entrega ágil pelo Norte do país e assistência técnica de quem conhece a máquina.
+          </p>
+          <div className="mt-8 flex flex-col gap-3 [text-shadow:none] sm:flex-row">
+            <a
+              href="#proposta"
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#E85A00] px-7 py-4 font-semibold text-white transition hover:bg-[#C44A00]"
+            >
+              Solicitar proposta <ArrowRight size={18} />
+            </a>
+            <a
+              href={whatsappLink("Olá! Quero uma proposta de locação de empilhadeira.")}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/70 bg-black/20 px-7 py-4 font-semibold text-white transition hover:bg-white hover:text-[#1C1C1E]"
+            >
+              <MessageCircle size={18} /> Falar no WhatsApp
+            </a>
           </div>
         </div>
-      </section>
+      </PageBanner>
 
       {/* 2. Por que locar */}
       <section className="section-py bg-white">

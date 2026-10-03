@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import FadeUp from "@/components/FadeUp";
+import PageBanner from "@/components/PageBanner";
 import { SITE } from "@/lib/constants";
 import { CATEGORY_INFO, categoriesWithProducts, productsByCategory } from "@/lib/products";
 
@@ -18,19 +19,17 @@ export default function MaquinasPage() {
 
   return (
     <>
-      <section className="mt-16 bg-[#1C1C1E] lg:mt-[4.5rem]">
-        <div className="site-container py-14 lg:py-20">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-[#E85A00]">Catálogo</p>
-          <h1 className="font-display text-white leading-none" style={{ fontSize: "clamp(2.6rem, 4.5vw, 5.2rem)" }}>
-            Máquinas
-          </h1>
-          <div className="mt-4 h-0.5 w-12 bg-[#E85A00]" />
-          <p className="mt-6 max-w-2xl text-lg text-gray-300">
-            Escolha o tipo de equipamento e veja todos os modelos disponíveis, de todas as marcas que representamos.
-          </p>
-          <p className="mt-2 text-sm text-gray-400">{total} equipamentos em {categories.length} categorias</p>
-        </div>
-      </section>
+      <PageBanner image="/images/banners/maquinas.webp" alt="Empilhadeiras STILL em operação numa fábrica" position="center 45%">
+        <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-[#FF7A2B]">Catálogo</p>
+        <h1 className="font-display leading-none text-white" style={{ fontSize: "clamp(2.6rem, 4.5vw, 5.2rem)" }}>
+          Máquinas
+        </h1>
+        <div className="mt-4 h-0.5 w-12 bg-[#E85A00]" />
+        <p className="mt-5 max-w-2xl text-lg text-white/95">
+          Escolha o tipo de equipamento e veja todos os modelos disponíveis, de todas as marcas que representamos.
+        </p>
+        <p className="mt-2 text-sm text-white/80">{total} equipamentos em {categories.length} categorias</p>
+      </PageBanner>
 
       <section className="section-py bg-[#F5F5F7]">
         <div className="site-container">

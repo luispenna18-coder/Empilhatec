@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import PageBanner from "@/components/PageBanner";
 import { whatsappLink } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -13,18 +14,16 @@ export const metadata: Metadata = {
 export default function EmpilhatexPage() {
   return (
     <>
-      <section className="mt-16 bg-[#1C1C1E] lg:mt-[4.5rem]">
-        <div className="site-container py-14 lg:py-20">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-[#E85A00]">Marca Empilhatec</p>
-          <h1 className="font-display leading-none text-white" style={{ fontSize: "clamp(2.6rem, 4.5vw, 5.2rem)" }}>
-            Empilhatex
-          </h1>
-          <div className="mt-4 h-0.5 w-12 bg-[#E85A00]" />
-          <p className="mt-6 max-w-2xl text-lg text-gray-300">
-            Locação de empilhadeiras elétricas com bateria de lítio, da linha STILL.
-          </p>
-        </div>
-      </section>
+      <PageBanner image="/images/banners/empilhatex.webp" alt="Transpaleteira elétrica com bateria de lítio em operação" position="center 40%">
+        <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-[#FF7A2B]">Marca Empilhatec</p>
+        <h1 className="font-display leading-none text-white" style={{ fontSize: "clamp(2.6rem, 4.5vw, 5.2rem)" }}>
+          Empilhatex
+        </h1>
+        <div className="mt-4 h-0.5 w-12 bg-[#E85A00]" />
+        <p className="mt-5 max-w-2xl text-lg text-white/95">
+          Locação de empilhadeiras elétricas com bateria de lítio, da linha STILL.
+        </p>
+      </PageBanner>
 
       <section className="section-py bg-[#F5F5F7]">
         <div className="site-container">

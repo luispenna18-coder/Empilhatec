@@ -1,4 +1,5 @@
 import Image from "next/image";
+import PageBanner from "@/components/PageBanner";
 import { CheckCircle } from "lucide-react";
 import type { Metadata } from "next";
 
@@ -11,28 +12,13 @@ export default function SobrePage() {
   return (
     <>
       {/* ── Hero ─────────────────────────────────────────────────────── */}
-      <section className="relative w-full overflow-hidden mt-16 lg:mt-[4.5rem] aspect-[4/3] md:aspect-auto md:h-[clamp(400px,52vh,600px)]">
-        <Image
-          src="/images/sobre-whatsapp.jpg"
-          alt="Empilhatec Empilhadeiras"
-          fill
-          className="object-cover object-center md:object-[center_80%]"
-          priority
-          sizes="100vw"
-          quality={95}
-        />
-        <div className="absolute inset-0" style={{ background: "rgba(10,18,30,0.62)" }} />
-        <div className="site-container relative h-full flex items-end pb-12 lg:pb-16">
-          <div>
-            <h1 className="font-display text-white tracking-wide leading-none" style={{ fontSize: "clamp(2.6rem, 4.5vw, 5.2rem)" }}>
-              Sobre a Empilhatec
-            </h1>
-            <div className="w-12 h-0.5 bg-[#E85A00] mt-4" />
-          </div>
-        </div>
-      </section>
+      <PageBanner image="/images/banners/sobre.webp" alt="Empilhadeira em operação de logística" position="center 45%">
+        <h1 className="font-display leading-none text-white" style={{ fontSize: "clamp(2.6rem, 4.5vw, 5.2rem)" }}>
+          Sobre a Empilhatec
+        </h1>
+        <div className="mt-4 h-0.5 w-12 bg-[#E85A00]" />
+      </PageBanner>
 
-      {/* Story */}
       <section id="historia" className="section-py bg-white">
         <div className="site-container">
           <div className="grid lg:grid-cols-2 gap-16 items-center">

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import CategoryBrowser from "@/components/CategoryBrowser";
+import PageBanner from "@/components/PageBanner";
 import {
   CATEGORY_INFO,
   categoriesWithProducts,
@@ -35,20 +36,18 @@ export default async function CategoriaPage({ params }: { params: Promise<Params
 
   return (
     <>
-      <section className="mt-16 bg-[#1C1C1E] lg:mt-[4.5rem]">
-        <div className="site-container py-12 lg:py-16">
-          <nav aria-label="Você está em" className="mb-5 text-sm text-gray-400">
-            <Link href="/maquinas" className="hover:text-white">Máquinas</Link>
-            <span className="mx-2">/</span>
-            <span className="text-gray-200">{info.plural}</span>
-          </nav>
-          <h1 className="font-display text-white leading-none" style={{ fontSize: "clamp(2.4rem, 4vw, 4.6rem)" }}>
-            {info.plural}
-          </h1>
-          <div className="mt-4 h-0.5 w-12 bg-[#E85A00]" />
-          <p className="mt-5 max-w-2xl text-lg text-gray-300">{info.description}</p>
-        </div>
-      </section>
+      <PageBanner image="/images/banners/maquinas.webp" alt="Empilhadeiras STILL em operação numa fábrica" position="center 45%">
+        <nav aria-label="Você está em" className="mb-4 text-sm text-white/85">
+          <Link href="/maquinas" className="hover:underline">Máquinas</Link>
+          <span className="mx-2">/</span>
+          <span className="text-white">{info.plural}</span>
+        </nav>
+        <h1 className="font-display leading-none text-white" style={{ fontSize: "clamp(2.4rem, 4vw, 4.6rem)" }}>
+          {info.plural}
+        </h1>
+        <div className="mt-4 h-0.5 w-12 bg-[#E85A00]" />
+        <p className="mt-5 max-w-2xl text-lg text-white/95">{info.description}</p>
+      </PageBanner>
 
       <section className="section-py min-h-[60vh] bg-[#F5F5F7]">
         <div className="site-container">
