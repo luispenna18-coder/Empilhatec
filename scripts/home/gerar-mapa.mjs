@@ -4,12 +4,12 @@
 // Uso: node scripts/home/gerar-mapa.mjs
 import fs from 'node:fs/promises';
 
-const URL_GEO = 'https://raw.githubusercontent.com/codeforamerica/click_that_hood/master/public/data/brazil-states.geojson';
+const URL_GEO = 'https://servicodados.ibge.gov.br/api/v3/malhas/paises/BR?intrarregiao=UF&qualidade=intermediaria&formato=application/vnd.geo+json';
 const res = await fetch(URL_GEO);
 if (!res.ok) throw new Error(`falha ao baixar o GeoJSON: ${res.status}`);
 const geo = await res.json();
 
-const TOL = 0.06; // graus; maior = arquivo menor
+const TOL = 0.055; // graus; maior = arquivo menor
 const LAT0 = (-14 * Math.PI) / 180;
 const K = Math.cos(LAT0);
 const proj = ([lon, lat]) => [lon * K, -lat];
@@ -29,10 +29,9 @@ function simplify(pts, tol) {
 
 const estados = [];
 let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
-const nomeUF = (p) => p.name ?? p.NAME_1 ?? p.nome ?? p.sigla ?? '';
-const SIGLA = { Acre:'AC', Alagoas:'AL', 'Amapá':'AP', Amazonas:'AM', Bahia:'BA', 'Ceará':'CE', 'Distrito Federal':'DF', 'Espírito Santo':'ES', 'Goiás':'GO', 'Maranhão':'MA', 'Mato Grosso':'MT', 'Mato Grosso do Sul':'MS', 'Minas Gerais':'MG', 'Pará':'PA', 'Paraíba':'PB', 'Paraná':'PR', Pernambuco:'PE', 'Piauí':'PI', 'Rio de Janeiro':'RJ', 'Rio Grande do Norte':'RN', 'Rio Grande do Sul':'RS', 'Rondônia':'RO', Roraima:'RR', 'Santa Catarina':'SC', 'São Paulo':'SP', Sergipe:'SE', Tocantins:'TO' };
+const SIGLA_POR_COD = { 11:'RO',12:'AC',13:'AM',14:'RR',15:'PA',16:'AP',17:'TO',21:'MA',22:'PI',23:'CE',24:'RN',25:'PB',26:'PE',27:'AL',28:'SE',29:'BA',31:'MG',32:'ES',33:'RJ',35:'SP',41:'PR',42:'SC',43:'RS',50:'MS',51:'MT',52:'GO',53:'DF' };
 for (const f of geo.features) {
-  const nome = nomeUF(f.properties);
+  const sigla = SIGLA_POR_COD[Number(f.properties.codarea)];
   const polys = f.geometry.type === 'Polygon' ? [f.geometry.coordinates] : f.geometry.coordinates;
   let d = '';
   for (const poly of polys) for (const ring of poly) {
@@ -42,13 +41,18 @@ for (const f of geo.features) {
     proj0.forEach((q, i) => { const dd = Math.hypot(q[0] - proj0[0][0], q[1] - proj0[0][1]); if (dd > far) { far = dd; k = i; } });
     const pts = [...simplify(proj0.slice(0, k + 1), TOL * K).slice(0, -1), ...simplify(proj0.slice(k), TOL * K)];
     if (pts.length < 3) continue;
-    pts.forEach(([x, y], i) => {
-      minX = Math.min(minX, x); minY = Math.min(minY, y); maxX = Math.max(maxX, x); maxY = Math.max(maxY, y);
-      d += `${i ? 'L' : 'M'}${x.toFixed(2)} ${y.toFixed(2)}`;
-    });
+    pts.forEach(([x, y]) => { minX = Math.min(minX, x); minY = Math.min(minY, y); maxX = Math.max(maxX, x); maxY = Math.max(maxY, y); });
+    const f2 = (n) => n.toFixed(2);
+    const mid = (a, b) => [(a[0] + b[0]) / 2, (a[1] + b[1]) / 2];
+    const m0 = mid(pts[0], pts[1]);
+    d += `M${f2(m0[0])} ${f2(m0[1])}`;
+    for (let i = 1; i < pts.length; i++) {
+      const p = pts[i], q = pts[(i + 1) % pts.length], m = mid(p, q);
+      d += `Q${f2(p[0])} ${f2(p[1])} ${f2(m[0])} ${f2(m[1])}`;
+    }
     d += 'Z';
   }
-  estados.push({ sigla: SIGLA[nome] ?? nome, nome, d });
+  estados.push({ sigla, nome: sigla, d });
 }
 const pad = 1;
 const [vx, vy, vw, vh] = [minX - pad, minY - pad, maxX - minX + 2 * pad, maxY - minY + 2 * pad];

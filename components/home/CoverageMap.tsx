@@ -13,9 +13,9 @@ const ROTULOS = [
   { sigla: "RR", ...pos(-61.1, 2.2), size: 1.25 },
 ];
 
-const CAMADAS = 7; // espessura do relevo
-const DX = 0.1;
-const DY = 0.16;
+const CAMADAS = 8; // espessura do relevo
+const DX = 0.07;
+const DY = 0.12;
 
 const ESTADOS_CARDS = [
   { sigla: "AM", nome: "Amazonas", cidade: "Manaus (sede)" },
@@ -60,6 +60,18 @@ export default function CoverageMap() {
                 <filter id="sombra-chao" x="-15%" y="-15%" width="140%" height="145%">
                   <feGaussianBlur stdDeviation="0.9" />
                 </filter>
+                {/* filete de luz nas bordas externas voltadas para a luz (canto superior esquerdo) */}
+                <filter id="bisel" x="-3%" y="-3%" width="106%" height="106%">
+                  <feGaussianBlur in="SourceAlpha" stdDeviation="0.28" result="suave" />
+                  <feOffset in="suave" dx="0.3" dy="0.4" result="deslocado" />
+                  <feComposite in="SourceAlpha" in2="deslocado" operator="out" result="borda" />
+                  <feFlood floodColor="#FFFFFF" floodOpacity="0.95" result="branco" />
+                  <feComposite in="branco" in2="borda" operator="in" result="luz" />
+                  <feMerge>
+                    <feMergeNode in="SourceGraphic" />
+                    <feMergeNode in="luz" />
+                  </feMerge>
+                </filter>
               </defs>
 
               {/* sombra projetada no chão */}
@@ -74,15 +86,17 @@ export default function CoverageMap() {
                 const t = n / CAMADAS;
                 return (
                   <g key={n} transform={`translate(${(DX * n).toFixed(2)} ${(DY * n).toFixed(2)})`}>
-                    <use href="#mapa-cinza" fill={`rgb(${Math.round(158 + (1 - t) * 40)},${Math.round(158 + (1 - t) * 40)},${Math.round(166 + (1 - t) * 40)})`} />
+                    <use href="#mapa-cinza" fill={`rgb(${Math.round(165 + (1 - t) * 38)},${Math.round(165 + (1 - t) * 38)},${Math.round(172 + (1 - t) * 38)})`} />
                     <use href="#mapa-laranja" fill={`rgb(${Math.round(150 + (1 - t) * 20)},${Math.round(58 + (1 - t) * 14)},0)`} />
                   </g>
                 );
               })}
 
-              {/* face superior */}
-              <use href="#mapa-cinza" fill="url(#face-cinza)" stroke="#FFFFFF" strokeWidth={0.32} strokeLinejoin="round" />
-              <use href="#mapa-laranja" fill="url(#face-laranja)" stroke="#FFFFFF" strokeWidth={0.32} strokeLinejoin="round" />
+              {/* face superior, com brilho de bisel nas bordas */}
+              <g filter="url(#bisel)">
+                <use href="#mapa-cinza" fill="url(#face-cinza)" stroke="#FFFFFF" strokeOpacity={0.9} strokeWidth={0.16} strokeLinejoin="round" />
+                <use href="#mapa-laranja" fill="url(#face-laranja)" stroke="#FFD9BF" strokeWidth={0.13} strokeLinejoin="round" />
+              </g>
 
               {/* siglas dos estados atendidos */}
               {ROTULOS.map((r) => (
