@@ -3,9 +3,9 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
+import { BadgeCheck, Mail, Menu, MessageCircle, Phone, X } from "lucide-react";
 import Logo from "@/components/Logo";
-import { NAV_LINKS, whatsappLink } from "@/lib/constants";
+import { NAV_LINKS, SITE, whatsappLink } from "@/lib/constants";
 
 const COTACAO = whatsappLink("Olá! Gostaria de solicitar uma cotação.");
 
@@ -14,10 +14,12 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const pathname = usePathname();
   const isActive = (href: string) => (href === "/" ? pathname === "/" : pathname.startsWith(href));
+
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   useEffect(() => {
@@ -25,49 +27,79 @@ export default function Navbar() {
   }, [pathname]);
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled || mobileOpen
-          ? "bg-white shadow-lg"
-          : "bg-white/90 backdrop-blur-md"
-      }`}
-    >
-      <div className="site-container">
-        <div className="flex items-center justify-between h-16 lg:h-18">
+    // No desktop, ao rolar a página a faixa de contatos sai pelo topo e só a barra principal fica.
+    <header className={`fixed inset-x-0 top-0 z-50 transition-transform duration-300 ${scrolled ? "lg:-translate-y-9" : ""}`}>
+      {/* Faixa de contatos (desktop) */}
+      <div className="hidden h-9 items-center bg-[#1C1C1E] text-xs text-white/75 lg:flex">
+        <div className="site-container flex w-full items-center justify-between">
+          <p className="flex items-center gap-2">
+            <BadgeCheck size={14} className="text-[#E85A00]" />
+            Dealer autorizado STILL e Linde · Amazonas e Roraima
+          </p>
+          <div className="flex items-center gap-6">
+            <a href={`tel:${SITE.phone.replace(/\D/g, "")}`} className="flex items-center gap-1.5 transition-colors hover:text-white">
+              <Phone size={13} /> {SITE.phone}
+            </a>
+            <a href={COTACAO} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 transition-colors hover:text-white">
+              <MessageCircle size={13} /> {SITE.whatsappDisplay}
+            </a>
+            <a href={`mailto:${SITE.email}`} className="flex items-center gap-1.5 transition-colors hover:text-white">
+              <Mail size={13} /> {SITE.email}
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* Barra principal */}
+      <div
+        className={`border-b transition-all duration-300 ${
+          scrolled || mobileOpen ? "border-transparent bg-white/95 shadow-md backdrop-blur" : "border-gray-200 bg-white"
+        }`}
+      >
+        <div className="site-container flex h-16 items-center justify-between gap-6 lg:h-[4.75rem]">
           <Logo />
 
-          {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-1">
-            {NAV_LINKS.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`px-3 py-2 text-sm font-medium transition-colors rounded-md ${
-                  isActive(link.href)
-                    ? "text-[#E85A00]"
-                    : "text-gray-600 hover:text-[#1C1C1E]"
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </nav>
+          <div className="flex items-center gap-2 lg:gap-8">
+            <nav className="hidden items-center gap-1 lg:flex" aria-label="Principal">
+              {NAV_LINKS.map((link) => {
+                const active = isActive(link.href);
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    aria-current={active ? "page" : undefined}
+                    className={`group relative px-3.5 py-2 text-sm font-semibold transition-colors ${
+                      active ? "text-[#1C1C1E]" : "text-gray-500 hover:text-[#1C1C1E]"
+                    }`}
+                  >
+                    {link.label}
+                    <span
+                      className={`absolute inset-x-3.5 -bottom-[1.05rem] h-[3px] origin-left rounded-full bg-[#E85A00] transition-transform duration-300 ${
+                        active ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                      }`}
+                      aria-hidden
+                    />
+                  </Link>
+                );
+              })}
+            </nav>
 
-          {/* CTA + Mobile toggle */}
-          <div className="flex items-center gap-3">
             <a
               href={COTACAO}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 bg-[#E85A00] hover:bg-[#C44A00] text-white text-xs sm:text-sm font-semibold px-3 sm:px-4 py-2 rounded-xl transition-colors whitespace-nowrap"
+              className="inline-flex items-center gap-2 rounded-full bg-[#E85A00] px-3 py-2.5 text-sm font-semibold text-white shadow-md shadow-[#E85A00]/30 transition-all hover:bg-[#C44A00] hover:shadow-lg sm:px-5"
             >
-              <span className="hidden sm:inline">Solicitar Cotação</span>
-              <span className="sm:hidden">Cotação</span>
+              <MessageCircle size={17} />
+              <span className="hidden sm:inline">Solicitar cotação</span>
+              <span className="sr-only sm:hidden">Solicitar cotação</span>
             </a>
+
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="lg:hidden text-gray-600 hover:text-[#1C1C1E] p-1"
-              aria-label="Menu"
+              className="rounded-full p-2 text-gray-600 transition-colors hover:bg-gray-100 hover:text-[#1C1C1E] lg:hidden"
+              aria-label={mobileOpen ? "Fechar menu" : "Abrir menu"}
+              aria-expanded={mobileOpen}
             >
               {mobileOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -75,31 +107,29 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Menu no celular */}
       {mobileOpen && (
-        <div className="lg:hidden bg-white border-t border-gray-100">
-          <nav className="site-container py-4 flex flex-col gap-1">
-            {NAV_LINKS.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`px-4 py-3 text-sm font-medium rounded-md transition-colors ${
-                  isActive(link.href)
-                    ? "bg-[#E85A00] text-white"
-                    : "text-gray-600 hover:bg-gray-100 hover:text-[#1C1C1E]"
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
-            <a
-              href={COTACAO}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-3 text-center bg-[#E85A00] hover:bg-[#C44A00] text-white font-semibold px-4 py-3 rounded-xl transition-colors"
-            >
-              Solicitar Cotação
-            </a>
+        <div className="border-t border-gray-100 bg-white shadow-lg lg:hidden">
+          <nav className="site-container flex flex-col py-3" aria-label="Principal (celular)">
+            {NAV_LINKS.map((link) => {
+              const active = isActive(link.href);
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  aria-current={active ? "page" : undefined}
+                  className={`flex items-center justify-between border-l-4 px-4 py-3.5 text-base font-semibold transition-colors ${
+                    active ? "border-[#E85A00] bg-[#E85A00]/5 text-[#1C1C1E]" : "border-transparent text-gray-600 hover:bg-gray-50"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
+            <div className="mt-3 flex flex-col gap-1 border-t border-gray-100 px-4 pt-4 text-sm text-gray-600">
+              <a href={`tel:${SITE.phone.replace(/\D/g, "")}`} className="flex items-center gap-2 py-1.5"><Phone size={15} /> {SITE.phone}</a>
+              <a href={`mailto:${SITE.email}`} className="flex items-center gap-2 py-1.5"><Mail size={15} /> {SITE.email}</a>
+            </div>
           </nav>
         </div>
       )}

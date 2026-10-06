@@ -48,7 +48,7 @@ export default async function MaquinaPage({ params }: { params: Promise<Params> 
   const related = productsByCategory(p.category).filter((x) => x.id !== p.id).slice(0, 3);
 
   return (
-    <div className="bg-white pt-24 lg:pt-28">
+    <div className="bg-white pt-[calc(var(--header-h)+1.5rem)]">
       <div className="site-container pb-16">
         <nav aria-label="Você está em" className="mb-6 flex flex-wrap items-center gap-2 text-sm text-gray-500">
           <Link href="/maquinas" className="inline-flex items-center gap-1 hover:text-[#E85A00]">
@@ -64,7 +64,7 @@ export default async function MaquinaPage({ params }: { params: Promise<Params> 
 
         <div className="grid gap-10 lg:grid-cols-[1.1fr_1fr] lg:gap-14">
           {/* Galeria */}
-          <div className="min-w-0 lg:sticky lg:top-28 lg:self-start">
+          <div className="min-w-0 lg:sticky lg:top-[calc(var(--header-h)-2.25rem+1rem)] lg:self-start">
             <MachineGallery images={p.gallery} name={`${p.brand} ${p.name}`} />
           </div>
 

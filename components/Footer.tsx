@@ -68,7 +68,7 @@ export default function Footer() {
           </div>
 
           {/* Contato */}
-          <div id="contato" className="flex flex-col scroll-mt-24">
+          <div id="contato" className="flex flex-col scroll-mt-[calc(var(--header-h)-2.25rem+1rem)]">
             <p className="font-semibold text-white text-sm mb-3">Contato</p>
             <ul className="space-y-2 text-sm">
               <li>

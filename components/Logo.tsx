@@ -11,7 +11,7 @@ export default function Logo({ variant = "dark" }: { variant?: "dark" | "light" 
         width={664}
         height={522}
         priority
-        className={variant === "light" ? "h-20 w-auto" : "h-12 w-auto"}
+        className={variant === "light" ? "h-20 w-auto" : "h-11 w-auto lg:h-14"}
       />
     </Link>
   );

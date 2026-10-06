@@ -18,7 +18,7 @@ export default function PageBanner({ image, alt, position = "center", size = "de
   const height =
     size === "hero" ? "min-h-[clamp(480px,76vh,760px)]" : size === "tall" ? "min-h-[clamp(380px,56vh,600px)]" : "min-h-[clamp(260px,38vh,420px)]";
   return (
-    <section className={`relative mt-16 flex items-end overflow-hidden bg-[#3a3a3f] lg:mt-[4.5rem] ${height}`}>
+    <section className={`relative mt-[var(--header-h)] flex items-end overflow-hidden bg-[#3a3a3f] ${height}`}>
       <Image
         src={image}
         alt={alt}

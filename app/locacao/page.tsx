@@ -357,7 +357,7 @@ export default function LocacaoPage() {
       </section>
 
       {/* 10. Proposta */}
-      <section id="proposta" className="section-py scroll-mt-24 bg-white">
+      <section id="proposta" className="section-py scroll-mt-[calc(var(--header-h)-2.25rem+1rem)] bg-white">
         <div className="site-container grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#E85A00]">Proposta de locação</p>

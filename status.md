@@ -41,6 +41,16 @@ Formato e condições dos planos de manutenção · itens de peças em estoque �
 ## A confirmar na Sobre
 Datas da linha do tempo (2005 autorizada STILL, 2015 Linde e Baoli, 2020 setor de peças): nenhuma fonte pública confirmou. Foto da equipe: não existe; usada uma foto da frota. A capa do LinkedIn do Deocleciano mostra a fachada da empresa e pode servir como foto da sede, se o cliente autorizar.
 
+## Diferenciar o design da Multylog (em andamento, aos poucos)
+Semelhanças ainda existentes, em ordem de prioridade:
+1. ~~Barra do topo~~ (feito: faixa de contatos + menu à direita com sublinhado + botão em pílula com ícone)
+2. Botão flutuante do WhatsApp (36 de 37 linhas iguais; balão "Solicitar cotação")
+3. Rodapé (logo + linha KION Supply Chain Solutions + 3 colunas + mapa; 41 de 96 linhas iguais)
+4. `globals.css` e fontes (58 de 60 linhas iguais; mesma dupla DM Sans + Outfit)
+5. Títulos de seção (rótulo com traço + título grande) e banners (título embaixo + traço curto)
+6. Formulário de proposta (118 de 153 linhas iguais) e cartões (branco, rounded-xl, sombra suave)
+Altura do cabeçalho fixa em `--header-h` (globals.css): 4rem no celular e 7rem no desktop.
+
 ## Regras do projeto
 - Imagens e fichas das máquinas: só de STILL, Linde, Baoli e Skyjack. Nunca da Multylog nem de revendas concorrentes.
 - Não editar `lib/products.data.ts` à mão: ajustar `scripts/catalogo/montar.mjs` e rodar `node scripts/catalogo/montar.mjs --limpar`.

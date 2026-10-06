@@ -99,7 +99,7 @@ export default function PecasServicosPage() {
       </section>
 
       {/* Peças */}
-      <section id="pecas" className="section-py scroll-mt-20 bg-[#F5F5F7]">
+      <section id="pecas" className="section-py scroll-mt-[calc(var(--header-h)-2.25rem+1rem)] bg-[#F5F5F7]">
         <div className="site-container">
           <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
             <div className="relative aspect-[4/3] overflow-hidden rounded-3xl bg-white shadow-lg">
@@ -167,7 +167,7 @@ export default function PecasServicosPage() {
       </section>
 
       {/* Assistência e planos */}
-      <section id="assistencia" className="section-py scroll-mt-20 bg-white">
+      <section id="assistencia" className="section-py scroll-mt-[calc(var(--header-h)-2.25rem+1rem)] bg-white">
         <div className="site-container">
           <div className="grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
             <div>
@@ -270,7 +270,7 @@ export default function PecasServicosPage() {
       </section>
 
       {/* Formulário */}
-      <section id="pedido" className="section-py scroll-mt-20 bg-[#F5F5F7]">
+      <section id="pedido" className="section-py scroll-mt-[calc(var(--header-h)-2.25rem+1rem)] bg-[#F5F5F7]">
         <div className="site-container grid gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:gap-16">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#E85A00]">Fale com o pós-venda</p>

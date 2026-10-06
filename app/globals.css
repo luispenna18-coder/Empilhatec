@@ -83,3 +83,7 @@ body {
 .count-enter {
   animation: countUp 0.6s ease forwards;
 }
+
+/* Altura do cabeçalho fixo: faixa de contatos (2,25rem, só no desktop) + barra principal */
+:root { --header-h: 4rem; }
+@media (min-width: 1024px) { :root { --header-h: 7rem; } }
