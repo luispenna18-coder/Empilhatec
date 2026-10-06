@@ -9,36 +9,40 @@ const ROWS = [
     title: "Comprar",
     text: "Empilhadeiras novas STILL, Linde e Baoli, de transpaleteiras a máquinas de grande capacidade. Nossa equipe ajuda a escolher o modelo certo para a sua operação.",
     cta: { label: "Ver máquinas", href: "/maquinas" },
-    image: "/images/home/comprar.jpg",
-    alt: "Empilhadeira Baoli em galpão",
-    position: "center 40%",
+    image: "/images/home/comprar-equipe.webp",
+    alt: "Consultores e técnico STILL conversando sobre o equipamento ideal",
+    fit: "contain" as const, // recorte com fundo transparente
+    position: "center bottom",
   },
   {
     n: "02",
     title: "Locar",
     text: "Locação de empilhadeiras elétricas e a combustão, transpaleteiras e outros equipamentos, pelo período e na capacidade que a sua operação pede.",
     cta: { label: "Conhecer a locação", href: "/locacao" },
-    image: "/images/home/locar.jpg",
-    alt: "Empilhadeira elétrica com bateria de lítio",
-    position: "center 100%",
+    image: "/images/home/locar-equipe-van.webp",
+    alt: "Equipe e técnico STILL em frente a um galpão, com a van de serviço ao fundo",
+    fit: "cover" as const,
+    position: "center 55%",
   },
   {
     n: "03",
     title: "Peças",
     text: "Peças originais e de reposição para empilhadeiras, com estoque em Manaus para a sua máquina voltar a trabalhar mais rápido.",
     cta: { label: "Ver peças", href: "/pecas-servicos#pecas" },
-    image: "/images/home/pecas.jpg",
-    alt: "Detalhe de manutenção em empilhadeira",
-    position: "center 45%",
+    image: "/images/home/pecas-rolamento.webp",
+    alt: "Técnico mostrando um rolamento original",
+    fit: "cover" as const,
+    position: "center 40%",
   },
   {
     n: "04",
-    title: "Assistência",
+    title: "Assistência técnica",
     text: "Manutenção preventiva e corretiva de empilhadeiras elétricas e a combustão, feita por equipe técnica certificada pelos fabricantes.",
     cta: { label: "Conhecer a assistência", href: "/pecas-servicos#assistencia" },
-    image: "/images/home/assistencia.jpg",
-    alt: "Mecânico fazendo manutenção em empilhadeira",
-    position: "center 100%",
+    image: "/images/home/assistencia-fabrica.webp",
+    alt: "Técnicos montando empilhadeiras em uma linha de produção",
+    fit: "cover" as const,
+    position: "center 50%",
   },
 ];
 
@@ -57,14 +61,18 @@ export default function ServiceRows() {
           {ROWS.map((r, i) => (
             <FadeUp key={r.title}>
               <div className="grid items-center gap-8 md:grid-cols-2 lg:gap-16">
-                <div className={`relative aspect-[4/3] overflow-hidden rounded-3xl bg-white shadow-lg ${i % 2 ? "md:order-2" : ""}`}>
+                <div
+                  className={`relative aspect-[4/3] overflow-hidden rounded-3xl shadow-lg ${
+                    r.fit === "contain" ? "bg-gradient-to-br from-[#FFF1E6] to-[#FFD9BF]" : "bg-white"
+                  } ${i % 2 ? "md:order-2" : ""}`}
+                >
                   <Image
                     src={r.image}
                     alt={r.alt}
                     fill
                     quality={90}
                     sizes="(min-width:768px) 45vw, 100vw"
-                    className="object-cover"
+                    className={r.fit === "contain" ? "object-contain p-4" : "object-cover"}
                     style={{ objectPosition: r.position }}
                   />
                 </div>

@@ -17,9 +17,16 @@ export default function Footer() {
             <Logo variant="light" />
 
             {/* KION */}
-            <div className="flex flex-col items-center gap-1">
+            <div className="flex flex-col items-center gap-3">
               <p className="text-white/40 text-xs tracking-widest uppercase">KION Supply Chain Solutions</p>
-              <p className="text-white/80 font-bold text-lg tracking-widest">STILL · Linde · Baoli</p>
+              <div className="flex items-center gap-6">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/images/brands/still.svg" alt="STILL" className="h-6 w-auto" />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/images/brands/linde.svg" alt="Linde Material Handling" className="h-11 w-auto" />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/images/brands/baoli.svg" alt="Baoli" className="h-10 w-auto" />
+              </div>
             </div>
 
             {/* Tagline */}

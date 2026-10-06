@@ -99,7 +99,7 @@ export default function SobrePage() {
             {/* Photo */}
             <div className="relative aspect-[4/3] rounded-xl overflow-hidden bg-gray-100">
               <Image
-                src="/images/home/comprar.jpg"
+                src="/images/sobre-frota.jpg"
                 alt="Empilhadeira Baoli da frota da Empilhatec"
                 fill
                 className="object-cover object-center"
