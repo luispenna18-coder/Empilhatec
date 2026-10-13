@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand Colors */
+  --color-brand: #E85A00;
+  --color-brand-dark: #C44A00;
+  --color-dark: #1C1C1E;
+  --color-dark-80: rgba(28, 28, 30, 0.8);
+  --color-gold: #C8973A;
+  --color-surface: #F5F5F7;
+  --color-surface-dark: #E5E5E7;
+
+  /* Fonts */
+  --font-display: var(--font-bebas), 'DM Sans', sans-serif;
+  --font-sans: var(--font-outfit), 'Outfit', sans-serif;
+}
+
+/* ── Utilitários de layout fluido ─────────────────────────────── */
+@utility site-container {
+  max-width: 88rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(1rem, 4vw, 3rem);
+  padding-right: clamp(1rem, 4vw, 3rem);
+}
+
+@utility section-py {
+  padding-top: clamp(2.5rem, 5vw, 6rem);
+  padding-bottom: clamp(2.5rem, 5vw, 6rem);
+}
+
+@utility heading-xl {
+  font-size: clamp(2.2rem, 4.5vw, 5rem);
+  line-height: 1;
+  letter-spacing: 0.02em;
+}
+
+@utility heading-lg {
+  font-size: clamp(1.6rem, 2.8vw, 3rem);
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+}
+
+@utility heading-md {
+  font-size: clamp(1.2rem, 2vw, 2rem);
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-outfit), 'Outfit', sans-serif;
+  background: #ffffff;
+  color: #1c1c1e;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: clip;
+}
+
+/* Hero carousel fade */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(1.02); }
+  to   { opacity: 1; transform: scale(1); }
+}
+.hero-slide-enter {
+  animation: fadeIn 0.8s ease forwards;
+}
+
+/* Counter animation */
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.count-enter {
+  animation: countUp 0.6s ease forwards;
+}
+
+/* Altura do cabeçalho fixo (barra principal) */
+:root { --header-h: 4rem; }
+@media (min-width: 1024px) { :root { --header-h: 4.75rem; } }
