@@ -7,7 +7,7 @@ const MAP_EMPILHATEC =
 
 export default function Footer() {
   return (
-    <footer className="bg-[#1C1C1E] text-white overflow-hidden border-t border-white/10">
+    <footer className="bg-[#0B1A2E] text-white overflow-hidden">
 
       {/* ── Linha 1: Logo · Tagline ── */}
       <div className="border-b border-white/10">
@@ -45,7 +45,7 @@ export default function Footer() {
 
           {/* Endereço */}
           <div>
-            <p className="font-semibold text-white text-sm mb-3">{SITE.addresses.principal.label}</p>
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-[#FF7A2B]">Endereço</p>
             <p className="text-white/60 text-sm leading-relaxed">{SITE.addresses.principal.street}</p>
             <p className="text-white/60 text-sm">{SITE.addresses.principal.city}</p>
             <div className="mt-5 rounded overflow-hidden w-full" style={{ height: 160 }}>
@@ -62,7 +62,7 @@ export default function Footer() {
 
           {/* Navegação */}
           <div>
-            <p className="font-semibold text-white text-sm mb-3">Navegação</p>
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-[#FF7A2B]">Navegação</p>
             <ul className="space-y-2">
               {NAV_LINKS.map((link) => (
                 <li key={link.href}>
@@ -76,7 +76,7 @@ export default function Footer() {
 
           {/* Contato */}
           <div id="contato" className="flex flex-col scroll-mt-[calc(var(--header-h)+1rem)]">
-            <p className="font-semibold text-white text-sm mb-3">Contato</p>
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-[#FF7A2B]">Contato</p>
             <ul className="space-y-2 text-sm">
               <li>
                 <span className="text-white/40 text-xs block">Telefone</span>
@@ -113,7 +113,7 @@ export default function Footer() {
                 { href: SITE.social.facebook,  label: "Facebook",  d: "M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" },
               ].map(({ href, label, d }) => (
                 <a key={label} href={href} target="_blank" rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full border border-white/20 hover:border-white/60 hover:bg-white/10 flex items-center justify-center transition-all"
+                  className="w-10 h-10 rounded-[4px] border border-white/20 hover:border-[#E85A00] hover:bg-[#E85A00] flex items-center justify-center transition-all"
                   aria-label={label}>
                   <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4"><path d={d}/></svg>
                 </a>
@@ -126,7 +126,7 @@ export default function Footer() {
       </div>
 
       {/* ── Barra inferior ── */}
-      <div className="border-t border-white/10">
+      <div className="border-t border-white/10 bg-black/20">
         <div className="site-container py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-white/30 text-xs">
             © {new Date().getFullYear()} Empilhatec Empilhadeiras. Todos os direitos reservados.

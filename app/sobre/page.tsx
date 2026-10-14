@@ -85,8 +85,6 @@ export default function SobrePage() {
                   "Representante oficial STILL",
                   "Técnicos certificados STILL",
                   "Estoque próprio em Manaus",
-                  "Atendimento em todo o AM",
-                  "Parte do KION Group",
                 ].map((item) => (
                   <div key={item} className="flex items-center gap-2">
                     <CheckCircle size={16} className="text-[#E85A00] flex-shrink-0" />
@@ -96,13 +94,16 @@ export default function SobrePage() {
               </div>
             </div>
 
-            {/* Photo */}
-            <div className="relative aspect-[4/3] rounded-xl overflow-hidden bg-gray-100">
-              <Image
-                src="/images/sobre-frota.jpg"
-                alt="Empilhadeira Baoli da frota da Empilhatec"
-                fill
-                className="object-cover object-center"
+            {/* Vídeo institucional (canal da Empilhatec no YouTube) */}
+            <div className="relative aspect-video rounded-xl overflow-hidden bg-black">
+              <iframe
+                src="https://www.youtube-nocookie.com/embed/2u5URToeOu0?rel=0"
+                title="Empilhadeiras para Negócios: Conte com a Empilhatec!"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+                className="absolute inset-0 h-full w-full"
               />
             </div>
           </div>
