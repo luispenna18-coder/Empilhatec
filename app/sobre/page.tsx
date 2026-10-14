@@ -85,8 +85,6 @@ export default function SobrePage() {
                   "Representante oficial STILL",
                   "Técnicos certificados STILL",
                   "Estoque próprio em Manaus",
-                  "Atendimento em todo o AM",
-                  "Parte do KION Group",
                 ].map((item) => (
                   <div key={item} className="flex items-center gap-2">
                     <CheckCircle size={16} className="text-[#E85A00] flex-shrink-0" />
