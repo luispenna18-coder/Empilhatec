@@ -1,32 +1,9 @@
-import { BRASIL_VIEWBOX, ESTADOS, MANAUS } from "@/lib/brasil-mapa";
+import Image from "next/image";
 import { whatsappLink } from "@/lib/constants";
-
-const ATENDIDOS = new Set(["AM", "RR"]);
-const CINZA = ESTADOS.filter((e) => !ATENDIDOS.has(e.sigla));
-const LARANJA = ESTADOS.filter((e) => ATENDIDOS.has(e.sigla));
-
-// mesma projeção de scripts/home/gerar-mapa.mjs: x = lon * cos(14°), y = -lat
-const K = Math.cos((14 * Math.PI) / 180);
-const pos = (lon: number, lat: number) => ({ x: lon * K, y: -lat });
-const ROTULOS = [
-  { sigla: "AM", ...pos(-64.6, -4.2), size: 2.1 },
-  { sigla: "RR", ...pos(-61.1, 2.2), size: 1.25 },
-];
-
-const CAMADAS = 8; // espessura do relevo
-const DX = 0.07;
-const DY = 0.12;
 
 const ESTADOS_CARDS = [
   { sigla: "AM", nome: "Amazonas", cidade: "Manaus (sede)" },
   { sigla: "RR", nome: "Roraima", cidade: "Boa Vista" },
-];
-
-const NUMEROS = [
-  { valor: "30", unidade: "anos", legenda: "de história em Manaus" },
-  { valor: "2", unidade: "estados", legenda: "Amazonas e Roraima" },
-  { valor: "4,7", unidade: "no Google", legenda: "média de 61 avaliações" },
-  { valor: "4", unidade: "marcas", legenda: "STILL, Linde, Baoli e Skyjack" },
 ];
 
 export default function CoverageMap() {
@@ -34,103 +11,17 @@ export default function CoverageMap() {
     <section className="section-py bg-[#EFEFF2]">
       <div className="site-container">
         <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
-          {/* Mapa em relevo */}
+          {/* Mapa em 3D (arte original em brand_assets/Mapa AM + RR · Manaus@1x.png) */}
           <div className="relative">
-            <svg
-              viewBox={BRASIL_VIEWBOX}
-              role="img"
-              aria-label="Mapa do Brasil com o Amazonas e Roraima em destaque"
-              className="mx-auto h-auto w-full max-w-[38rem] overflow-visible"
-            >
-              <defs>
-                <g id="mapa-cinza">
-                  {CINZA.map((e) => <path key={e.sigla} d={e.d} />)}
-                </g>
-                <g id="mapa-laranja">
-                  {LARANJA.map((e) => <path key={e.sigla} d={e.d} />)}
-                </g>
-                <linearGradient id="face-cinza" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0" stopColor="#E9E9ED" />
-                  <stop offset="1" stopColor="#D5D5DA" />
-                </linearGradient>
-                <linearGradient id="face-laranja" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0" stopColor="#F26A12" />
-                  <stop offset="1" stopColor="#DC5000" />
-                </linearGradient>
-                <filter id="sombra-chao" x="-15%" y="-15%" width="140%" height="145%">
-                  <feGaussianBlur stdDeviation="0.9" />
-                </filter>
-                {/* filete de luz nas bordas externas voltadas para a luz (canto superior esquerdo) */}
-                <filter id="bisel" x="-3%" y="-3%" width="106%" height="106%">
-                  <feGaussianBlur in="SourceAlpha" stdDeviation="0.28" result="suave" />
-                  <feOffset in="suave" dx="0.3" dy="0.4" result="deslocado" />
-                  <feComposite in="SourceAlpha" in2="deslocado" operator="out" result="borda" />
-                  <feFlood floodColor="#FFFFFF" floodOpacity="0.95" result="branco" />
-                  <feComposite in="branco" in2="borda" operator="in" result="luz" />
-                  <feMerge>
-                    <feMergeNode in="SourceGraphic" />
-                    <feMergeNode in="luz" />
-                  </feMerge>
-                </filter>
-              </defs>
-
-              {/* sombra projetada no chão */}
-              <g filter="url(#sombra-chao)" opacity={0.32} transform="translate(1 1.9)">
-                <use href="#mapa-cinza" fill="#000" />
-                <use href="#mapa-laranja" fill="#000" />
-              </g>
-
-              {/* espessura: camadas empilhadas do fundo para a face */}
-              {Array.from({ length: CAMADAS }, (_, i) => {
-                const n = CAMADAS - i; // da camada mais funda para a mais próxima
-                const t = n / CAMADAS;
-                return (
-                  <g key={n} transform={`translate(${(DX * n).toFixed(2)} ${(DY * n).toFixed(2)})`}>
-                    <use href="#mapa-cinza" fill={`rgb(${Math.round(165 + (1 - t) * 38)},${Math.round(165 + (1 - t) * 38)},${Math.round(172 + (1 - t) * 38)})`} />
-                    <use href="#mapa-laranja" fill={`rgb(${Math.round(150 + (1 - t) * 20)},${Math.round(58 + (1 - t) * 14)},0)`} />
-                  </g>
-                );
-              })}
-
-              {/* face superior, com brilho de bisel nas bordas */}
-              <g filter="url(#bisel)">
-                <use href="#mapa-cinza" fill="url(#face-cinza)" stroke="#FFFFFF" strokeOpacity={0.9} strokeWidth={0.16} strokeLinejoin="round" />
-                <use href="#mapa-laranja" fill="url(#face-laranja)" stroke="#FFD9BF" strokeWidth={0.13} strokeLinejoin="round" />
-              </g>
-
-              {/* siglas dos estados atendidos */}
-              {ROTULOS.map((r) => (
-                <text
-                  key={r.sigla}
-                  x={r.x}
-                  y={r.y}
-                  textAnchor="middle"
-                  dominantBaseline="middle"
-                  fontSize={r.size}
-                  fontWeight={800}
-                  fill="#FFFFFF"
-                  style={{ fontFamily: "inherit", letterSpacing: "0.02em" }}
-                >
-                  {r.sigla}
-                </text>
-              ))}
-
-              {/* sede */}
-              <circle cx={MANAUS.x} cy={MANAUS.y} r={0.95} fill="#FFFFFF" stroke="#C44A00" strokeWidth={0.25} />
-              <text
-                x={MANAUS.x + 1.6}
-                y={MANAUS.y + 0.45}
-                fontSize={1.45}
-                fontWeight={800}
-                fill="#C44A00"
-                stroke="#EFEFF2"
-                strokeWidth={0.5}
-                paintOrder="stroke"
-                style={{ fontFamily: "inherit", letterSpacing: "0.04em" }}
-              >
-                MANAUS
-              </text>
-            </svg>
+            <Image
+              src="/images/home/mapa-am-rr-manaus.webp"
+              alt="Mapa do Brasil em 3D com o Amazonas e Roraima em destaque e a sede em Manaus"
+              width={1200}
+              height={1180}
+              sizes="(min-width: 640px) 38rem, 100vw"
+              quality={90}
+              className="mx-auto h-auto w-full max-w-[38rem]"
+            />
           </div>
 
           {/* Estados e sede */}
@@ -172,20 +63,6 @@ export default function CoverageMap() {
             </div>
           </div>
         </div>
-
-        {/* Números */}
-        <dl className="mt-12 grid grid-cols-2 gap-x-6 gap-y-8 border-t border-gray-300/70 pt-10 lg:grid-cols-4">
-          {NUMEROS.map((n) => (
-            <div key={n.unidade} className="border-l-2 border-[#E85A00] pl-4">
-              <dt className="sr-only">{n.unidade}</dt>
-              <dd>
-                <span className="text-5xl font-extrabold leading-none text-[#1C1C1E]">{n.valor}</span>
-                <span className="ml-2 text-sm font-semibold uppercase tracking-wide text-[#E85A00]">{n.unidade}</span>
-                <span className="mt-1 block text-sm text-gray-500">{n.legenda}</span>
-              </dd>
-            </div>
-          ))}
-        </dl>
       </div>
     </section>
   );
