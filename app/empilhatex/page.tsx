@@ -33,8 +33,6 @@ const COMPARACAO = [
   { item: "Manutenção da bateria", chumbo: "Água, limpeza e equalização", litio: "Nenhuma" },
   { item: "Sala de baterias", chumbo: "Sala de troca e carga, com ventilação", litio: "Dispensada: a carga é feita no local de trabalho" },
   { item: "Potência", chumbo: "Cai conforme a bateria descarrega", litio: "Máxima, mesmo com a carga baixa" },
-  { item: "Ciclos de carga", chumbo: "Até 1.400", litio: "De 3.000 a 4.000" },
-  { item: "Operação por ano", chumbo: "Até 1.000 horas", litio: "Até 1.500 horas" },
 ];
 
 const LINHA = [
@@ -81,22 +79,21 @@ export default function EmpilhatexPage() {
         alt="Transpaleteira STILL com bateria de lítio em uma doca de carga"
         position="center 40%"
         size="tall"
+        blur
+        centered
       >
-        <div className="max-w-2xl">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-white before:mr-3 before:inline-block before:h-0.5 before:w-7 before:bg-[#E85A00] before:align-middle">
+        <div className="mx-auto max-w-3xl">
+          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-white">
             Uma marca Empilhatec
           </p>
           <h1 className="font-display leading-none text-white" style={{ fontSize: "clamp(2.8rem, 5.2vw, 5.6rem)" }}>
             Empilhatex
           </h1>
-          <div className="mt-4 h-0.5 w-12 bg-[#E85A00]" />
-          <p className="mt-5 max-w-[30rem] font-display leading-tight text-white" style={{ fontSize: "clamp(1.4rem, 2.2vw, 2.1rem)" }}>
+          <div className="mx-auto mt-4 h-0.5 w-12 bg-[#E85A00]" />
+          <p className="mx-auto mt-5 max-w-[30rem] text-balance font-display leading-tight text-white" style={{ fontSize: "clamp(1.4rem, 2.2vw, 2.1rem)" }}>
             Frota 100% lítio para quem não pode parar
           </p>
-          <p className="mt-3 max-w-[30rem] text-lg leading-relaxed text-white/95">
-            Locação de empilhadeiras elétricas STILL com bateria de lítio, no Amazonas e em Roraima.
-          </p>
-          <div className="mt-8 flex flex-col gap-3 [text-shadow:none] sm:flex-row">
+          <div className="mt-8 flex flex-col justify-center gap-3 [text-shadow:none] sm:flex-row">
             <a
               href={PROPOSTA}
               target="_blank"
@@ -115,11 +112,11 @@ export default function EmpilhatexPage() {
         </div>
       </PageBanner>
 
-      {/* 2. Manifesto e vídeo */}
+      {/* 2. Como surgimos e vídeo */}
       <section className="section-py bg-[#F5F5F7]">
         <div className="site-container grid items-center gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#E85A00]">Manifesto</p>
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#E85A00]">Como surgimos</p>
             <h2 className="mt-3 text-balance font-display leading-none text-[#1C1C1E]" style={{ fontSize: "clamp(2rem, 3.6vw, 3.4rem)" }}>
               Nascemos elétricos
             </h2>
@@ -145,7 +142,7 @@ export default function EmpilhatexPage() {
               <YouTubeVideo
                 id="KX4dYUATC-Y"
                 title="A revolução em empilhadeiras de lítio está na Empilhatec"
-                poster="/images/empilhatex/video-capa.jpg"
+                poster="/images/empilhatex/video-capa-recarga.jpg"
                 duration="1 min 12 s"
               />
             </div>
@@ -269,18 +266,16 @@ export default function EmpilhatexPage() {
       {/* 5. Linha STILL em lítio */}
       <section className="section-py bg-white">
         <div className="site-container">
-          <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
-            <div className="max-w-2xl">
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#E85A00]">Linha STILL em lítio</p>
-              <h2 className="mt-3 text-balance font-display leading-none text-[#1C1C1E]" style={{ fontSize: "clamp(2rem, 3.6vw, 3.4rem)" }}>
-                Uma máquina de lítio para cada etapa
-              </h2>
-              <p className="mt-5 text-lg leading-relaxed text-gray-600">
-                As empilhadeiras elétricas STILL de 24, 48 e 80 V têm versão com bateria de lítio, da transpaleteira à
-                contrabalançada.
-              </p>
-            </div>
-            <Link href="/maquinas" className="group inline-flex shrink-0 items-center gap-2 font-semibold text-[#E85A00]">
+          <div className="mx-auto max-w-2xl text-center">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#E85A00]">Linha STILL em lítio</p>
+            <h2 className="mt-3 text-balance font-display leading-none text-[#1C1C1E]" style={{ fontSize: "clamp(2rem, 3.6vw, 3.4rem)" }}>
+              Uma máquina de lítio para cada etapa
+            </h2>
+            <p className="mt-5 text-lg leading-relaxed text-gray-600">
+              As empilhadeiras elétricas STILL de 24, 48 e 80 V têm versão com bateria de lítio, da transpaleteira à
+              contrabalançada.
+            </p>
+            <Link href="/maquinas" className="group mt-5 inline-flex items-center gap-2 font-semibold text-[#E85A00]">
               Ver equipamentos <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
             </Link>
           </div>
@@ -316,32 +311,45 @@ export default function EmpilhatexPage() {
         </div>
       </section>
 
-      {/* 6. Proposta */}
-      <section className="bg-[#E85A00]">
-        <div className="site-container flex flex-col items-start justify-between gap-6 py-12 lg:flex-row lg:items-center lg:py-14">
-          <div>
-            <h2 className="font-display leading-none text-white" style={{ fontSize: "clamp(1.9rem, 3.2vw, 3rem)" }}>
+      {/* 6. Proposta: técnico trabalhando numa máquina (foto oficial da STILL) à direita, texto à esquerda */}
+      <section className="relative overflow-hidden bg-[#141416]">
+        <div className="absolute inset-0 lg:left-[42%]">
+          <Image
+            src="/images/empilhatex/equipe-tecnica.webp"
+            alt=""
+            fill
+            quality={90}
+            sizes="(min-width:1024px) 58vw, 100vw"
+            className="object-cover"
+            style={{ objectPosition: "35% 30%" }}
+          />
+          <div className="absolute inset-y-0 left-0 hidden w-1/2 bg-gradient-to-r from-[#141416] to-transparent lg:block" aria-hidden />
+        </div>
+        <div className="absolute inset-0 bg-black/65 lg:hidden" aria-hidden />
+        <div className="site-container relative py-20 lg:py-28">
+          <div className="max-w-xl">
+            <h2 className="font-display leading-none text-white" style={{ fontSize: "clamp(2.2rem, 4vw, 3.6rem)" }}>
               Teste o lítio na sua operação
             </h2>
-            <p className="mt-3 max-w-xl text-lg text-white/90">
+            <p className="mt-4 text-lg text-white/90">
               Fale com a equipe Empilhatex. Indicamos a máquina, a bateria e o carregador certos para o seu turno.
             </p>
-          </div>
-          <div className="flex shrink-0 flex-col gap-3 sm:flex-row">
-            <a
-              href={PROPOSTA}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-xl bg-[#1C1C1E] px-7 py-4 font-semibold text-white transition hover:bg-black"
-            >
-              <MessageCircle size={20} /> Solicitar proposta Empilhatex
-            </a>
-            <a
-              href={`tel:${SITE.phone.replace(/\D/g, "")}`}
-              className="inline-flex shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-xl border-2 border-white px-7 py-4 font-semibold text-white transition hover:bg-white hover:text-[#E85A00]"
-            >
-              <Phone size={20} /> {SITE.phone}
-            </a>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <a
+                href={PROPOSTA}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-xl bg-[#E85A00] px-7 py-4 font-semibold text-white transition hover:bg-[#C44A00]"
+              >
+                <MessageCircle size={20} /> Solicitar proposta Empilhatex
+              </a>
+              <a
+                href={`tel:${SITE.phone.replace(/\D/g, "")}`}
+                className="inline-flex shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-xl border-2 border-white/80 px-7 py-4 font-semibold text-white transition hover:bg-white hover:text-[#1C1C1E]"
+              >
+                <Phone size={20} /> {SITE.phone}
+              </a>
+            </div>
           </div>
         </div>
       </section>

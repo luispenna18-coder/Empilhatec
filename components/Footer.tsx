@@ -7,7 +7,7 @@ const MAP_EMPILHATEC =
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0B1A2E] text-white overflow-hidden">
+    <footer className="bg-black text-white overflow-hidden">
 
       {/* ── Linha 1: Logo · Tagline ── */}
       <div className="border-b border-white/10">

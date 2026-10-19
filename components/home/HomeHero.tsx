@@ -5,19 +5,19 @@ import { whatsappLink } from "@/lib/constants";
 
 /**
  * Hero da Home com vídeo de fundo ocupando a primeira tela, no formato do site da Carmak: título grande e
- * centralizado (segunda linha no laranja da marca), parágrafo e os dois botões. O vídeo é o institucional da
- * Empilhatec no YouTube (youtu.be/lQ1zWi8R9Go) até antes da tela final de contato; nos planos com legenda, a faixa
- * do meio já vem desfocada no arquivo, para a legenda não aparecer entre as letras do título.
+ * centralizado (segunda linha no laranja da marca), parágrafo e os dois botões. O vídeo intercala as cenas sem
+ * legenda do institucional da Empilhatec (youtu.be/lQ1zWi8R9Go) com máquinas STILL operando, tiradas sem os títulos
+ * dos vídeos oficiais da STILL UK: FXR (youtu.be/0fC9Vs6qfw4), EXH (youtu.be/MNDz4aOeRJM) e RXE (youtu.be/UWpXXQbL5gs).
  */
 export default function HomeHero() {
   return (
-    <section className="relative mt-[var(--header-h)] flex min-h-[calc(100svh_-_var(--header-h))] items-center overflow-hidden bg-[#141416] text-white">
+    <section className="relative flex min-h-svh items-center overflow-hidden bg-[#141416] text-white">
       <HeroVideo src="/videos/home-hero.mp4" poster="/videos/home-hero.webp" />
       {/* escurece o vídeo por igual e um pouco mais no meio, atrás do texto */}
       <div className="absolute inset-0 bg-black/50" aria-hidden />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_65%_55%_at_center,rgba(0,0,0,0.5),transparent)]" aria-hidden />
 
-      <div className="site-container relative w-full py-20 text-center">
+      <div className="site-container relative w-full pb-20 pt-[calc(var(--header-h)+5rem)] text-center">
         <h1
           className="font-display font-extrabold leading-none tracking-[-0.03em] text-balance"
           style={{ fontSize: "clamp(2.6rem, 6.5vw, 6.25rem)" }}

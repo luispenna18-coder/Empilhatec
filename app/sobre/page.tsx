@@ -1,41 +1,13 @@
 import Image from "next/image";
 import PageBanner from "@/components/PageBanner";
-import RoadTimeline from "@/components/sobre/RoadTimeline";
+import Trajetoria from "@/components/sobre/Trajetoria";
 import { CheckCircle } from "lucide-react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Sobre a Empilhatec | 30+ Anos em Empilhadeiras no Amazonas",
-  description: "Conheça a história da Empilhatec Empilhadeiras — representante autorizado STILL para o Amazonas há mais de 30 anos.",
+  description: "Conheça a história da Empilhatec Empilhadeiras, representante autorizado STILL para o Amazonas há mais de 30 anos.",
 };
-
-const MARCOS = [
-  {
-    year: "1996",
-    title: "Fundação da Empilhatec",
-    desc: "Deocleciano Pontes funda a Empilhatec Empilhadeiras da Amazônia em Manaus, com foco em locação e manutenção de empilhadeiras para a indústria local.",
-  },
-  {
-    year: "2005",
-    title: "Autorizado STILL",
-    desc: "A Empilhatec torna-se representante autorizado da STILL para o Amazonas, integrando o ecossistema KION Group e elevando o padrão técnico do atendimento.",
-  },
-  {
-    year: "2015",
-    title: "Expansão do Portfólio",
-    desc: "Incorporação das marcas Linde e Baoli, ampliando as soluções de locação, venda e assistência técnica para toda a cadeia logística do estado.",
-  },
-  {
-    year: "2020",
-    title: "Estrutura Própria de Peças",
-    desc: "Criação do setor de peças com estoque próprio em Manaus: resposta rápida para manutenção preventiva e corretiva em toda a frota.",
-  },
-  {
-    year: "2026",
-    title: "30 Anos de História",
-    desc: "Três décadas comprometidos com a movimentação do Amazonas. A Empilhatec reafirma seu papel de parceiro estratégico em intralogística da região.",
-  },
-];
 
 export default function SobrePage() {
   return (
@@ -50,38 +22,28 @@ export default function SobrePage() {
 
       <section id="historia" className="section-py bg-white">
         <div className="site-container">
+          <div className="mx-auto mb-10 max-w-3xl text-center lg:mb-12">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#E85A00]">Nossa história</p>
+            <h2 className="mt-3 text-balance font-display leading-none text-[#1C1C1E]" style={{ fontSize: "clamp(2rem, 3.6vw, 3.4rem)" }}>
+              Tradição e expertise em intralogística
+            </h2>
+          </div>
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <div className="flex items-center gap-2 mb-5">
-                <span className="w-6 h-0.5 bg-[#E85A00]" />
-                <span className="text-[#E85A00] text-xs font-semibold uppercase tracking-widest">
-                  Nossa História
-                </span>
-              </div>
-              <h2 className="heading-lg font-display text-[#1C1C1E] tracking-wide mb-4">
-                Tradição e Expertise em Intralogística
-              </h2>
-              <div className="w-12 h-0.5 bg-[#E85A00] mb-6" />
               <p className="text-gray-600 text-lg leading-relaxed mb-5">
                 A Empilhatec Empilhadeiras nasceu em Manaus com um propósito claro: oferecer soluções
                 completas em movimentação de cargas para as empresas do Amazonas. Ao longo de mais
                 de 30 anos, nos tornamos muito mais que uma locadora.
               </p>
-              <p className="text-gray-600 leading-relaxed mb-5">
+              <p className="text-gray-600 leading-relaxed mb-8">
                 Como representante autorizado da STILL no Amazonas, fazemos parte do ecossistema
-                KION Group — um dos maiores grupos de equipamentos de movimentação do mundo —,
+                KION Group, um dos maiores grupos de equipamentos de movimentação do mundo,
                 o que nos permite oferecer tecnologia de ponta com o atendimento personalizado
                 de uma empresa comprometida com a região.
-              </p>
-              <p className="text-gray-600 leading-relaxed mb-8">
-                Nossa divisão de peças e serviços garante que sua operação nunca para: peças genuínas
-                STILL, técnicos certificados e atendimento prioritário para manutenção preventiva e
-                corretiva em Manaus e no interior do estado.
               </p>
 
               <div className="grid grid-cols-2 gap-4">
                 {[
-                  "Mais de 30 anos de experiência",
                   "Representante oficial STILL",
                   "Técnicos certificados STILL",
                   "Estoque próprio em Manaus",
@@ -113,14 +75,12 @@ export default function SobrePage() {
       {/* ── Gestor ── */}
       <section className="section-py bg-[#F5F5F7]">
         <div className="site-container">
-          <div className="text-center mb-12">
-            <span className="text-[#E85A00] text-sm font-semibold uppercase tracking-widest">
-              Liderança
-            </span>
-            <h2 className="heading-lg font-display text-[#1C1C1E] mt-2 tracking-wide">
-              Conheça Nossa Liderança
+          <div className="mx-auto mb-10 max-w-3xl text-center lg:mb-12">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#E85A00]">Liderança</p>
+            <h2 className="mt-3 text-balance font-display leading-none text-[#1C1C1E]" style={{ fontSize: "clamp(2rem, 3.6vw, 3.4rem)" }}>
+              Conheça nossa liderança
             </h2>
-            <p className="text-gray-500 mt-3 max-w-xl mx-auto">
+            <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-gray-600">
               Profissionais comprometidos com as melhores soluções em movimentação de cargas para o Amazonas.
             </p>
           </div>
@@ -162,26 +122,8 @@ export default function SobrePage() {
         </div>
       </section>
 
-      {/* ── Timeline ── */}
-      <section className="bg-[#F5F5F7] section-py overflow-hidden">
-        <div className="site-container">
-          <div className="text-center mb-14">
-            <div className="flex items-center justify-center gap-2 mb-4">
-              <span className="w-6 h-0.5 bg-[#E85A00]" />
-              <span className="text-[#E85A00] text-xs font-semibold uppercase tracking-widest">
-                Linha do Tempo
-              </span>
-              <span className="w-6 h-0.5 bg-[#E85A00]" />
-            </div>
-            <h2 className="font-display text-4xl lg:text-5xl text-[#1C1C1E] mt-1 tracking-wide">
-              Nossa Trajetória
-            </h2>
-            <p className="text-gray-500 mt-3 text-sm">Mais de 30 anos movimentando o Amazonas</p>
-          </div>
-
-          <RoadTimeline marcos={MARCOS} />
-        </div>
-      </section>
+      {/* ── Linha do tempo ── */}
+      <Trajetoria />
     </>
   );
 }

@@ -6,8 +6,7 @@ export type Category =
   | "patolada"
   | "transpaleteira"
   | "selecionadora"
-  | "rebocador"
-  | "plataforma-elevatoria";
+  | "rebocador";
 
 export interface GalleryImage {
   src: string;
@@ -62,7 +61,6 @@ export const CATEGORY_LABELS: Record<Category, string> = {
   transpaleteira: "Transpaleteira",
   selecionadora: "Selecionadora de Pedidos",
   rebocador: "Rebocador",
-  "plataforma-elevatoria": "Plataforma Elevatória",
 };
 
 export interface CategoryInfo {
@@ -102,11 +100,6 @@ export const CATEGORY_INFO: Record<Category, CategoryInfo> = {
     plural: "Rebocadores",
     description: "Tratores elétricos para comboios logísticos e abastecimento de linhas de produção.",
   },
-  "plataforma-elevatoria": {
-    label: "Plataforma Elevatória",
-    plural: "Plataformas Elevatórias",
-    description: "Trabalho em altura com segurança, em plataformas de tesoura elétricas.",
-  },
 };
 
 export const CATEGORY_ORDER: Category[] = [
@@ -116,10 +109,9 @@ export const CATEGORY_ORDER: Category[] = [
   "transpaleteira",
   "selecionadora",
   "rebocador",
-  "plataforma-elevatoria",
 ];
 
-const BRAND_ORDER: Record<string, number> = { STILL: 0, Linde: 1, Baoli: 2, Skyjack: 3 };
+const BRAND_ORDER: Record<string, number> = { STILL: 0, Linde: 1, Baoli: 2 };
 
 export const FEATURED_PRODUCTS = PRODUCTS.filter((p) => p.featured);
 

@@ -1,9 +1,9 @@
 import HomeHero from "@/components/home/HomeHero";
 import DealerStill from "@/components/home/DealerStill";
-import ServiceRows from "@/components/home/ServiceRows";
+import ServiceCards from "@/components/home/ServiceCards";
+import MachineShowcase from "@/components/home/MachineShowcase";
 import CoverageMap from "@/components/home/CoverageMap";
 import History from "@/components/home/History";
-import SocialProof from "@/components/home/SocialProof";
 import FinalCta from "@/components/home/FinalCta";
 
 export default function HomePage() {
@@ -11,10 +11,10 @@ export default function HomePage() {
     <>
       <HomeHero />
       <DealerStill />
-      <ServiceRows />
+      <ServiceCards />
+      <MachineShowcase />
       <CoverageMap />
       <History />
-      <SocialProof />
       <FinalCta />
     </>
   );
