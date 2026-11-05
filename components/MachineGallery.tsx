@@ -36,7 +36,7 @@ export default function MachineGallery({ images, name }: { images: GalleryImage[
         <Image
           key={current.src}
           src={current.src}
-          alt={current.alt ?? `${name} — foto ${index + 1} de ${total}`}
+          alt={current.alt ?? `${name}, foto ${index + 1} de ${total}`}
           fill
           priority={index === 0}
           quality={90}

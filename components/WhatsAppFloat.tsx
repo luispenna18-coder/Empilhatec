@@ -7,13 +7,13 @@ import { X } from "lucide-react";
 export default function WhatsAppFloat() {
   const [tooltip, setTooltip] = useState(true);
 
-  const href = `https://wa.me/${SITE.whatsapp}?text=Olá!%20Gostaria%20de%20solicitar%20uma%20cotação.`;
+  const href = `https://wa.me/${SITE.whatsapp}?text=Olá!%20Gostaria%20de%20falar%20com%20a%20Empilhatec.`;
 
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2">
       {tooltip && (
         <div className="flex items-center gap-2 bg-white shadow-lg rounded-full px-4 py-2 text-sm font-medium text-[#1C1C1E] border border-gray-100">
-          Solicitar cotação
+          Entre em contato
           <button
             onClick={() => setTooltip(false)}
             className="text-gray-400 hover:text-gray-600"

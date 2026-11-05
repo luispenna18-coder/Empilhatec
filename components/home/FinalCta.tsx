@@ -1,34 +1,37 @@
-import { MessageCircle, Phone } from "lucide-react";
-import { SITE, whatsappLink } from "@/lib/constants";
+import Image from "next/image";
+import { MessageCircle } from "lucide-react";
+import { whatsappLink } from "@/lib/constants";
 
+// Mesmo formato das faixas escuras do site (ex.: Empilhatex na Locação): grafite, foto apagada,
+// texto à esquerda e botão à direita.
 export default function FinalCta() {
   return (
-    <section className="bg-[#E85A00]">
-      <div className="site-container flex flex-col items-start justify-between gap-6 py-12 lg:flex-row lg:items-center lg:py-14">
-        <div>
-          <h2 className="font-display leading-none text-white" style={{ fontSize: "clamp(1.9rem, 3.2vw, 3rem)" }}>
+    <section className="relative overflow-hidden bg-[#1C1C1E]">
+      {/* Foto de fundo (STILL, sistemas intralogísticos) */}
+      <Image
+        src="/images/home/cta-armazem.webp"
+        alt=""
+        fill
+        sizes="100vw"
+        className="object-cover opacity-30"
+        style={{ objectPosition: "center 45%" }}
+      />
+      <div className="site-container relative flex flex-col items-start justify-between gap-8 py-16 lg:flex-row lg:items-center lg:py-20">
+        <div className="max-w-2xl">
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#E85A00]">Fale com a Empilhatec</p>
+          <h2 className="mt-3 text-balance font-display leading-none text-white" style={{ fontSize: "clamp(2rem, 3.6vw, 3.4rem)" }}>
             Vamos conversar sobre a sua operação?
           </h2>
-          <p className="mt-3 max-w-xl text-lg text-white/90">
-            Conte o que você precisa e nossa equipe indica a melhor solução.
-          </p>
+          <p className="mt-4 text-lg text-gray-300">Conte o que você precisa e nossa equipe indica a melhor solução.</p>
         </div>
-        <div className="flex shrink-0 flex-col gap-3 sm:flex-row">
-          <a
-            href={whatsappLink("Olá! Gostaria de solicitar uma cotação.")}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-xl bg-[#1C1C1E] px-7 py-4 font-semibold text-white transition hover:bg-black"
-          >
-            <MessageCircle size={20} /> Chamar no WhatsApp
-          </a>
-          <a
-            href={`tel:${SITE.phone.replace(/\D/g, "")}`}
-            className="inline-flex shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-xl border-2 border-white px-7 py-4 font-semibold text-white transition hover:bg-white hover:text-[#E85A00]"
-          >
-            <Phone size={20} /> {SITE.phone}
-          </a>
-        </div>
+        <a
+          href={whatsappLink("Olá! Gostaria de falar com um especialista.")}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex shrink-0 items-center gap-2 rounded-xl bg-[#E85A00] px-7 py-4 font-semibold text-white transition hover:bg-[#C44A00]"
+        >
+          <MessageCircle size={18} /> Falar com especialista
+        </a>
       </div>
     </section>
   );

@@ -1115,52 +1115,5 @@
     "puladas": [
       "/images/machines/baoli-kbd70.jpg"
     ]
-  },
-  "sj4726-32-e": {
-    "itens": [
-      {
-        "arquivo": "/images/machines/skyjack/sj4726-32-e/ref-01.png",
-        "largura": 700,
-        "altura": 800,
-        "bytes": 1232525,
-        "ordem": 1,
-        "fonte": "https://www.skyjack.com/sites/default/files/2024-01/sj4726e_360_0001.png"
-      },
-      {
-        "arquivo": "/images/machines/skyjack/sj4726-32-e/ref-02.png",
-        "largura": 700,
-        "altura": 800,
-        "bytes": 1238234,
-        "ordem": 2,
-        "fonte": "https://www.skyjack.com/sites/default/files/2024-01/sj4726e_360_0004.png"
-      },
-      {
-        "arquivo": "/images/machines/skyjack/sj4726-32-e/ref-03.png",
-        "largura": 700,
-        "altura": 800,
-        "bytes": 1161427,
-        "ordem": 3,
-        "fonte": "https://www.skyjack.com/sites/default/files/2024-01/sj4726e_360_0007.png"
-      },
-      {
-        "arquivo": "/images/machines/skyjack/sj4726-32-e/ref-04.png",
-        "largura": 700,
-        "altura": 800,
-        "bytes": 1211078,
-        "ordem": 4,
-        "fonte": "https://www.skyjack.com/sites/default/files/2024-01/sj4726e_360_0010.png"
-      },
-      {
-        "arquivo": "/images/machines/skyjack/sj4726-32-e/ref-05.png",
-        "largura": 700,
-        "altura": 800,
-        "bytes": 1194503,
-        "ordem": 5,
-        "fonte": "https://www.skyjack.com/sites/default/files/2024-01/sj4726e_360_0013.png"
-      }
-    ],
-    "puladas": [
-      "https://www.fairchildequipment.com/wp-content/uploads/2021/05/skyjack-sj4726-sj4732-scissor-lift.jpg"
-    ]
   }
 }

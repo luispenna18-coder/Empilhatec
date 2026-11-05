@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Empilhatec — motion institucional</title>
+<style>
+  /* Motion institucional Empilhatec · 1920×1080 · 30 fps · 37 s
+     Cores: noite (fundo escuro), azul (azul da fachada), laranja (logo), claro (fundo do mapa). */
+  :root {
+    --noite: #0a1830;
+    --azul: #13264a;
+    --azul-2: #1e3766;
+    --laranja: #ff6600;
+    --claro: #efeff1;
+    --branco: #ffffff;
+    --suave: #b9c3d3;
+    --tinta: #0a1830;
+    --tinta-suave: #556172;
+  }
+  @font-face { font-family: "ArchivoX"; src: url(fonts/archivo-exp.woff2) format("woff2"); font-weight: 100 900; }
+  @font-face { font-family: "Archivo"; src: url(fonts/archivo.woff2) format("woff2"); font-weight: 100 900; }
+  @font-face { font-family: "Plex"; src: url(fonts/plexmono.woff2) format("woff2"); font-weight: 500; }
+
+  html, body { margin: 0; background: #000; overflow: hidden; }
+  #stage { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; overflow: hidden; background: var(--noite);
+           transform-origin: 0 0; font-family: "Archivo", Arial, sans-serif; color: var(--branco); -webkit-font-smoothing: antialiased; }
+  .scene { position: absolute; inset: 0; overflow: hidden; display: none; }
+  .abs { position: absolute; }
+  .fill { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .mask { overflow: hidden; padding-bottom: .08em; margin-bottom: -.08em; }
+  .h { font-family: "ArchivoX", Arial, sans-serif; font-weight: 800; letter-spacing: -0.015em; line-height: 1.02; white-space: nowrap; will-change: transform; }
+  .eb { font-family: "Plex", monospace; font-weight: 500; font-size: 22px; letter-spacing: .14em; color: var(--laranja); text-transform: uppercase; }
+  .sub { font-size: 30px; line-height: 1.4; color: var(--suave); }
+  .lar { color: var(--laranja); }
+  .corte { clip-path: polygon(0 0, calc(100% - 64px) 0, 100% 64px, 100% 100%, 0 100%); }
+
+  /* cena 1 */
+  .tile { position: absolute; width: 120px; height: 36px; background: var(--azul-2); border-radius: 2px; }
+  .tile.top { background: var(--laranja); }
+
+  /* cena 3 */
+  #s3panel { left: 0; top: 0; width: 820px; height: 1080px; background: var(--noite); }
+  #s3media { left: 820px; top: 0; width: 1100px; height: 1080px; overflow: hidden;
+             clip-path: polygon(0 0, calc(100% - 140px) 0, 100% 140px, 100% 100%, 0 100%); }
+  .media { position: absolute; inset: 0; overflow: hidden; }
+  .media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .svc { position: absolute; left: 110px; top: 410px; width: 640px; }
+  .svc .h { font-size: 80px; }
+  .svc .sub { margin-top: 28px; width: 600px; white-space: normal; }
+  .bars { position: absolute; left: 110px; top: 900px; display: flex; gap: 10px; }
+  .bar { width: 64px; height: 6px; background: var(--azul-2); position: relative; overflow: hidden; }
+  .bar i { position: absolute; inset: 0; background: var(--laranja); transform-origin: 0 50%; transform: scaleX(0); }
+
+  /* cena 4 e 5 (claras) */
+  .claro { background: var(--claro); color: var(--tinta); }
+  .claro .h { color: var(--tinta); }
+  .plate { position: absolute; top: 640px; width: 400px; height: 190px; background: #fff; border: 1px solid #d2d9e1; border-radius: 4px;
+           display: flex; align-items: center; justify-content: center; }
+  .plate img { width: 250px; height: 96px; object-fit: contain; }
+  .ring { position: absolute; width: 20px; height: 20px; margin: -10px 0 0 -10px; border: 3px solid var(--laranja); border-radius: 50%; }
+
+  /* cena 6 */
+  #s6panel { left: 1000px; top: 0; width: 920px; height: 1080px; background: var(--noite); }
+  .seg { width: 52px; height: 30px; background: var(--azul-2); border-radius: 2px; }
+  .seg.on { background: var(--laranja); }
+
+  /* transição: faixa laranja com o corte do L nas duas pontas */
+  #wipe { position: absolute; top: 0; left: 0; width: 2700px; height: 1080px; background: var(--laranja);
+          clip-path: polygon(300px 0, 2700px 0, 2400px 100%, 0 100%); display: none; z-index: 50; }
+</style>
+</head>
+<body>
+<div id="stage">
+
+  <!-- 1 · Abertura -->
+  <section class="scene" id="s1">
+    <div id="tiles"></div>
+    <div class="abs" style="left:160px; top:560px">
+      <div class="eb" id="s1eb">Manaus · desde 1996</div>
+      <div class="mask" style="margin-top:28px"><div class="h" id="s1l1" style="font-size:88px">Mais de <span class="lar" id="s1n">30</span> anos</div></div>
+      <div class="mask"><div class="h" id="s1l2" style="font-size:88px">movimentando o Amazonas</div></div>
+    </div>
+  </section>
+
+  <!-- 2 · Fachada -->
+  <section class="scene" id="s2">
+    <img class="fill" id="s2img" src="img/home-hero.webp" alt="">
+    <div class="abs corte" id="s2panel" style="left:0; top:770px; width:1080px; height:270px; background:var(--azul)">
+      <div class="abs" style="left:150px; top:44px">
+        <div class="eb" id="s2eb">Empilhatec Empilhadeiras</div>
+        <div class="mask" style="margin-top:22px"><div class="h" id="s2l1" style="font-size:76px">Soluções logísticas</div></div>
+        <div class="mask"><div class="h lar" id="s2l2" style="font-size:76px">na Amazônia</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 · O que fazemos -->
+  <section class="scene" id="s3">
+    <div class="abs" id="s3media"></div>
+    <div class="abs" id="s3panel">
+      <div class="eb abs" id="s3eb" style="left:110px; top:330px">O que fazemos</div>
+      <div id="svcs"></div>
+      <div class="bars" id="bars"></div>
+    </div>
+  </section>
+
+  <!-- 4 · Marcas -->
+  <section class="scene claro" id="s4">
+    <div class="abs" style="left:160px; top:200px">
+      <div class="eb" id="s4eb">Representante autorizado</div>
+      <div class="mask" style="margin-top:30px"><div class="h" id="s4l1" style="font-size:72px">Os especialistas que a <span class="lar">STILL</span></div></div>
+      <div class="mask"><div class="h" id="s4l2" style="font-size:72px">e a <span class="lar">Linde</span> escolheram para</div></div>
+      <div class="mask"><div class="h" id="s4l3" style="font-size:72px">o Norte do Brasil</div></div>
+    </div>
+    <div class="plate" id="p0" style="left:160px"><img src="img/still-claro.svg" alt="STILL"></div>
+    <div class="plate" id="p1" style="left:590px"><img src="img/linde.svg" alt="Linde"></div>
+    <div class="plate" id="p2" style="left:1020px"><img src="img/baoli.svg" alt="Baoli"></div>
+    <div class="abs sub" id="s4kion" style="left:1460px; top:712px; width:300px; color:var(--tinta-suave); font-size:24px">Marcas do grupo KION</div>
+  </section>
+
+  <!-- 5 · Onde atuamos -->
+  <section class="scene claro" id="s5">
+    <img class="abs" id="s5map" src="img/mapa-am-rr-manaus.webp" alt="" style="left:820px; top:40px; width:1017px; height:1000px; transform-origin:438px 228px">
+    <div id="rings"></div>
+    <div class="abs" style="left:160px; top:330px">
+      <div class="eb" id="s5eb">Onde atuamos</div>
+      <div class="mask" style="margin-top:28px"><div class="h" id="s5l1" style="font-size:100px">Amazonas</div></div>
+      <div class="mask"><div class="h" id="s5l2" style="font-size:100px"><span class="lar">e</span> Roraima</div></div>
+      <div class="sub" id="s5sub" style="margin-top:36px; width:560px; color:var(--tinta-suave)">Sede em Manaus. Atendemos indústrias, centros de distribuição e o porto.</div>
+    </div>
+  </section>
+
+  <!-- 6 · Empilhatex -->
+  <section class="scene" id="s6">
+    <div class="abs" style="left:0; top:0; width:1100px; height:1080px; overflow:hidden">
+      <img class="fill" id="s6img" src="img/recarga-rx20.webp" alt="" style="object-position:30% 50%">
+    </div>
+    <div class="abs corte" id="s6panel">
+      <div class="abs" style="left:110px; top:300px">
+        <div class="eb" id="s6eb">Locação elétrica</div>
+        <div class="mask" style="margin-top:26px"><div class="h" id="s6l1" style="font-size:96px">Empilhatex</div></div>
+        <div class="sub" id="s6sub" style="margin-top:30px; width:640px">Locação de empilhadeiras elétricas STILL com bateria de lítio.</div>
+        <div id="segs" style="display:flex; gap:8px; margin-top:64px"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 · Aperto de mão -->
+  <section class="scene" id="s7">
+    <img class="fill" id="s7img" alt="">
+    <div class="abs corte" id="s7panel" style="left:0; top:660px; width:1060px; height:300px; background:var(--azul)">
+      <div class="abs" style="left:150px; top:64px">
+        <div class="mask"><div class="h" id="s7l1" style="font-size:80px">Sua operação</div></div>
+        <div class="mask"><div class="h lar" id="s7l2" style="font-size:80px">não pode parar</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8 · Assinatura -->
+  <section class="scene" id="s8" style="background:var(--azul)">
+    <div class="abs" id="logo" style="left:628px; top:170px; width:664px; height:522px">
+      <img class="abs" id="lsym" src="img/logo-part0.png" alt="" style="left:150px; top:0; width:363px; height:346px">
+      <img class="abs" id="lword" src="img/logo-part1.png" alt="Empilhatec" style="left:0; top:382px; width:664px; height:89px">
+      <img class="abs" id="lpill" src="img/logo-part2.png" alt="Empilhadeiras da Amazônia" style="left:70px; top:473px; width:529px; height:49px">
+    </div>
+    <div class="abs" id="s8c1" style="left:0; width:1920px; top:790px; text-align:center; font-family:Plex, monospace; font-size:34px; letter-spacing:.04em">(92) 3663-4112 &nbsp;·&nbsp; comercial@empilhatec.com</div>
+    <div class="abs" id="s8c2" style="left:0; width:1920px; top:850px; text-align:center; font-size:26px; color:var(--suave)">Rua Crisanto Jobim, 55 · Manaus</div>
+  </section>
+
+  <div id="wipe"></div>
+</div>
+
+<script>
+const $ = (id) => document.getElementById(id);
+const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+const prog = (t, a, b) => clamp((t - a) / (b - a));
+const E = {
+  out3: (x) => 1 - Math.pow(1 - x, 3),
+  inout3: (x) => (x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2),
+  outExpo: (x) => (x >= 1 ? 1 : 1 - Math.pow(2, -10 * x)),
+  outBack: (x) => { const c1 = 1.4, c3 = c1 + 1; return 1 + c3 * Math.pow(x - 1, 3) + c1 * Math.pow(x - 1, 2); },
+};
+const lerp = (a, b, k) => a + (b - a) * k;
+function st(el, o) { for (const k in o) el.style[k] = o[k]; }
+// linha que sobe de dentro da máscara
+function rise(el, t, t0, d = .6) { const k = E.outExpo(prog(t, t0, t0 + d)); el.style.transform = `translateY(${(1 - k) * 110}%)`; }
+function fadeUp(el, t, t0, d = .5, dy = 24) { const k = E.out3(prog(t, t0, t0 + d)); st(el, { opacity: k, transform: `translateY(${(1 - k) * dy}px)` }); }
+
+// ── duração e cenas ────────────────────────────────────────────────
+const DUR = 37;
+const WIPES = [3.25, 15.65, 24.65, 31.25];          // início de cada faixa laranja (0,7 s; troca na metade)
+const W = 0.7;
+const CUTS = [0, 3.6, 7.6, 16.0, 20.4, 25.0, 29.0, 31.6, DUR]; // s1..s8
+
+// ── montagem de elementos repetidos ───────────────────────────────
+const tiles = [];
+[[1400, 2], [1530, 3], [1660, 4]].forEach(([x, n], si) => {
+  for (let k = 0; k < n; k++) {
+    const el = document.createElement('div');
+    el.className = 'tile' + (si === 2 && k === n - 1 ? ' top' : '');
+    st(el, { left: x + 'px', top: (420 - 36 - k * 46) + 'px' });
+    $('tiles').appendChild(el); tiles.push(el);
+  }
+});
+
+const SVC = [
+  { w: ['Venda'], s: 'Empilhadeiras novas STILL, Linde e Baoli.', img: 'img/maquinas.webp', pos: '50% 50%' },
+  { w: ['Locação'], s: 'Elétricas e a combustão, pelo período que a sua operação pede.', clip: 'frota' },
+  { w: ['Peças'], s: 'Peças originais, com estoque em Manaus.', img: 'img/pecas-rolamento.webp', pos: '40% 50%' },
+  { w: ['Assistência', 'técnica'], s: 'Manutenção preventiva e corretiva, com técnicos certificados pelos fabricantes.', img: 'img/assistencia-tecnica.webp', pos: '50% 40%' },
+];
+const S3 = 7.6, SL = 2.1;
+SVC.forEach((v, i) => {
+  const m = document.createElement('div'); m.className = 'media'; m.innerHTML = `<img alt="" ${v.img ? `src="${v.img}" style="object-position:${v.pos}"` : ''}>`;
+  $('s3media').appendChild(m); v.m = m; v.im = m.firstChild;
+  const b = document.createElement('div'); b.className = 'svc';
+  b.innerHTML = v.w.map((w) => `<div class="mask"><div class="h">${w}</div></div>`).join('') + `<div class="sub">${v.s}</div>`;
+  $('svcs').appendChild(b); v.b = b; v.lines = [...b.querySelectorAll('.h')]; v.sub = b.querySelector('.sub');
+  const bar = document.createElement('div'); bar.className = 'bar'; bar.innerHTML = '<i></i>'; $('bars').appendChild(bar); v.bar = bar.firstChild;
+});
+
+for (let i = 0; i < 3; i++) { const r = document.createElement('div'); r.className = 'ring'; st(r, { left: '1258px', top: '268px' }); $('rings').appendChild(r); }
+const segs = []; for (let i = 0; i < 10; i++) { const s = document.createElement('div'); s.className = 'seg'; $('segs').appendChild(s); segs.push(s); }
+
+// quadros dos trechos do vídeo institucional (30 fps)
+const CLIPS = { frota: { n: 51, start: 1 }, aperto: { n: 54, start: 10 } };
+const frames = {};
+for (const [name, c] of Object.entries(CLIPS)) frames[name] = Array.from({ length: c.n }, (_, i) => `clips/${name}/${String(c.start + i).padStart(3, '0')}.jpg`);
+function clipFrame(name, k) { const f = frames[name]; return f[Math.min(f.length - 1, Math.max(0, Math.floor(k * f.length)))]; }
+
+// ── render determinístico de um instante t ─────────────────────────
+const pending = [];
+function setSrc(img, src) { if (img.getAttribute('src') !== src) { img.setAttribute('src', src); pending.push(img.decode().catch(() => {})); } }
+
+function render(t) {
+  // cena ativa (com troca na metade da faixa laranja)
+  let idx = CUTS.findIndex((c, i) => t >= c && t < CUTS[i + 1]); if (idx < 0) idx = 7;
+  document.querySelectorAll('.scene').forEach((s, i) => (s.style.display = i === idx ? 'block' : 'none'));
+
+  // faixa laranja
+  const wipe = $('wipe'); wipe.style.display = 'none';
+  for (const w0 of WIPES) if (t >= w0 && t < w0 + W) { const k = (t - w0) / W; wipe.style.display = 'block'; wipe.style.transform = `translateX(${lerp(-2700, 1920, k)}px)`; }
+
+  // 1 · abertura
+  if (idx === 0) {
+    tiles.forEach((el, i) => { const k = prog(t, .1 + i * .09, .1 + i * .09 + .55); st(el, { opacity: Math.min(1, k * 3), transform: `translateY(${(1 - E.outBack(k)) * -220}px)` }); });
+    fadeUp($('s1eb'), t, .45);
+    rise($('s1l1'), t, .75, .7); rise($('s1l2'), t, .9, .7);
+    $('s1n').textContent = Math.round(30 * E.out3(prog(t, .8, 1.9)));
+  }
+  // 2 · fachada
+  if (idx === 1) {
+    const k = prog(t, 3.6, 7.6);
+    $('s2img').style.transform = `scale(${lerp(1.12, 1.0, E.out3(k))})`;
+    const kp = E.outExpo(prog(t, 3.85, 4.5)); $('s2panel').style.transform = `translateX(${(1 - kp) * -1080}px)`;
+    fadeUp($('s2eb'), t, 4.2); rise($('s2l1'), t, 4.3); rise($('s2l2'), t, 4.45);
+  }
+  // 3 · o que fazemos
+  if (idx === 2) {
+    const kp = E.outExpo(prog(t, S3, S3 + .6)); $('s3panel').style.transform = `translateX(${(1 - kp) * -820}px)`;
+    fadeUp($('s3eb'), t, S3 + .25);
+    SVC.forEach((v, i) => {
+      const a = S3 + i * SL, b = a + SL, last = i === SVC.length - 1;
+      // imagem entra de baixo para cima por cima da anterior
+      const kin = i === 0 ? E.outExpo(prog(t, S3 + .1, S3 + .8)) : E.inout3(prog(t, a - .15, a + .45));
+      v.m.style.clipPath = `inset(${(1 - kin) * 100}% 0 0 0)`;
+      v.m.style.display = t >= a - .2 && (last || t < b + .6) ? 'block' : 'none';
+      const kz = prog(t, a - .15, b + .5); v.im.style.transform = `scale(${lerp(1.1, 1.0, E.out3(kz))})`;
+      if (v.clip) setSrc(v.im, clipFrame(v.clip, prog(t, a - .15, b + .3)));
+      // palavra
+      const out = last ? 0 : E.inout3(prog(t, b - .3, b));
+      v.lines.forEach((l, j) => { const k = E.outExpo(prog(t, a + .1 + j * .08, a + .7 + j * .08)); l.style.transform = `translateY(${(1 - k) * 110 - out * 110}%)`; });
+      const ks = E.out3(prog(t, a + .3, a + .8)); st(v.sub, { opacity: ks * (1 - out), transform: `translateY(${(1 - ks) * 20}px)` });
+      v.bar.style.transform = `scaleX(${prog(t, a, b)})`;
+    });
+  }
+  // 4 · marcas
+  if (idx === 3) {
+    fadeUp($('s4eb'), t, 16.25); rise($('s4l1'), t, 16.35); rise($('s4l2'), t, 16.47); rise($('s4l3'), t, 16.59);
+    [0, 1, 2].forEach((i) => { const k = E.outBack(prog(t, 17.0 + i * .13, 17.6 + i * .13)); st($('p' + i), { opacity: clamp(k * 2), transform: `translateY(${(1 - k) * 60}px)` }); });
+    fadeUp($('s4kion'), t, 17.6);
+    const ko = E.inout3(prog(t, 20.0, 20.4)); $('s4').style.opacity = 1; // saída: o conteúdo sobe
+    document.querySelectorAll('#s4 > *').forEach((el) => { el.style.translate = `0 ${-ko * 80}px`; el.style.opacity = 1 - ko; });
+  }
+  // 5 · onde atuamos
+  if (idx === 4) {
+    const km = E.out3(prog(t, 20.4, 21.3)); st($('s5map'), { opacity: km, transform: `scale(${lerp(.9, 1, km)})` });
+    fadeUp($('s5eb'), t, 20.6); rise($('s5l1'), t, 20.7); rise($('s5l2'), t, 20.85); fadeUp($('s5sub'), t, 21.2);
+    [...$('rings').children].forEach((r, i) => {
+      const t0 = 21.2 + i * .45; const ph = t < t0 ? -1 : ((t - t0) % 1.35) / 1.35;
+      if (ph < 0) { r.style.opacity = 0; return; }
+      st(r, { opacity: 1 - ph, transform: `scale(${1 + ph * 6})` });
+    });
+  }
+  // 6 · empilhatex
+  if (idx === 5) {
+    $('s6img').style.transform = `scale(${lerp(1.12, 1.0, E.out3(prog(t, 25.0, 29.0)))})`;
+    const kp = E.outExpo(prog(t, 25.25, 25.9)); $('s6panel').style.transform = `translateX(${(1 - kp) * 920}px)`;
+    fadeUp($('s6eb'), t, 25.6); rise($('s6l1'), t, 25.7); fadeUp($('s6sub'), t, 26.0);
+    segs.forEach((s, i) => s.classList.toggle('on', t >= 26.4 + i * .17));
+  }
+  // 7 · aperto de mão
+  if (idx === 6) {
+    setSrc($('s7img'), clipFrame('aperto', prog(t, 29.0, 31.6)));
+    const kp = E.outExpo(prog(t, 29.35, 29.95)); $('s7panel').style.transform = `translateX(${(1 - kp) * -1060}px)`;
+    rise($('s7l1'), t, 29.6); rise($('s7l2'), t, 29.75);
+  }
+  // 8 · assinatura
+  if (idx === 7) {
+    const ks = E.out3(prog(t, 31.85, 32.65));
+    st($('lsym'), { clipPath: `circle(${ks * 72}% at 50% 50%)`, transform: `scale(${lerp(.8, 1, ks)}) rotate(${lerp(-25, 0, ks)}deg)` });
+    const kw = E.inout3(prog(t, 32.35, 33.0)); $('lword').style.clipPath = `inset(0 ${(1 - kw) * 100}% 0 0)`;
+    fadeUp($('lpill'), t, 32.8, .5, 16);
+    fadeUp($('s8c1'), t, 33.35); fadeUp($('s8c2'), t, 33.55);
+  }
+  const p = Promise.all(pending.splice(0)); return p;
+}
+
+// pré-carrega imagens e quadros
+const ALL = [...document.images].map((i) => i.src).filter(Boolean).concat(SVC.filter((v) => v.img).map((v) => v.img), ...Object.values(frames));
+window.ready = Promise.all([document.fonts.ready, ...ALL.map((s) => { const i = new Image(); i.src = s; return i.decode().catch(() => {}); })]);
+window.render = render; window.DUR = DUR;
+
+// modo prévia: toca em loop, ajustado à janela
+if (!location.search.includes('render')) {
+  const stage = $('stage');
+  const fit = () => { const s = Math.min(innerWidth / 1920, innerHeight / 1080); stage.style.transform = `scale(${s})`; stage.style.left = (innerWidth - 1920 * s) / 2 + 'px'; stage.style.top = (innerHeight - 1080 * s) / 2 + 'px'; };
+  addEventListener('resize', fit); fit();
+  window.ready.then(() => { let t0 = performance.now(); const loop = (n) => { const t = ((n - t0) / 1000) % DUR; render(t); requestAnimationFrame(loop); }; requestAnimationFrame(loop); });
+  addEventListener('click', () => location.reload());
+}
+</script>
+</body>
+</html>

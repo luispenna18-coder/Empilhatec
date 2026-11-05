@@ -24,7 +24,6 @@ const MAPA = {
   'egv-16-sf': 'egv16-sf', 'erx-27': 'erx-27', 'exh-20': 'exh-20', 'exh-sf-20c': 'exh-sf-20', 'ech-15c': 'ech-20',
   'opx-20-25': 'opx-25', 'ltx-50': 'ltx-50', 'linde-h20-h35': 'linde-h20-h35', 'linde-h50-h80-evo': 'linde-h50-h80',
   'linde-t14-s-t20-t25-s-sf': 'linde-t20-t25', 'kbg-25': 'kbg-25', 'kbd-25-35': 'kbd-25-35', 'kbd-70': 'kbd-70',
-  'sj4726-32-e': 'sj4726-32-e',
 };
 
 const NOMES = { 'linde-h20-h35': 'H20 – H35', 'linde-h50-h80': 'H50 – H80 EVO', 'linde-t20-t25': 'T20 – T25 S/SF', 'rc-44-25c': 'RC 44-25 C', 'exh-sf-20': 'EXH-SF 20 C', 'ech-20': 'ECH 15 C', 'opx-25': 'OPX 20-25' };
@@ -66,38 +65,16 @@ const DESCRICOES = {
   'kbg-25': 'Empilhadeira Baoli a GLP da série KBD/G 25-35, concebida para confiabilidade, produtividade e eficiência de custo. Fabricada na unidade do grupo KION em Jinan, é a escolha para quase todas as aplicações.',
   'kbd-25-35': 'Empilhadeira Baoli a diesel da série KBD/G 25-35, concebida para confiabilidade, produtividade e eficiência de custo. Fabricada na unidade do grupo KION em Jinan, é a escolha para quase todas as aplicações.',
   'kbd-70': 'A série Baoli KBD 50-100 oferece capacidades de 5, 6, 7 e 10 toneladas a 600 mm de centro de carga. É a escolha para quem busca um equipamento de qualidade robusta, sem opções desnecessárias.',
-  'sj4726-32-e': 'Plataforma elevatória de tesoura elétrica Skyjack, disponível em dois modelos: SJ4726 E (altura de trabalho de 9,65 m) e SJ4732 E (11,48 m). Plataforma com extensão retrátil de 1,22 m e motorização elétrica, indicada para trabalho em altura em ambientes internos.',
 };
 
-const CATEGORIAS_ORDEM = ['retratil', 'contrabalancada', 'patolada', 'transpaleteira', 'selecionadora', 'rebocador', 'plataforma-elevatoria'];
+const CATEGORIAS_ORDEM = ['retratil', 'contrabalancada', 'patolada', 'transpaleteira', 'selecionadora', 'rebocador'];
 
-// cabeçalhos das tabelas da Linde e da Skyjack (originais em inglês)
+// cabeçalhos das tabelas da Linde (originais em inglês)
 const CABECALHO = {
   Model: 'Modelo', 'Load capacity/Load': 'Capacidade de carga', 'Load centre distance': 'Centro de carga', Wheelbase: 'Distância entre eixos',
   'Aisle width with pallet 800 x 1200 along forks': 'Corredor (palete 800 × 1200)', 'Travel speed, with/without load': 'Velocidade (com/sem carga)',
   Lift: 'Elevação', 'Turning radius': 'Raio de giro', 'Battery voltage/rated capacity (5h)': 'Bateria (V / capacidade)',
 };
-const SKY = {
-  'Work Height': 'Altura de trabalho', 'Raised Platform Height': 'Altura da plataforma elevada', 'Lowered Platform Height': 'Altura da plataforma recolhida',
-  'Overall Width': 'Largura total', 'Overall Length': 'Comprimento total', 'Stowed Height (Rails Up)': 'Altura recolhida (guarda-corpos erguidos)',
-  'Stowed Height (Rails Down)': 'Altura recolhida (guarda-corpos abaixados)', 'Platform Width (Inside Dimension)': 'Largura da plataforma (interna)',
-  'Platform Length (Inside Dimension)': 'Comprimento da plataforma (interno)', 'Extension Deck (Roll Out)': 'Extensão da plataforma',
-  'Ground Clearance': 'Altura livre do solo', 'Capacity (Overall)': 'Capacidade total', 'Distributed Capacity (Main Platform)': 'Capacidade (plataforma principal)',
-  'Distributed Capacity (Extension Deck)': 'Capacidade (extensão)',
-};
-const metrico = (v) => {
-  const m = v.match(/\(([^)]*)\)/);
-  let t = (m ? m[1] : v).trim();
-  t = /^[\d,]+\s*kg$/.test(t) ? t.replace(/,/g, '.') : t.replace(/\./g, ',');
-  return t.replace(/\s*sec$/, ' s').replace('Full Height', 'Altura total').replace(/\s+/g, ' ');
-};
-// linhas da tabela da Skyjack que entram no site, já traduzidas
-const SKY_LINHAS = ['Work Height', 'Raised Platform Height', 'Lowered Platform Height', 'Overall Width', 'Overall Length',
-  'Stowed Height (Rails Down)', 'Platform Width (Inside Dimension)', 'Platform Length (Inside Dimension)', 'Extension Deck (Roll Out)',
-  'Weight', 'Drive Speed (Stowed)', 'Gradeability', 'Capacity (Overall)', 'Distributed Capacity (Main Platform)',
-  'Distributed Capacity (Extension Deck)', 'Maximum # of Persons'];
-Object.assign(SKY, { Weight: 'Peso', 'Drive Speed (Stowed)': 'Velocidade (plataforma recolhida)', Gradeability: 'Rampa máxima', 'Maximum # of Persons': 'Máximo de pessoas' });
-
 // ---------- escolha de imagens ----------
 const EXCLUIR = /neXXt|Fleet|Stage|Footer|Logo|Li-Ion_Technology|Banner|_Header_.*KBE/i;
 const CARD_PADRAO = /800x800|Studio|Freisteller|Teaser|Mobile|Header|1024x1024|teaser_16x9/i;
@@ -136,7 +113,7 @@ async function escolherImagens(slug, id, imagens) {
 // ---------- principal ----------
 const { PRODUCTS: REF } = await import(MULTYLOG);
 const dados = [];
-for (const f of ['still', 'linde', 'baoli', 'skyjack']) dados.push(...JSON.parse(await fs.readFile(path.join(ROOT, `data/catalogo/${f}.json`), 'utf8')));
+for (const f of ['still', 'linde', 'baoli']) dados.push(...JSON.parse(await fs.readFile(path.join(ROOT, `data/catalogo/${f}.json`), 'utf8')));
 
 const GAL = JSON.parse(await fs.readFile(path.join(ROOT, 'data/catalogo/galeria.json'), 'utf8'));
 const existe = async (f) => fs.access(f).then(() => true, () => false);
@@ -168,16 +145,13 @@ for (const d of dados) {
   usados.add(card.arquivo);
 
   let versoes;
-  if (d.marca === 'Skyjack' && d.tabela?.[0]) {
-    const t = d.tabela[0];
-    versoes = { columns: ['Especificação', ...t.colunas.slice(1)], rows: SKY_LINHAS.map((k) => t.linhas.find((r) => r[0] === k)).filter(Boolean).map((r) => [SKY[r[0]] ?? r[0], ...r.slice(1).map(metrico)]) };
-  } else if (d.tabela?.linhas?.length) {
+  if (d.tabela?.linhas?.length) {
     versoes = { columns: d.tabela.colunas.map((c) => CABECALHO[c] ?? c), rows: d.tabela.linhas.slice(0, 12) };
   }
 
   produtos.push({
     id,
-    name: NOMES[id] ?? ref.name.replace(/\s*\((Linde|Baoli|STILL|Skyjack)\)$/, ''),
+    name: NOMES[id] ?? ref.name.replace(/\s*\((Linde|Baoli|STILL)\)$/, ''),
     category: ref.category,
     capacity: ref.capacity,
     ...(ref.liftHeight ? { liftHeight: ref.liftHeight } : {}),
@@ -200,12 +174,12 @@ for (const d of dados) {
   });
 }
 const limparNulos = (o) => Object.fromEntries(Object.entries(o).filter(([, v]) => v !== null && v !== undefined));
-const ORDEM_MARCA = { STILL: 0, Linde: 1, Baoli: 2, Skyjack: 3 };
+const ORDEM_MARCA = { STILL: 0, Linde: 1, Baoli: 2 };
 for (let i = 0; i < produtos.length; i++) produtos[i] = limparNulos(produtos[i]);
 produtos.sort((a, b) => CATEGORIAS_ORDEM.indexOf(a.category) - CATEGORIAS_ORDEM.indexOf(b.category) || ORDEM_MARCA[a.brand] - ORDEM_MARCA[b.brand]);
 
 const header = `// ARQUIVO GERADO por scripts/catalogo/montar.mjs — não edite à mão.
-// Fontes: sites oficiais da STILL, Linde, Baoli e Skyjack (imagens, fichas técnicas e tabelas).
+// Fontes: sites oficiais da STILL, Linde e Baoli (imagens, fichas técnicas e tabelas).
 import type { ProductData } from "./products";
 
 export const PRODUCTS_DATA = `;
@@ -218,7 +192,7 @@ for (const p of produtos) console.log(p.id.padEnd(14), p.category.padEnd(16), `$
 
 if (limpar) {
   let apagados = 0, bytes = 0;
-  for (const marca of ['still', 'linde', 'baoli', 'skyjack']) {
+  for (const marca of ['still', 'linde', 'baoli']) {
     const raiz = path.join(ROOT, 'public/images/machines', marca);
     for (const dir of await fs.readdir(raiz)) {
       for (const f of await fs.readdir(path.join(raiz, dir))) {

@@ -64,7 +64,7 @@ export default async function MaquinaPage({ params }: { params: Promise<Params> 
 
         <div className="grid gap-10 lg:grid-cols-[1.1fr_1fr] lg:gap-14">
           {/* Galeria */}
-          <div className="min-w-0 lg:sticky lg:top-[calc(var(--header-h)-2.25rem+1rem)] lg:self-start">
+          <div className="min-w-0 lg:sticky lg:top-[calc(var(--header-h)+1rem)] lg:self-start">
             <MachineGallery images={p.gallery} name={`${p.brand} ${p.name}`} />
           </div>
 

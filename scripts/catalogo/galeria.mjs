@@ -76,12 +76,10 @@ function candidatos(url, idx) {
     lista.push(url);
   } else if (u.host === 'baoli.com.br') {
     lista.push(url.replace(/-\d+x\d+(\.\w+)$/, '$1'), url);
-  } else if (u.host === 'www.skyjack.com') {
-    lista.push(url.replace(/\/styles\/[^/]+\/public\//, '/'), url);
   }
   return [...new Set(lista)];
 }
-const fabricante = (url) => !url.startsWith('/') && /^(data\.still\.de|(www\.)?linde-mh\.(com|pt)|baoli\.com\.br|www\.skyjack\.com)$/.test(new URL(url).host);
+const fabricante = (url) => !url.startsWith('/') && /^(data\.still\.de|(www\.)?linde-mh\.(com|pt)|baoli\.com\.br)$/.test(new URL(url).host);
 
 async function dhash(buf) {
   const { data } = await sharp(buf).resize(9, 8, { fit: 'fill' }).greyscale().raw().toBuffer({ resolveWithObject: true });
@@ -98,7 +96,7 @@ console.log(`  ${idx.size} imagens indexadas`);
 
 const { PRODUCTS: REF } = await import(MULTYLOG);
 const dados = [];
-for (const f of ['still', 'linde', 'baoli', 'skyjack']) dados.push(...JSON.parse(await fs.readFile(path.join(ROOT, `data/catalogo/${f}.json`), 'utf8')));
+for (const f of ['still', 'linde', 'baoli']) dados.push(...JSON.parse(await fs.readFile(path.join(ROOT, `data/catalogo/${f}.json`), 'utf8')));
 
 const saida = {};
 for (const d of dados) {

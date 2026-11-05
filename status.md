@@ -20,6 +20,9 @@ Formulários enviam por e-mail (destino a definir).
 - 2026-10-03 Locação nova (dealer STILL, entrega ágil pelo Norte, setores, suporte, frota, proposta); sem FAQ
 - 2026-10-03 Peças e Serviços nova: peças originais + planos de manutenção (sem multimarcas/cobertura), chamado técnico e formulário
 - 2026-10-03 Sobre: foto do Deocleciano (LinkedIn), linha do tempo em estrada, foto da frota no lugar da foto da equipe; banners claros em todas as páginas; hero da Home em foto
+- 2026-10-14 hero da Home com vídeo de fundo (institucional da Empilhatec + máquinas STILL), no formato da Carmak
+- 2026-10-15 Home: cartões Locação / Venda / Peças e serviços (no lugar das quatro linhas) e vitrine de máquinas com abas por categoria
+- 2026-10-15 Skyjack removida do site e do catálogo, a pedido do usuário: agora são 17 máquinas
 
 ## Próximos passos
 1. Logo em vetor, equipe, logos das marcas e fotos originais do cliente (OneDrive ou cliente); hoje o logo vem do Instagram e as fotos são do Instagram e da STILL
@@ -52,5 +55,5 @@ Semelhanças ainda existentes, em ordem de prioridade:
 Altura do cabeçalho fixa em `--header-h` (globals.css): 4rem no celular e 7rem no desktop.
 
 ## Regras do projeto
-- Imagens e fichas das máquinas: só de STILL, Linde, Baoli e Skyjack. Nunca da Multylog nem de revendas concorrentes.
+- Imagens e fichas das máquinas: só de STILL, Linde e Baoli. Nunca da Multylog nem de revendas concorrentes.
 - Não editar `lib/products.data.ts` à mão: ajustar `scripts/catalogo/montar.mjs` e rodar `node scripts/catalogo/montar.mjs --limpar`.

@@ -1,0 +1,296 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="tokens.css"><style>/* Empilhatec — componentes. Depende das variáveis de tokens.css (--laranja, --texto, --espaco-6 …). */
+
+.et, .et * { box-sizing: border-box; }
+.et { font-family: var(--font-sans); color: var(--texto); background: var(--fundo); -webkit-font-smoothing: antialiased; }
+.et :focus-visible { outline: 2px solid var(--foco); outline-offset: 2px; }
+
+/* ── Tipografia aplicada ─────────────────────────────────────── */
+.et-display { font-family: var(--font-display); font-weight: 800; letter-spacing: -0.01em; text-wrap: balance; margin: 0; color: var(--texto); }
+.et-h1 { font-family: var(--font-display); font-weight: 800; font-size: clamp(30px, 4vw, 44px); line-height: 1.05; letter-spacing: -0.01em; text-wrap: balance; margin: 0; color: var(--texto); }
+.et-h2 { font-family: var(--font-display); font-weight: 700; font-size: clamp(24px, 2.6vw, 32px); line-height: 1.1; text-wrap: balance; margin: 0; color: var(--texto); }
+.et-h3 { font-family: var(--font-display); font-weight: 700; font-size: clamp(18px, 1.6vw, 20px); line-height: 1.25; margin: 0; color: var(--texto); }
+.et-lead { font-size: clamp(18px, 1.8vw, 22px); line-height: 1.45; color: var(--texto-suave); max-width: var(--largura-texto); margin: 0; text-wrap: pretty; }
+.et-corpo { font-size: 17px; line-height: 1.6; max-width: var(--largura-texto); margin: 0; }
+.et-rotulo { font-size: 13px; line-height: 1.2; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--texto-suave); }
+.et-dado { font-family: var(--font-mono); font-weight: 500; font-size: 15px; line-height: 1.3; font-variant-numeric: tabular-nums; }
+
+/* ── Botão ───────────────────────────────────────────────────── */
+.et-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--espaco-2);
+  height: var(--altura-controle); padding: 0 var(--espaco-6);
+  font-family: var(--font-sans); font-size: 16px; font-weight: 600; line-height: 1; text-decoration: none; white-space: nowrap;
+  border: 1.5px solid transparent; border-radius: var(--raio-1); cursor: pointer;
+  transition: background-color .15s ease, color .15s ease, border-color .15s ease;
+}
+.et-btn svg { width: 20px; height: 20px; flex: none; }
+.et-btn--primario { background: var(--laranja); color: var(--sobre-laranja); }
+.et-btn--primario:hover { background: var(--laranja-forte); }
+.et-btn--secundario { background: transparent; color: var(--texto); border-color: var(--texto); }
+.et-btn--secundario:hover { background: var(--texto); color: var(--fundo); }
+.et-btn--compacto { height: 40px; padding: 0 var(--espaco-4); font-size: 15px; }
+.et-btn[disabled], .et-btn[aria-disabled="true"] { opacity: .45; pointer-events: none; }
+
+/* Link de ação com seta */
+.et-link {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 16px; font-weight: 600; color: var(--destaque-texto); text-decoration: none;
+}
+.et-link svg { width: 18px; height: 18px; transition: transform .15s ease; }
+.et-link:hover { text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1.5px; }
+.et-link:hover svg { transform: translateX(4px); }
+
+/* ── Cabeçalho de seção ──────────────────────────────────────── */
+.et-secao-cab { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: var(--espaco-4) var(--espaco-8); margin-bottom: var(--espaco-8); }
+.et-secao-cab__textos { display: grid; gap: var(--espaco-4); min-width: 0; flex: 1 1 28rem; }
+
+/* ── Selo ────────────────────────────────────────────────────── */
+.et-selos { display: flex; flex-wrap: wrap; gap: var(--espaco-2); }
+.et-selo {
+  display: inline-flex; align-items: center; gap: 4px; height: 24px; padding: 0 var(--espaco-2);
+  font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; line-height: 1;
+  border-radius: var(--raio-1); border: 1px solid var(--borda); color: var(--texto-suave); background: transparent;
+}
+.et-selo--locacao { background: var(--destaque-suave); border-color: transparent; color: var(--destaque-texto); }
+
+/* ── Corte do L (canto superior direito chanfrado) ───────────── */
+.et-corte-p { clip-path: polygon(0 0, calc(100% - var(--corte-p)) 0, 100% var(--corte-p), 100% 100%, 0 100%); }
+.et-corte-g { clip-path: polygon(0 0, calc(100% - var(--corte-g)) 0, 100% var(--corte-g), 100% 100%, 0 100%); }
+
+/* ── Card base ───────────────────────────────────────────────── */
+.et-card {
+  display: flex; flex-direction: column; min-width: 0;
+  background: var(--superficie); border: 1px solid var(--borda); border-radius: var(--raio-2);
+  color: var(--texto); text-decoration: none; transition: border-color .15s ease;
+}
+a.et-card:hover { border-color: var(--texto); }
+
+/* Card de máquina */
+.et-maquina { padding: var(--espaco-2); }
+.et-maquina__foto { position: relative; aspect-ratio: 4 / 3; background: var(--foto-fundo); max-width: 100%; }
+.et-maquina__foto img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; padding: var(--espaco-6); }
+.et-maquina__corpo { display: flex; flex-direction: column; gap: var(--espaco-3); flex: 1; padding: var(--espaco-4) var(--espaco-4) var(--espaco-4); }
+.et-maquina__topo { display: grid; gap: var(--espaco-1); }
+.et-plaqueta { display: grid; grid-template-columns: 1fr 1fr; gap: var(--espaco-3) var(--espaco-4); margin: 0; padding-top: var(--espaco-3); border-top: 1px solid var(--borda); }
+.et-plaqueta dt { font-size: 12px; color: var(--texto-suave); margin-bottom: 2px; }
+.et-plaqueta dd { margin: 0; font-family: var(--font-mono); font-weight: 500; font-size: 15px; font-variant-numeric: tabular-nums; }
+.et-maquina__pe { margin-top: auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--espaco-3); padding-top: var(--espaco-2); }
+
+/* Card de categoria / serviço */
+.et-categoria { padding: var(--espaco-6) var(--espaco-6) var(--espaco-2); gap: var(--espaco-3); }
+/* a foto encosta a 8px das bordas do card, como a do card de máquina */
+.et-categoria__foto { margin: var(--espaco-4) calc(var(--espaco-4) * -1) 0; aspect-ratio: 16 / 9; overflow: hidden; }
+.et-categoria__foto img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* ── Ficha técnica ───────────────────────────────────────────── */
+.et-ficha-wrap { overflow-x: auto; border-top: 2px solid var(--texto); }
+.et-ficha { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.et-ficha th, .et-ficha td { padding: 12px var(--espaco-4) 12px 0; text-align: left; border-bottom: 1px solid var(--borda); white-space: nowrap; }
+.et-ficha thead th { font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--texto-suave); vertical-align: bottom; white-space: normal; min-width: 7rem; }
+.et-ficha tbody th { font-family: var(--font-mono); font-weight: 500; font-size: 15px; color: var(--texto); }
+.et-ficha td { font-family: var(--font-mono); font-weight: 500; font-size: 15px; }
+.et-ficha .et-num { text-align: right; }
+.et-ficha tbody tr:hover { background: var(--fundo-alt); }
+
+/* ── Campo de formulário ─────────────────────────────────────── */
+.et-campo { display: grid; gap: 6px; min-width: 0; }
+.et-campo label { font-size: 14px; font-weight: 600; color: var(--texto); }
+.et-campo .et-opcional { font-weight: 400; color: var(--texto-suave); }
+.et-input {
+  width: 100%; height: var(--altura-controle); padding: 0 14px;
+  font: 400 16px/1.4 var(--font-sans); color: var(--texto); background: var(--superficie);
+  border: 1px solid var(--borda-campo); border-radius: var(--raio-1);
+}
+textarea.et-input { height: auto; min-height: 120px; padding: 12px 14px; resize: vertical; }
+.et-input::placeholder { color: var(--texto-suave); opacity: 1; }
+.et-input:focus { outline: 2px solid var(--foco); outline-offset: 1px; border-color: var(--foco); }
+.et-ajuda { font-size: 14px; color: var(--texto-suave); }
+.et-campo--erro .et-input { border-color: var(--erro); border-width: 2px; }
+.et-campo--erro .et-ajuda { color: var(--erro); display: flex; gap: 6px; align-items: center; }
+
+/* ── Faixa de contato ────────────────────────────────────────── */
+.et-faixa {
+  background: var(--fundo); color: var(--texto); border: 1px solid var(--borda);
+  padding: var(--espaco-12); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--espaco-8);
+}
+.et-faixa__textos { display: grid; gap: var(--espaco-3); flex: 1 1 24rem; min-width: 0; }
+.et-faixa__acoes { display: grid; gap: var(--espaco-4); justify-items: start; }
+.et-faixa__fone { font-family: var(--font-display); font-weight: 700; font-size: clamp(24px, 2.6vw, 32px); line-height: 1; color: var(--texto); text-decoration: none; font-variant-numeric: tabular-nums; }
+.et-faixa__fone span { display: block; font-family: var(--font-sans); font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--laranja); margin-bottom: 8px; }
+.et-faixa__botoes { display: flex; flex-wrap: wrap; gap: var(--espaco-3); }
+@media (max-width: 640px) { .et-faixa { padding: var(--espaco-8) var(--espaco-6); } }
+
+@media (prefers-reduced-motion: reduce) { .et-btn, .et-link svg, .et-card { transition: none; } }
+ body{margin:0;background:#888} .frame{width:960px;margin:20px;background:var(--fundo);overflow:hidden} h6{margin:20px;font:12px monospace}</style></head><body><h6>Botao</h6><div class="frame"><style>  .demo{padding:24px; display:grid; gap:24px} </style>
+<div class="et demo">
+  <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center">
+    <a class="et-btn et-btn--primario" href="#">Solicitar cotação</a>
+    <a class="et-btn et-btn--secundario" href="#">Ver máquinas</a>
+    <a class="et-btn et-btn--primario et-btn--compacto" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>(92) 3663-4112</a>
+    <a class="et-link" href="#">Conhecer a assistência <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+  </div>
+</div>
+<div class="et demo" data-theme="rio-negro">
+  <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center">
+    <a class="et-btn et-btn--primario" href="#">Solicitar cotação</a>
+    <a class="et-btn et-btn--secundario" href="#">Ver máquinas</a>
+    <a class="et-link" href="#">Conhecer a assistência <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+  </div>
+</div>
+</div><h6>Campo</h6><div class="frame"><style>  .demo{padding:24px; display:grid; gap:24px} </style>
+<div class="et demo" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
+  <div class="et-campo"><label for="c1">Empresa</label><input id="c1" class="et-input" value="Distribuidora Rio Negro Ltda."></div>
+  <div class="et-campo"><label for="c2">Telefone ou WhatsApp</label><input id="c2" class="et-input" placeholder="(92) 99999-9999"></div>
+  <div class="et-campo et-campo--erro"><label for="c3">E-mail</label><input id="c3" class="et-input" value="compras@empresa" aria-invalid="true" aria-describedby="c3e"><span class="et-ajuda" id="c3e"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="16" height="16"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>Falta o domínio. Ex.: compras@empresa.com.br</span></div>
+  <div class="et-campo"><label for="c4">Prazo da locação <span class="et-opcional">(opcional)</span></label><input id="c4" class="et-input" placeholder="Ex.: 6 meses"><span class="et-ajuda">Se ainda não sabe, deixe em branco.</span></div>
+</div>
+</div><h6>CardCategoria</h6><div class="frame"><style>  .demo{padding:24px; display:grid; gap:24px} </style>
+<div class="et demo" style="grid-template-columns:repeat(auto-fill,minmax(280px,1fr))">
+  <a class="et-card et-categoria" href="#">
+    <h3 class="et-h3">Locação</h3>
+    <p class="et-corpo" style="color:var(--texto-suave)">Frota STILL com manutenção inclusa e entrega pelo Norte do país.</p>
+    <span class="et-link">Conhecer a locação <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+    <div class="et-categoria__foto et-corte-p"><img src="locar.jpg" alt="Empilhadeira STILL em operação"></div>
+  </a>
+  <a class="et-card et-categoria" href="#">
+    <h3 class="et-h3">Peças e serviços</h3>
+    <p class="et-corpo" style="color:var(--texto-suave)">Peças originais e planos de manutenção preventiva.</p>
+    <span class="et-link">Abrir chamado técnico <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+    <div class="et-categoria__foto et-corte-p" style="background:var(--fundo-alt)"></div>
+  </a>
+</div>
+</div><h6>CardMaquina</h6><div class="frame"><style>  .demo{padding:24px; display:grid; gap:24px} </style>
+<div class="et demo" style="grid-template-columns:repeat(auto-fill,minmax(260px,1fr))">
+  <a class="et-card et-maquina" href="#">
+    <div class="et-maquina__foto et-corte-p"><img src="fmx.webp" alt="STILL FM-X 17/20"></div>
+    <div class="et-maquina__corpo">
+      <div class="et-maquina__topo">
+        <span class="et-rotulo">STILL · Retrátil</span>
+        <h3 class="et-h3">FM-X 17/20</h3>
+      </div>
+      <dl class="et-plaqueta">
+        <div><dt>Capacidade</dt><dd>1.700–2.000 kg</dd></div>
+        <div><dt>Elevação</dt><dd>até 13.000 mm</dd></div>
+        <div><dt>Energia</dt><dd>Elétrica 48 V</dd></div>
+        <div><dt>Velocidade</dt><dd>14 km/h</dd></div>
+      </dl>
+      <div class="et-maquina__pe">
+        <div class="et-selos"><span class="et-selo et-selo--locacao">Locação</span><span class="et-selo">Venda</span></div>
+        <span class="et-link">Ver máquina <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+      </div>
+    </div>
+  </a>
+  <div data-theme="rio-negro" class="et" style="padding:16px">
+  <a class="et-card et-maquina" href="#">
+    <div class="et-maquina__foto et-corte-p"><img src="fmx.webp" alt="STILL FM-X 17/20"></div>
+    <div class="et-maquina__corpo">
+      <div class="et-maquina__topo">
+        <span class="et-rotulo">STILL · Retrátil</span>
+        <h3 class="et-h3">FM-X 17/20</h3>
+      </div>
+      <dl class="et-plaqueta">
+        <div><dt>Capacidade</dt><dd>1.700–2.000 kg</dd></div>
+        <div><dt>Elevação</dt><dd>até 13.000 mm</dd></div>
+      </dl>
+      <div class="et-maquina__pe">
+        <div class="et-selos"><span class="et-selo et-selo--locacao">Locação</span></div>
+        <span class="et-link">Ver máquina <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+      </div>
+    </div>
+  </a>
+  </div>
+</div>
+</div><h6>Cover</h6><div class="frame"><style>
+  html, body { margin:0; height:100%; }
+  body { background:var(--fundo); color:var(--texto); font-family:var(--font-sans); overflow:hidden; }
+  .cover { position:relative; width:960px; height:288px; overflow:hidden; }
+  .band { position:absolute; top:0; left:0; width:960px; height:112px; }
+  .band svg { display:block; width:960px; height:112px; }
+  .ink { fill:var(--texto); }
+  .brand { fill:var(--laranja); }
+  .tint { fill:var(--borda); }
+  .cut { fill:var(--fundo); }
+  .tile { rx:var(--raio-1); }
+  .words { position:absolute; left:var(--espaco-8); bottom:var(--espaco-8); max-width:900px; }
+  .name { margin:0; font-family:var(--font-display); font-size:64px; line-height:.95; font-weight:800; letter-spacing:-0.01em; color:var(--texto); }
+  .tag { margin:var(--espaco-3) 0 0 2px; font-size:14px; line-height:20px; color:var(--texto-suave); }
+</style>
+<div class="cover">
+<div class="band" aria-hidden="true">
+<svg viewBox="0 0 960 112" width="960" height="112">
+<!--
+  blocks      texto (rio-negro no Claro) 480×112 · laranja 192×112 com o corte do L (corte-g, 32) no canto superior direito · borda (concreto-200) 256×112 sangrando à direita — 37% de 960×288
+  arrangement faixa superior de blocos desiguais, como uma prateleira de porta-palete; gutters espaco-4
+  pattern     pilhas de paletes (empilhar): 9 placas 48×16 recortadas no fundo, em degrau 2-3-4, a do topo em laranja; vem do nome da marca e do corte do L
+  scales      placas 48×16, gap espaco-2 (8), base a espaco-4 (16) do pé do bloco, passo 56/24; cantos raio-1; corte corte-g
+-->
+<rect class="ink" x="0" y="0" width="480" height="112"/>
+<polygon class="brand" points="496,0 656,0 688,32 688,112 496,112"/>
+<rect class="tint" x="704" y="0" width="256" height="112"/>
+<rect class="cut tile" x="288" y="80" width="48" height="16" rx="2"/>
+<rect class="cut tile" x="288" y="56" width="48" height="16" rx="2"/>
+<rect class="cut tile" x="344" y="80" width="48" height="16" rx="2"/>
+<rect class="cut tile" x="344" y="56" width="48" height="16" rx="2"/>
+<rect class="cut tile" x="344" y="32" width="48" height="16" rx="2"/>
+<rect class="cut tile" x="400" y="80" width="48" height="16" rx="2"/>
+<rect class="cut tile" x="400" y="56" width="48" height="16" rx="2"/>
+<rect class="cut tile" x="400" y="32" width="48" height="16" rx="2"/>
+<rect class="brand tile" x="400" y="8" width="48" height="16" rx="2"/>
+</svg>
+</div>
+<div class="words">
+  <h1 class="name">Empilhatec</h1>
+  <p class="tag">Empilhadeiras da Amazônia.</p>
+</div>
+</div>
+</div><h6>FaixaContato</h6><div class="frame"><style>  .demo{padding:24px; display:grid; gap:24px} </style>
+<div class="et demo">
+  <section class="et-faixa et-corte-g" data-theme="rio-negro">
+    <div class="et-faixa__textos">
+      <h2 class="et-h2">Precisa de uma empilhadeira esta semana?</h2>
+      <p class="et-lead">Diga o modelo ou a operação. Respondemos com disponibilidade e prazo de entrega.</p>
+    </div>
+    <div class="et-faixa__acoes">
+      <a class="et-faixa__fone" href="#"><span>Comercial</span>(92) 3663-4112</a>
+      <div class="et-faixa__botoes">
+        <a class="et-btn et-btn--primario" href="#">Solicitar cotação</a>
+        <a class="et-btn et-btn--secundario" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>WhatsApp</a>
+      </div>
+    </div>
+  </section>
+</div>
+</div><h6>FichaTecnica</h6><div class="frame"><style>  .demo{padding:24px; display:grid; gap:24px} </style>
+<div class="et demo">
+  <div class="et-ficha-wrap">
+    <table class="et-ficha">
+      <thead><tr><th>Modelo</th><th class="et-num">Capacidade máx. (kg)</th><th class="et-num">Elevação máx. (mm)</th><th class="et-num">Velocidade (km/h)</th><th class="et-num">Bateria (V)</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">FM-X 17</th><td class="et-num">1.700</td><td class="et-num">13.000</td><td class="et-num">14,0</td><td class="et-num">48</td></tr>
+        <tr><th scope="row">FM-X 20</th><td class="et-num">2.000</td><td class="et-num">13.000</td><td class="et-num">14,0</td><td class="et-num">48</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <a class="et-btn et-btn--secundario et-btn--compacto" href="#" style="justify-self:start"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>Baixar ficha técnica (PDF)</a>
+</div>
+</div><h6>Selo</h6><div class="frame"><style>  .demo{padding:24px; display:grid; gap:24px} </style>
+<div class="et demo">
+  <div class="et-selos"><span class="et-selo et-selo--locacao">Locação</span><span class="et-selo">Venda</span><span class="et-selo">Elétrica</span><span class="et-selo">Combustão</span><span class="et-selo">Seminova</span></div>
+</div>
+</div><h6>TituloSecao</h6><div class="frame"><style>  .demo{padding:24px; display:grid; gap:24px} </style>
+<div class="et demo">
+  <header class="et-secao-cab">
+    <div class="et-secao-cab__textos">
+      <h2 class="et-h2">Presença no Amazonas e em Roraima</h2>
+      <p class="et-lead">Dealer autorizado STILL e Linde, com atendimento à indústria, centros de distribuição e operações logísticas.</p>
+    </div>
+    <a class="et-link" href="#">Ver regiões atendidas <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+  </header>
+</div>
+<div class="et demo" data-theme="rio-negro">
+  <header class="et-secao-cab" style="margin:0">
+    <div class="et-secao-cab__textos">
+      <h2 class="et-h2">Assistência que não espera segunda-feira</h2>
+      <p class="et-lead">Técnicos treinados pelo fabricante, 24 horas, inclusive domingos e feriados.</p>
+    </div>
+  </header>
+</div>
+</div></body></html>

@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mapa 3D da Home</title>
+<!--
+  Render 3D do mapa de atendimento da Home: cada estado é uma peça extrudada com borda arredondada,
+  Amazonas e Roraima em laranja, siglas e o ponto de Manaus desenhados por cima.
+  Rode com: node scripts/home/mapa-3d/servidor.mjs e abra http://localhost:8765
+  (parâmetros na URL ajustam câmera, luz e alturas; ?salvar=0 só mostra a prévia).
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=block" rel="stylesheet">
+<style>
+  body { margin: 0; padding: 24px; background: #EFEFF2; font: 14px/1.4 system-ui, sans-serif; color: #1C1C1E; }
+  #resultado { display: block; width: 700px; max-width: 100%; height: auto; }
+</style>
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+} }
+</script>
+</head>
+<body>
+<p id="status">Renderizando…</p>
+<img id="resultado" alt="Prévia do mapa renderizado">
+<script type="module">
+import * as THREE from 'three';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+import { toCreasedNormals } from 'three/addons/utils/BufferGeometryUtils.js';
+
+const status = document.getElementById('status');
+const q = new URLSearchParams(location.search);
+const num = (k, padrao) => (q.has(k) ? Number(q.get(k)) : padrao);
+
+const P = {
+  res: num('res', 2400), // lado do canvas em px (o servidor reduz a imagem final para 1400 px)
+  camAz: num('az', 126), // de onde a câmera olha, em graus a partir do norte no sentido horário (126 = leste-sudeste)
+  camEl: num('el', 60), // elevação da câmera, em graus acima do horizonte
+  fov: num('fov', 18),
+  escalaX: num('sx', 1.08), // alarga o mapa no sentido leste-oeste
+  altura: num('h', 3.2), // espessura das peças (unidades do mapa, ~graus)
+  variacao: num('var', 2.2), // escala das diferenças de altura entre estados
+  bisel: num('bisel', 0.13), // raio do arredondamento da borda de cima (limitado em estados pequenos)
+  luzAz: num('luzaz', 315), // luz principal: vem do noroeste, como na referência (brilho nas bordas voltadas para cima e para a esquerda)
+  luzEl: num('luzel', 32),
+  luz: num('luz', 1.15),
+  amb: num('amb', 0.6), // reflexos do ambiente de estúdio
+  sombra: num('sombra', 1), // intensidade da sombra difusa em volta do mapa
+  preenchimento: num('fill', 2.4), // luz do lado da câmera, que clareia as paredes
+  exposicao: num('exp', 0.64),
+  aspereza: num('rough', 0.25),
+  verniz: num('cc', 0.1),
+  especular: num('spec', 1), // brilho nas bordas arredondadas do cinza
+  especularLaranja: num('specl', 0.7), // menos no laranja, para a cor não lavar
+  salvar: q.get('salvar') !== '0',
+};
+
+// alturas relativas: Roraima e Amapá mais altos, como no mapa de referência
+const ALTURA = {
+  RR: 1.26, AP: 1.38, PA: 1.2, AM: 1.1, AC: 1.0, RO: 1.05, MT: 1.04, TO: 1.14, MA: 1.1, PI: 1.17, CE: 1.11,
+  RN: 1.18, PB: 1.09, PE: 1.14, AL: 1.07, SE: 1.04, BA: 1.09, MG: 1.19, ES: 1.11, RJ: 1.05, SP: 1.0,
+  PR: 1.12, SC: 1.05, RS: 1.0, MS: 0.95, GO: 1.04, DF: 1.3,
+};
+const DESTAQUE = new Set(['AM', 'RR']);
+const COR = { cinza: '#' + (q.get('cor') || 'cfcfcf'), laranja: '#' + (q.get('corl') || 'E85A00') };
+
+const K = Math.cos((14 * Math.PI) / 180); // projeção de gerar-geometria.mjs: x = lon * K, y = lat
+const ROTULOS = [
+  { texto: 'AM', lon: -64.6, lat: -4.7, estado: 'AM', tamanho: 1.7 },
+  { texto: 'RR', lon: -61.35, lat: 2.05, estado: 'RR', tamanho: 1 },
+];
+const SEDE = { texto: 'MANAUS', lon: -59.9936, lat: -3.110039, estado: 'AM' };
+
+try {
+  const geo = await (await fetch('estados.json')).json();
+
+  let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+  for (const e of geo.estados) for (const p of e.poligonos) for (const anel of p) for (const [x, y] of anel) {
+    minX = Math.min(minX, x); maxX = Math.max(maxX, x); minY = Math.min(minY, y); maxY = Math.max(maxY, y);
+  }
+  const cx = (minX + maxX) / 2, cy = (minY + maxY) / 2;
+  const para3d = (x, y) => new THREE.Vector2((x - cx) * P.escalaX, y - cy);
+  const alturaDe = (sigla) => P.altura * (1 + ((ALTURA[sigla] ?? 1) - 1) * P.variacao);
+
+  const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, preserveDrawingBuffer: true });
+  renderer.setPixelRatio(1);
+  renderer.setSize(P.res, P.res, false);
+  renderer.setClearColor(0x000000, 0);
+  renderer.shadowMap.enabled = true;
+  renderer.shadowMap.type = THREE.VSMShadowMap;
+  renderer.localClippingEnabled = true;
+  renderer.toneMapping = THREE.NeutralToneMapping;
+  renderer.toneMappingExposure = P.exposicao;
+
+  const scene = new THREE.Scene();
+  const pmrem = new THREE.PMREMGenerator(renderer);
+  scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+  scene.environmentIntensity = P.amb;
+
+  // o bisel de baixo de cada peça fica abaixo do chão e é cortado
+  const corte = [new THREE.Plane(new THREE.Vector3(0, 0, 1), 0)];
+  const material = (cor, especular) =>
+    new THREE.MeshPhysicalMaterial({ color: cor, roughness: P.aspereza, metalness: 0, specularIntensity: especular, clearcoat: P.verniz, clearcoatRoughness: 0.32, clippingPlanes: corte, clipShadows: true });
+  const matCinza = material(COR.cinza, P.especular), matLaranja = material(COR.laranja, P.especularLaranja);
+
+  const alturas = {};
+  for (const e of geo.estados) {
+    const h = alturaDe(e.sigla);
+    alturas[e.sigla] = h;
+    const formas = e.poligonos.map(([fora, ...buracos]) => {
+      const forma = new THREE.Shape(fora.map(([x, y]) => para3d(x, y)));
+      for (const b of buracos) forma.holes.push(new THREE.Path(b.map(([x, y]) => para3d(x, y))));
+      return forma;
+    });
+    // em estados pequenos (DF, SE, AL) o arredondamento encolhe para a peça não se deformar
+    const xs = e.poligonos[0][0].map(([x]) => x), ys = e.poligonos[0][0].map(([, y]) => y);
+    const bisel = Math.min(P.bisel, 0.22 * Math.min(Math.max(...xs) - Math.min(...xs), Math.max(...ys) - Math.min(...ys)));
+    const g = new THREE.ExtrudeGeometry(formas, {
+      depth: h - bisel, steps: 1, curveSegments: 1,
+      bevelEnabled: true, bevelThickness: bisel, bevelSize: bisel, bevelOffset: -bisel, bevelSegments: 8,
+    });
+    // paredes e bisel com sombreamento liso (sem faixas por trecho); o topo continua plano
+    const lisa = toCreasedNormals(g, THREE.MathUtils.degToRad(50));
+    const pos = lisa.getAttribute('position'), nor = lisa.getAttribute('normal');
+    const a = new THREE.Vector3(), b = new THREE.Vector3(), c = new THREE.Vector3();
+    for (let i = 0; i < pos.count; i += 3) {
+      a.fromBufferAttribute(pos, i); b.fromBufferAttribute(pos, i + 1); c.fromBufferAttribute(pos, i + 2);
+      const n = b.sub(a).cross(c.sub(a)).normalize();
+      if (n.z > 0.9999) for (let k = 0; k < 3; k++) nor.setXYZ(i + k, 0, 0, 1);
+    }
+    const peca = new THREE.Mesh(lisa, DESTAQUE.has(e.sigla) ? matLaranja : matCinza);
+    peca.castShadow = true;
+    peca.receiveShadow = true;
+    scene.add(peca);
+  }
+
+  const largura = (maxX - minX) * P.escalaX, alturaMapa = maxY - minY;
+
+  // direção a partir do azimute (norte = +y, leste = +x) e da elevação
+  const direcao = (az, el) => {
+    const a = THREE.MathUtils.degToRad(az), e = THREE.MathUtils.degToRad(el);
+    return new THREE.Vector3(Math.sin(a) * Math.cos(e), Math.cos(a) * Math.cos(e), Math.sin(e));
+  };
+
+  const luz = new THREE.DirectionalLight(0xffffff, P.luz);
+  luz.position.copy(direcao(P.luzAz, P.luzEl).multiplyScalar(150));
+  luz.castShadow = true;
+  luz.shadow.mapSize.set(4096, 4096);
+  const r = Math.max(largura, alturaMapa) * 0.8;
+  Object.assign(luz.shadow.camera, { left: -r, right: r, top: r, bottom: -r, near: 1, far: 400 });
+  luz.shadow.radius = 16;
+  luz.shadow.blurSamples = 25;
+  luz.shadow.bias = -0.0004;
+  luz.shadow.intensity = num('sombrapeca', 0.65); // sombra que um estado mais alto faz no vizinho
+  scene.add(luz, luz.target);
+  const preenchimento = new THREE.DirectionalLight(0xffffff, P.preenchimento);
+  preenchimento.position.copy(direcao(P.camAz, 30).multiplyScalar(150));
+  scene.add(preenchimento);
+
+  // câmera: posiciona, depois ajusta zoom e deslocamento para o mapa ocupar o quadro
+  const camera = new THREE.PerspectiveCamera(P.fov, 1, 1, 4000);
+  const alvo = new THREE.Vector3(0, 0, P.altura / 2);
+  const dist = Math.hypot(largura, alturaMapa) / 2 / Math.sin(THREE.MathUtils.degToRad(P.fov / 2));
+  camera.position.copy(direcao(P.camAz, P.camEl).multiplyScalar(dist).add(alvo));
+  camera.up.set(0, 1, 0);
+  camera.lookAt(alvo);
+  camera.updateMatrixWorld();
+  camera.updateProjectionMatrix();
+  let x0 = Infinity, x1 = -Infinity, y0 = Infinity, y1 = -Infinity;
+  const v = new THREE.Vector3();
+  for (const e of geo.estados) for (const p of e.poligonos) for (const [x, y] of p[0]) {
+    const b = para3d(x, y);
+    for (const z of [0, alturas[e.sigla]]) {
+      v.set(b.x, b.y, z).project(camera);
+      x0 = Math.min(x0, v.x); x1 = Math.max(x1, v.x); y0 = Math.min(y0, v.y); y1 = Math.max(y1, v.y);
+    }
+  }
+  const zoom = 0.86 / Math.max((x1 - x0) / 2, (y1 - y0) / 2);
+  camera.zoom = zoom;
+  camera.setViewOffset(P.res, P.res, (((x0 + x1) / 2) * zoom * P.res) / 2, (-((y0 + y1) / 2) * zoom * P.res) / 2, P.res, P.res);
+  camera.updateProjectionMatrix();
+
+  renderer.render(scene, camera);
+
+  // composição 2D: sombra difusa (a silhueta do mapa desfocada), o render e os rótulos por cima
+  await document.fonts.load('100px "Bebas Neue"');
+  const tela = document.createElement('canvas');
+  tela.width = tela.height = P.res;
+  const ctx = tela.getContext('2d');
+  const silhueta = document.createElement('canvas');
+  silhueta.width = silhueta.height = P.res;
+  const cs = silhueta.getContext('2d');
+  cs.drawImage(renderer.domElement, 0, 0);
+  cs.globalCompositeOperation = 'source-in';
+  cs.fillStyle = '#000';
+  cs.fillRect(0, 0, P.res, P.res);
+  for (const [desfoque, opacidade, dy] of [[0.022, 0.16, 0.008], [0.006, 0.22, 0.003]]) {
+    ctx.save();
+    ctx.filter = `blur(${P.res * desfoque}px)`;
+    ctx.globalAlpha = opacidade * P.sombra;
+    ctx.drawImage(silhueta, 0, P.res * dy);
+    ctx.restore();
+  }
+  ctx.drawImage(renderer.domElement, 0, 0);
+
+  const naTela = (lon, lat, z) => {
+    const b = para3d(lon * K, lat);
+    const p = new THREE.Vector3(b.x, b.y, z).project(camera);
+    return [((p.x + 1) / 2) * P.res, ((1 - p.y) / 2) * P.res];
+  };
+  const larguraNaTela = ((x1 - x0) / 2) * zoom * P.res;
+  const fonte = 0.033 * larguraNaTela;
+  ctx.fillStyle = '#FFFFFF';
+  ctx.textBaseline = 'alphabetic';
+  const ocupado = [];
+  for (const r of ROTULOS) {
+    const [x, y] = naTela(r.lon, r.lat, alturas[r.estado]);
+    const tam = fonte * r.tamanho;
+    ctx.font = `${tam}px "Bebas Neue"`;
+    ctx.textAlign = 'center';
+    ctx.fillText(r.texto, x, y + tam * 0.35);
+    const w = ctx.measureText(r.texto).width;
+    ocupado.push([x - w / 2, y - tam * 0.4, x + w / 2, y + tam * 0.4]);
+  }
+
+  // sede: ponto branco e o nome ao lado; o nome vai para o primeiro lado em que cabe inteiro sobre o laranja
+  const [sx, sy] = naTela(SEDE.lon, SEDE.lat, alturas[SEDE.estado]);
+  const pixels = renderer.getContext();
+  const laranjaEm = (x, y) => {
+    const d = new Uint8Array(4);
+    pixels.readPixels(Math.round(x), Math.round(P.res - y), 1, 1, pixels.RGBA, pixels.UNSIGNED_BYTE, d);
+    return d[3] > 200 && d[0] > d[1] + 60 && d[1] > d[2];
+  };
+  const cabe = ([a, b, c, d]) => {
+    if (ocupado.some(([e, f, g, h]) => a < g && c > e && b < h && d > f)) return false;
+    for (let i = 0; i <= 12; i++) for (let j = 0; j <= 4; j++) if (!laranjaEm(a + ((c - a) * i) / 12, b + ((d - b) * j) / 4)) return false;
+    return true;
+  };
+  let escolha;
+  for (const escala of [0.9, 0.78, 0.68]) {
+    const tam = fonte * escala, raio = tam * 0.27, folga = tam * 0.45;
+    ctx.font = `${tam}px "Bebas Neue"`;
+    const w = ctx.measureText(SEDE.texto).width, alt = tam * 0.72;
+    const opcoes = [
+      { alinhar: 'left', x: sx + raio + folga, y: sy + alt / 2, caixa: [sx + raio + folga * 0.5, sy - alt * 0.75, sx + raio + folga * 1.2 + w, sy + alt * 0.75] },
+      { alinhar: 'right', x: sx - raio - folga, y: sy + alt / 2, caixa: [sx - raio - folga * 1.2 - w, sy - alt * 0.75, sx - raio - folga * 0.5, sy + alt * 0.75] },
+      { alinhar: 'center', x: sx, y: sy + raio + folga + alt, caixa: [sx - w / 2 - folga * 0.5, sy + raio + folga * 0.5, sx + w / 2 + folga * 0.5, sy + raio + folga * 1.5 + alt] },
+      { alinhar: 'center', x: sx, y: sy - raio - folga, caixa: [sx - w / 2 - folga * 0.5, sy - raio - folga * 1.5 - alt, sx + w / 2 + folga * 0.5, sy - raio - folga * 0.5] },
+    ];
+    const ok = opcoes.find((o) => cabe(o.caixa));
+    if (ok) { escolha = { ...ok, tam, raio }; break; }
+  }
+  escolha ??= { alinhar: 'left', x: sx + fonte * 0.6, y: sy + fonte * 0.3, tam: fonte * 0.9, raio: fonte * 0.24 };
+  ctx.beginPath();
+  ctx.arc(sx, sy, escolha.raio, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.font = `${escolha.tam}px "Bebas Neue"`;
+  ctx.textAlign = escolha.alinhar;
+  ctx.fillText(SEDE.texto, escolha.x, escolha.y);
+  console.log('sede:', escolha.alinhar, Math.round(escolha.tam));
+
+  // medidas para calibrar a luz: cor no topo de alguns estados e no meio da parede da costa da Bahia
+  const medir = (lon, lat, z) => {
+    const [x, y] = naTela(lon, lat, z);
+    const d = ctx.getImageData(Math.round(x) - 3, Math.round(y) - 3, 7, 7).data;
+    const m = [0, 1, 2].map((c) => { const v = []; for (let i = c; i < d.length; i += 4) v.push(d[i]); v.sort((a, b) => a - b); return v[v.length >> 1]; });
+    return m.join(',');
+  };
+  window.__medidas = {
+    PA: medir(-52, -4, alturas.PA), MT: medir(-55.5, -12.5, alturas.MT), BA: medir(-41.5, -12, alturas.BA),
+    MG: medir(-44.5, -18.5, alturas.MG), AM: medir(-64, -6.5, alturas.AM), paredeBA: medir(-38.95, -13.4, alturas.BA * 0.5),
+  };
+
+  const png = await new Promise((ok) => tela.toBlob(ok, 'image/png'));
+  document.getElementById('resultado').src = URL.createObjectURL(png);
+  if (P.salvar) {
+    const resp = await fetch('/salvar', { method: 'POST', body: png });
+    const info = await resp.json();
+    status.textContent = `Gravado ${info.arquivo}: ${info.largura}×${info.altura}, ${info.kb} KB`;
+  } else {
+    status.textContent = 'Prévia (não gravada)';
+  }
+  window.__pronto = true;
+} catch (erro) {
+  status.textContent = `Erro: ${erro.message}`;
+  console.error(erro);
+  window.__pronto = true;
+}
+</script>
+</body>
+</html>

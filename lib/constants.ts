@@ -1,6 +1,6 @@
 export const SITE = {
   name: "Empilhatec Empilhadeiras",
-  tagline: "Representante autorizado STILL e Linde — Amazonas e Roraima",
+  tagline: "Representante autorizado STILL e Linde, no Amazonas e em Roraima",
   phone: "(92) 3663-4112",
   whatsapp: "5592991144496",
   whatsappDisplay: "(92) 99114-4496",
@@ -8,14 +8,14 @@ export const SITE = {
   hours: "Segunda a Sexta, 08h – 18h",
   addresses: {
     principal: {
-      label: "Empilhatec Empilhadeiras — Vendas, Locação e Peças",
+      label: "Empilhatec Empilhadeiras, vendas, locação e peças",
       street: "Rua Crisanto Jobim, 55",
-      city: "Petrópolis, Manaus – AM",
+      city: "Petrópolis, Manaus, AM",
     },
     servicos: {
-      label: "Empilhatec Empilhadeiras — Manutenção e Serviços",
+      label: "Empilhatec Empilhadeiras, manutenção e serviços",
       street: "Rua Crisanto Jobim, 55",
-      city: "Petrópolis, Manaus – AM",
+      city: "Petrópolis, Manaus, AM",
     },
   },
   social: {

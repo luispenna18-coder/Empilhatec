@@ -9,10 +9,9 @@ const EQUIPMENT_TYPES = [
   "Empilhadeira Retrátil",
   "Patolada",
   "Transpaleteira Elétrica",
-  "Plataforma Elevatória",
   "Selecionadora de Pedidos",
   "Rebocador",
-  "Não sei — preciso de orientação",
+  "Não sei, preciso de orientação",
 ];
 
 function isValidPhone(v: string) {
