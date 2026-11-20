@@ -5,9 +5,11 @@ import { whatsappLink } from "@/lib/constants";
 
 /**
  * Hero da Home com vídeo de fundo ocupando a primeira tela, no formato do site da Carmak: título grande e
- * centralizado (segunda linha no laranja da marca), parágrafo e os dois botões. O vídeo intercala as cenas sem
- * legenda do institucional da Empilhatec (youtu.be/lQ1zWi8R9Go) com máquinas STILL operando, tiradas sem os títulos
- * dos vídeos oficiais da STILL UK: FXR (youtu.be/0fC9Vs6qfw4), EXH (youtu.be/MNDz4aOeRJM) e RXE (youtu.be/UWpXXQbL5gs).
+ * centralizado (segunda linha no laranja da marca), parágrafo e os dois botões. O vídeo abre com 3 s da foto da
+ * fachada nova, em aproximação lenta, e segue intercalando as cenas sem legenda do institucional da Empilhatec
+ * (youtu.be/lQ1zWi8R9Go) com máquinas STILL operando, tiradas sem os títulos dos vídeos oficiais da STILL UK:
+ * FXR (youtu.be/0fC9Vs6qfw4), EXH (youtu.be/MNDz4aOeRJM) e RXE (youtu.be/UWpXXQbL5gs).
+ * A abertura é gerada por scripts/home/hero-fachada.swift a partir de brand_assets/fachada/fachada-nova.webp.
  */
 export default function HomeHero() {
   return (

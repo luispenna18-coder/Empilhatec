@@ -1,5 +1,6 @@
 import HomeHero from "@/components/home/HomeHero";
 import DealerStill from "@/components/home/DealerStill";
+import Sede from "@/components/home/Sede";
 import ServiceCards from "@/components/home/ServiceCards";
 import MachineShowcase from "@/components/home/MachineShowcase";
 import CoverageMap from "@/components/home/CoverageMap";
@@ -11,6 +12,7 @@ export default function HomePage() {
     <>
       <HomeHero />
       <DealerStill />
+      <Sede />
       <ServiceCards />
       <MachineShowcase />
       <CoverageMap />
